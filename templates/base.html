@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dirt Rally Leaderboards</title>
+
+    {% load static %}
+    
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'scrapping/style.css' %}">
+ 
+</head>
+<body>
+
+    <div class="fixed">
+        <div>
+            <header>
+                <div class="header-background">
+                    <div class="main-heading">
+                        <div>
+                            <h1>Dirt Rally</h1>
+                            <h2>Leaderboards</h2>
+                            <h6>{{ current_status }}</h6>
+                        </div>               
+                        <p><span>Last database update:</span><span>{{ last_update }}&nbsp;(UTC)</span><span style="font-size: 14px; color: orange;">Database active since: 07.27.2018 ({{ total_days }} days)</span></p>
+                    </div>
+                    <div class="main-nav">
+                        <ul>
+                            <li><a href="{% url 'top_drivers_average_place'%}">Leaderboards</a></li>
+                            <li><a href="/driverstats/133513/">Drivar Stats</a></li>
+                            <li><a href="{% url 'all_events'%}">All Events</a></li>
+                            <li><a href="{% url 'how_this_site_works'%}">How This Site Works</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    {% block content %}
+        replace me
+    {% endblock %}  
+     
+</body>
+</html>

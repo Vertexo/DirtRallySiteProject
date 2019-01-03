@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% load static %}
+
+<div class="page-background">
+    <div class="page-container">
+    	<div>
+    		<h2>Top</h2>
+    	</div>
+		<table class="top_switch_buttons">
+			<tr>
+				<td class="top_inactive_switch_button"><a href="{% url 'top_drivers_average_place'%}">Top Drivers</a></td>
+				<td class="top_active_switch_button"><a href="{% url 'top_countries_average_place'%}">Top Countries</a></td>
+			</tr>	 
+		</table>	    	
+			<div class="unique-drivers">
+				<p>{{ total_qualified_countries }}</p>
+            <p>&nbsp;- Total countries qualified for TOP</p> 	            
+       	</div>
+
+        <div class="top_tables">	    		    			  
+	        	<table class="top_countries_table">	
+	        		<tr>
+	        			<th>Position</th>  
+	        			<th>Flag</th>      				        			
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_countries_sort_countries'%}">Country</a></th>	   	
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_countries_number_of_drivers'%}">Number of Drivers</th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_countries_events_finished'%}">Events Finished</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_countries_average_place'%}">Average Place</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_countries_first_places'%}">1st Places</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_countries_top_3'%}">Top 3</a></th>
+	        			<th class="top_active_sort_button"><a href="{% url 'top_countries_top_10'%}">Top 10</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_countries_top_100'%}">Top 100</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_countries_driving_time'%}">Total Driving Time</a></th>
+	        		</tr>
+		        	{% for row in object_ordered %}
+		        		<tr>	        			
+	        				<td>{{ forloop.counter }}</td>                     
+                            {% with 'scrapping/Country_Flags/'|add:row.country_name|add:'.jpg' as image_static %}
+                                <td><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ row.country_name }}"></td>
+                            {% endwith %}       
+                            <td>{{ row.country_name }}</td>                                           
+                            <td>{{ row.number_of_drivers }}</td>
+                            <td>{{ row.events_finished }}</td>
+                            <td>{{ row.average_finish_place }}</td>
+                            <td>{{ row.first_places }}&nbsp;<font size='2' color='red'>({{ row.percentile_1st_place }}%)</font></td>
+                            <td>{{ row.top_3 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_3 }}%)</font></td>
+	                        <td>{{ row.top_10 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_10 }}%)</font></td>
+	                        <td>{{ row.top_100 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_100 }}%)</font></td>
+	                        <td>{{ row.total_driving_time_string }}</td>
+		        		</tr>
+	        		{% endfor %}		        					        	
+	        	</table>	                 	
+        </div>
+        
+   
+        <footer>
+        	
+        </footer>
+    </div>
+</div>
+
+{% endblock %}

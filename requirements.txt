@@ -1,0 +1,13 @@
+﻿beautifulsoup4==4.6.3
+bs4==0.0.1
+certifi==2018.8.13
+chardet==3.0.4
+Django==2.1
+idna==2.7
+psycopg2==2.7.5
+python-decouple==3.1
+pytz==2018.5
+requests==2.20.0
+urllib3==1.23
+django-extensions==2.1.3
+netifaces==0.10.7

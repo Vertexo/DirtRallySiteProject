@@ -1,0 +1,117 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="page-background">
+    <div class="page-container">
+    	<div>
+    		<h2>How This Site Works</h2>
+    	</div>
+    	<div>
+    		<!-- <h2 style="color: red;">Under Construction!!!</h2> -->
+    	</div>
+    	<div>
+    		<h4>Short anotation about this site:</h4>
+
+    		<p>
+	    		The reason I made this leaderboard site was due to inability to determin whitch driver is the fastes or the most stable or has finished in Top 10 more times than another driver. Unfortunately, you can't really do that by looking at the official Dirt Rally site.
+	    	</p>
+
+    		<p>
+    			This site will scrap all completed events leaderboards' information from official site and put it here.
+    		</p>
+
+    		<p>
+	    		I teached myself programming and web development by making this site, so I hope everything works as intended.
+				Some areas of the site is still under development.
+			</p>
+			
+			<p>
+				In upper right corner of the site you can see "Database active since: 07.27.2018". It is because I started working on this site and scraping official events' data only around that time. So the oldest Daily and Daily 2 event in this site is from 07.27.2018.	
+			</p>
+
+			<br>
+
+    		<h4>Site update time:</h4>
+
+    		<p>
+    			The official site updates new challenge entries every day at 10:00 (UTC).
+    		</p>
+
+    		<p>
+    			This site will update completed leadearboards every day between 12:00 and 13:00 (UTC).
+			</p>
+
+			<p>
+				The 2 hour offset is necessary for minimizing data scraping interuptions due to official site not fully updated yet.
+			</p>
+
+			<br>
+
+			<h4>About Leaderboards page:</h4>
+
+			<p>In Leaderboards page you can find 2 total leaderboards.</p>
+
+			<p>
+				First is Top Drivers leaderboard in whitch all qualified drivers are sorted by one of the sorting parameters. Default sorting parameter is Average Place.
+				Driver is qualified (put in the leaderboard) if he/she has completed at least 3 events. This was done to try to eliminate cheaters from entering leaderboard.
+				So if you want to see yourself in Top Drivers leaderboard, you have to complete at least 3 events.
+			</p>
+
+			<p>
+				Second is Top Countries leaderboard in whitch all qualified drivers from each country are added together.
+			</p>
+
+			<br>
+
+			<h4>Future implementations:</h4>
+
+			<p>
+				I have not figured out the best way to determine most skilled drivers yet. Right now I have set default leaderboard sorting by Average Place. Percentage of Top 10 finishes also I thing is a good way to determine the skill and stability.
+			</p>
+    	</div>
+
+
+
+
+
+		<div class='tableauPlaceholder' id='viz1543910575228' style='position: relative'>
+		    <noscript>
+		        <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;XH&#47;XHMJY93G4&#47;1_rss.png' style='border: none' /></a>
+		    </noscript>
+		    <object class='tableauViz' style='display:none;'>
+		        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+		        <param name='embed_code_version' value='3' />
+		        <param name='path' value='shared&#47;XHMJY93G4' />
+		        <param name='toolbar' value='yes' />
+		        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;XH&#47;XHMJY93G4&#47;1.png' />
+		        <param name='animate_transition' value='yes' />
+		        <param name='display_static_image' value='yes' />
+		        <param name='display_spinner' value='yes' />
+		        <param name='display_overlay' value='yes' />
+		        <param name='display_count' value='yes' />
+		        <param name='filter' value='publish=yes' />
+		    </object>
+		</div>
+		<script type='text/javascript'>
+		    var divElement = document.getElementById('viz1543910575228');
+		    var vizElement = divElement.getElementsByTagName('object')[0];
+		    vizElement.style.width = '100%';
+		    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+		    var scriptElement = document.createElement('script');
+		    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+		    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+		</script>
+
+
+
+
+
+
+        <footer>
+            
+        </footer>
+    </div>
+</div>
+
+{% endblock %}

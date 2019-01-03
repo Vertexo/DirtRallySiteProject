@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="96ec5973-be2d-4470-92b7-b9cbc94f59b6" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Dirt Rally Challenge database" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../../../../../../../Test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="2367" column="23" lean-forward="true" selection-start-line="2367" selection-start-column="23" selection-end-line="2367" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dirt_Rally_Web_Scraping_for_txt.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="245" lean-forward="true" selection-start-line="245" selection-end-line="246" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="URL_eventId_date_extractor.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../URL_eventId_date_extractor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="172" column="12" lean-forward="true" selection-start-line="172" selection-start-column="12" selection-end-line="172" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>https://www.dirtgame</find>
+      <find>noCache</find>
+      <find>data-ng-event-id</find>
+      <find>290248</find>
+      <find>class=&quot;event</find>
+      <find>289656</find>
+      <find>242700</find>
+      <find>stage-id=&quot;1&quot;</find>
+      <find>stageid</find>
+      <find>stage-id</find>
+      <find>option</find>
+      <find>optio</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Dirt Rally Web Scraping.py" />
+        <option value="$PROJECT_DIR$/Nations dict.py" />
+        <option value="$PROJECT_DIR$/Dirt_Rally_Web_Scraping.py" />
+        <option value="$PROJECT_DIR$/Nations_dict.py" />
+        <option value="$PROJECT_DIR$/../My Dirt Rally Leaderboard Site/src/DirtRallySite/DirtRallySite/settings.py" />
+        <option value="$PROJECT_DIR$/../My Dirt Rally Leaderboard Site/src/DirtRallySite/web_scraper/models.py" />
+        <option value="$PROJECT_DIR$/Headless.py" />
+        <option value="$PROJECT_DIR$/Loop code shedule.py" />
+        <option value="$PROJECT_DIR$/../../Dirt Rally Challenge database for CSV/Dirt_Rally_Daily_Web_Scraping.py" />
+        <option value="$PROJECT_DIR$/URL_eventId_extractor.py" />
+        <option value="$PROJECT_DIR$/../Test.py" />
+        <option value="$PROJECT_DIR$/Time_String_Converter.py" />
+        <option value="$PROJECT_DIR$/testingy.py" />
+        <option value="$PROJECT_DIR$/Leaderboard_txt/testingy.py" />
+        <option value="$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping.py" />
+        <option value="$PROJECT_DIR$/../Dirt Rally web scraping for django/Dirt_Rally_Daily_Web_Scraping.py" />
+        <option value="$PROJECT_DIR$/Leaderboard_txt_to_value_converter.py" />
+        <option value="$PROJECT_DIR$/../Leaderboard_txt_to_value_converter.py" />
+        <option value="$PROJECT_DIR$/Leaderboard_csv_to_txt_file_converter.py" />
+        <option value="$USER_HOME$/Desktop/Test.py" />
+        <option value="$PROJECT_DIR$/../Dirt Rally web scraping for django/Dirt_Rally_Daily_Web_Scraping_for_django.py" />
+        <option value="$PROJECT_DIR$/../Dirt Rally web scraping for csv/Dirt_Rally_Daily_Web_Scraping_for_csv.py" />
+        <option value="$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
+        <option value="$PROJECT_DIR$/../../views.py" />
+        <option value="$PROJECT_DIR$/../../../DirtRally/urls.py" />
+        <option value="$PROJECT_DIR$/../../Leaderboard_txt_to_value_converter.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-3/Dirt_Rally_Web_Scraping_for_txt.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/settings.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/urls.py" />
+        <option value="$PROJECT_DIR$/../../database_operations.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/database_operations.py" />
+        <option value="$PROJECT_DIR$/../URL_eventId_date_extractor.py" />
+        <option value="$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/URL_eventId_date_extractor.py" />
+        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/Dirt_Rally_Web_Scraping_for_txt.py" />
+        <option value="$PROJECT_DIR$/../../../../../../../../../Test.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="20" />
+    <option name="width" value="821" />
+    <option name="height" value="1017" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Dirt_Rally_web_scraping_for_txt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dirt_Rally_web_scraping_for_txt" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.Test">
+    <configuration name="Dirt_Rally_Daily_Web_Scraping_for_txt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Dirt Rally Challenge database" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Dirt_Rally_Web_Scraping_for_txt (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Dirt Rally Challenge database" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/AppData/Local/Temp/fz3temp-3" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/AppData/Local/Temp/fz3temp-3/Dirt_Rally_Web_Scraping_for_txt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Dirt_Rally_Web_Scraping_for_txt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Dirt Rally Challenge database" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Headless" type="PythonConfigurationType" factoryName="Python">
+      <module name="Dirt Rally Challenge database" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\janis\Dropbox\My Dropbox\Programming\My web projects\Dirt Rally Challenge database\Headless Browser.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Dirt Rally Challenge database" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Dirt Rally Challenge database" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../../../.." />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../../../../../../Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Headless" />
+      <item itemvalue="Python.Dirt_Rally_Web_Scraping_for_txt" />
+      <item itemvalue="Python.Test (1)" />
+      <item itemvalue="Python.Dirt_Rally_Daily_Web_Scraping_for_txt" />
+      <item itemvalue="Python.Test" />
+      <item itemvalue="Python.Dirt_Rally_Web_Scraping_for_txt (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Test" />
+        <item itemvalue="Python.Dirt_Rally_Web_Scraping_for_txt" />
+        <item itemvalue="Python.Dirt_Rally_Web_Scraping_for_txt (1)" />
+        <item itemvalue="Python.Dirt_Rally_Daily_Web_Scraping_for_txt" />
+        <item itemvalue="Python.Test (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96ec5973-be2d-4470-92b7-b9cbc94f59b6" name="Default" comment="" />
+      <created>1532859889189</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532859889189</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16043426" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32995495" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5018094" side_tool="true" weight="0.32545045" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32995495" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49819058" weight="0.3277027" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32995495" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
+    <entry file="file://$PROJECT_DIR$/../Test.py" />
+    <entry file="file://$PROJECT_DIR$/Headless Browser.py" />
+    <entry file="file://$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
+    <entry file="file://$PROJECT_DIR$/URL_eventId_extractor.py" />
+    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
+    <entry file="file://$PROJECT_DIR$/../Test.py" />
+    <entry file="file://$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
+    <entry file="file://$PROJECT_DIR$/URL_eventId_extractor.py" />
+    <entry file="file://$PROJECT_DIR$/../Test.py" />
+    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
+    <entry file="file://$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
+    <entry file="file://$PROJECT_DIR$/URL_eventId_extractor.py" />
+    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
+    <entry file="file://$USER_HOME$/1. Python/My projects/My Beginner Examples/My Beginner Examples.py" />
+    <entry file="file://$PROJECT_DIR$/Headless Browser.py" />
+    <entry file="file://$PROJECT_DIR$/../My Dirt Rally Leaderboard Site/src/DirtRallySite/web_scraper/models.py" />
+    <entry file="file://$PROJECT_DIR$/../My Dirt Rally Leaderboard Site/src/DirtRallySite/DirtRallySite/settings.py" />
+    <entry file="file://$PROJECT_DIR$/Loop code shedule.py" />
+    <entry file="file://$PROJECT_DIR$/testingy.py" />
+    <entry file="file://$PROJECT_DIR$/../../Dirt Rally Challenge database for CSV/Dirt_Rally_Daily_Web_Scraping.py" />
+    <entry file="file://$PROJECT_DIR$/../Test.py" />
+    <entry file="file://$PROJECT_DIR$/URL_eventId_extractor.py" />
+    <entry file="file://$USER_HOME$/Desktop/DirtRallyDjangoSamples.py" />
+    <entry file="file://$PROJECT_DIR$/Time_String_Converter.py" />
+    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
+    <entry file="file://$PROJECT_DIR$/../Dirt Rally web scraping for django/Dirt_Rally_Daily_Web_Scraping.py" />
+    <entry file="file://$PROJECT_DIR$/../URL_eventId_extractor.py" />
+    <entry file="file://$PROJECT_DIR$/Leaderboard_csv_to_txt_file_converter.py" />
+    <entry file="file://$PROJECT_DIR$/../Leaderboard_csv_to_txt_file_converter.py" />
+    <entry file="file://$PROJECT_DIR$/../Dirt Rally web scraping for django/Dirt_Rally_Daily_Web_Scraping_for_django.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../../../djangotest/Dirt/Dirt/urls.py" />
+    <entry file="file://$PROJECT_DIR$/../Dirt Rally web scraping for csv/Dirt_Rally_Daily_Web_Scraping_for_csv.py" />
+    <entry file="file://$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
+    <entry file="file://$USER_HOME$/Desktop/Test.py" />
+    <entry file="file://$PROJECT_DIR$/../Leaderboard_txt_to_value_converter.py" />
+    <entry file="file://$PROJECT_DIR$/../../Leaderboard_txt_to_value_converter.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1575110060/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="5575" column="6" selection-start-line="5575" selection-start-column="6" selection-end-line="5575" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../DirtRally/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/Dirt_Rally_Web_Scraping_for_txt.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/urls.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/settings.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/database_operations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8295">
+          <caret line="18" column="63" lean-forward="true" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../database_operations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
+          <folding>
+            <element signature="e#124#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Programming backup folder/Dirt Rally Leaderboard Site (08.12.2018)/DirtRallySite/DirtRally/scrapping/DirtRally_codes_for_web_scraping/Dirt_Rally_web_scraping_for_txt/Dirt_Rally_Web_Scraping_for_txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="245" lean-forward="true" selection-start-line="245" selection-end-line="246" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="2367" column="23" lean-forward="true" selection-start-line="2367" selection-start-column="23" selection-end-line="2367" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/URL_eventId_date_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="174" column="35" lean-forward="true" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/Dirt_Rally_Web_Scraping_for_txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="259" column="25" lean-forward="true" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../URL_eventId_date_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="172" column="12" lean-forward="true" selection-start-line="172" selection-start-column="12" selection-end-line="172" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,24 @@
+{% if drivers.has_other_pages %}
+    <ul class="pagination">
+    {% if drivers.has_previous %}
+        <li><a href="?page={{ 1 }}">&laquo;</a></li>
+    {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+    {% endif %} 
+    {% for i in drivers.paginator.page_range %} 
+        {% if drivers.number == i %}
+            <li class="active"><span>{{ i }}</span>
+            </li>
+        {% elif drivers.number|add:"-5" < i and drivers.number|add:"+5" > i %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %} 
+    {% endfor %} 
+    {% if drivers.has_next %}  
+        <li><a href="?page={{ drivers.paginator.num_pages }}">&raquo;</a></li>
+    {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+    </ul>
+{% endif %}
+
+ 

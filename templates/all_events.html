@@ -1,0 +1,128 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% load static %}
+
+<div class="page-background">
+    <div class="page-container">
+    	<div>
+    		<h2>All Events</h2>
+    	</div>
+        <div class="most_participants_ever"> 
+            <p>Most participants ever:</p>           
+            <p>{{ most_participants_ever_value }}</p>
+            <p>on event</p>
+            <p>{{ most_participants_ever_event }}</p>                 
+            <p>{{ most_participants_ever_date }}</p>         
+        </div>
+        <div class="event-options-container">
+            
+           		<p>Event:</p>
+            
+            	<ul>
+                    <li><a href="">Daily</a></li>
+                    <li><a href="">Daily2</a></li>
+                    <li><a href="">Weekly</a></li>
+                    <li><a href="">Weekly2</a></li>
+                    <li><a href="">Monthly</a></li>
+                </ul>
+
+                <p id="event-options-container_date">Date:</p>
+            
+                <div class="date_selector">
+                    <select>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                        <option>{{ date }}</option>
+                    </select>
+                </div>
+                
+        </div>
+
+        <div class="leaderboards-tables">
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Event Name</th>
+                        <th>Location</th>
+                        <th>Stage</th>
+                        <th>Time of the Day</th>
+                        <th>Weather</th>
+                        <th>Drivers Finished</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ date }}</td>
+                        <td>{{ event_name }}</td>
+                        <td>{{ location }}</td>
+                        <td>{{ stage }}</td>
+                        <td>{{ time_of_the_day }}</td>
+                        <td>{{ weather }}</td>
+                        <td>{{ total_drivers }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="lead-table">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Country</th>
+                        <th>Name</th>
+                        <th>Player ID</th>
+                        <th>Vehicle</th>
+                        <th>Time</th>
+                        <th>Diff 1st</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for row in zipped_leader_list %}
+                        <tr>
+                            {% for cell in row %}
+                                {% if forloop.counter0 == 1 %}
+                                    {% with 'scrapping/Country_Flags/'|add:cell|add:'.jpg' as image_static %}
+                                        <td><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ cell }}"></td>
+                                    {% endwith %}
+                                {% else %}
+                                    <td>{{ cell }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <footer>
+            
+        </footer>
+    </div>
+</div>
+
+{% endblock %}

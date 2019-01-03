@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% load static %}
+
+<div class="page-background">
+    <div class="page-container">
+    	<div>
+    		<h2>Top</h2>
+    	</div>
+    	<table class="top_switch_buttons">
+			<tr>
+				<td class="top_active_switch_button"><a href="{% url 'top_drivers_average_place'%}">Top Drivers</a></td>
+				<td class="top_inactive_switch_button"><a href="{% url 'top_countries_average_place'%}">Top Countries</a></td>
+			</tr>	 
+		</table>	    	
+		<div class="unique-drivers">		
+			<p>{{ total_qualified_drivers }}</p>
+        	<p>&nbsp;- Total drivers qualified for TOP</p> 
+   		</div>
+
+   		<div class="my_pagination_buttons">
+       		{% include "includable_html_files/pagination_buttons.html" %}
+    	</div>
+       	
+        <div class="top_tables">    	    		
+	        	<table class="top_drivers_table">	
+	        		<tr>
+	        			<th>Position</th>        				        			
+	        			<th class="top_active_sort_button"><a href="{% url 'top_drivers_sort_countries'%}">Country</a></th>
+	        			<th>Name</th>
+	        			<th>Player ID</th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_events_finished'%}">Events Finished</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_average_place'%}">Average Place</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_first_places'%}">1st Places</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_top_3'%}">Top 3</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_top_10'%}">Top 10</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_top_100'%}">Top 100</a></th>
+	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_driving_time'%}">Total Driving Time</a></th>
+	        		</tr>
+	        		{% for row in drivers %}
+		        		<tr>	        			
+	        				<td>{{ forloop.counter0|add:drivers.start_index }}</td>                     
+                            {% with 'scrapping/Country_Flags/'|add:row.country_from|add:'.jpg' as image_static %}
+                                <td><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ row.country_from }}"></td>
+                            {% endwith %}                         
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.player_id }}</td>
+                            <td>{{ row.events_finished }}</td>
+                            <td>{{ row.average_finish_place }}</td>
+                            <td>{{ row.first_places }}&nbsp;<font size='2' color='red'>({{ row.percentile_1st_place }}%)</font></td>
+                            <td>{{ row.top_3 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_3 }}%)</font></td>
+	                        <td>{{ row.top_10 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_10 }}%)</font></td>
+	                        <td>{{ row.top_100 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_100 }}%)</font></td>
+	                        <td>{{ row.total_driving_time_string }}</td>
+		        		</tr>
+	        		{% endfor %}      					        	
+	        	</table>	           
+		</div>
+
+		<div class="my_pagination_buttons">
+       		{% include "includable_html_files/pagination_buttons.html" %}
+    	</div>
+        
+        <footer>
+        	
+        </footer>
+    </div>
+</div>
+
+{% endblock %}
