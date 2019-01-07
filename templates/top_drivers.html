@@ -7,17 +7,17 @@
 <div class="page-background">
     <div class="page-container">
     	<div>
-    		<h2>Top</h2>
+    		<h2>Leaderboards</h2>
     	</div>
 		<table class="top_switch_buttons">
 			<tr>
-				<td class="top_active_switch_button"><a href="{% url 'top_drivers_average_place'%}">Top Drivers</a></td>
-				<td class="top_inactive_switch_button"><a href="{% url 'top_countries_average_place'%}">Top Countries</a></td>
+				<td class="top_active_switch_button"><a href="/drivers_order_by/average_finish_place">Top Drivers</a></td>
+				<td class="top_inactive_switch_button"><a href="/countries_order_by/average_finish_place">Top Countries</a></td>
 			</tr>	 
 		</table>	    	
 		<div class="unique-drivers">
 			<p>{{ total_qualified_drivers }}</p>
-            <p>&nbsp;- Total drivers qualified for TOP</p> 	            
+            <p>&nbsp;- Total drivers qualified</p> 	            
        	</div>
     	
     	<div class="my_pagination_buttons">
@@ -27,18 +27,55 @@
         <div class="top_tables">    			  
 	        	<table class="top_drivers_table">	
 	        		<tr>
-	        			<th>Position</th>        				        			
-	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_sort_countries'%}">Country</a></th>
+	        			<th>Position</th>  
+
+	        			<th class="{{ th2_activity_tag }} double_sort">
+	        				<a href="/drivers_order_by/country_from">Country</a>
+	        			</th>
+
 	        			<th>Name</th>
+
 	        			<th>Player ID</th>
-	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_events_finished'%}">Events Finished</a></th>
-	        			<th class="top_active_sort_button"><a href="{% url 'top_drivers_average_place'%}">Average Place</a></th>
-	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_first_places'%}">1st Places</a></th>
-	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_top_3'%}">Top 3</a></th>
-	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_top_10'%}">Top 10</a></th>
-	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_top_100'%}">Top 100</a></th>
-	        			<th class="top_inactive_sort_button"><a href="{% url 'top_drivers_driving_time'%}">Total Driving Time</a></th>
+
+	        			<th class="{{ th5_activity_tag }} double_sort">
+	        				<a href="/drivers_order_by/events_finished">Events Finished</a>
+	        			</th>
+
+	        			<th class="{{ th6_activity_tag }} double_sort">
+	        				<a href="/drivers_order_by/average_finish_place">Average Place</a>
+	        			</th>
+
+	        			<th class="{{ th7_activity_tag }} double_sort">
+	        				<a href="/drivers_order_by/first_places">1st Places</a>
+	        				<ul>
+	        					<li><a href="/drivers_order_by/percentile_1st_place">Sort (%)</a></li>
+	        				</ul>
+	        			</th>
+
+	        			<th class="{{ th8_activity_tag }} double_sort">
+	        				<a href="/drivers_order_by/top_3">Top 3</a>
+	        				<ul>
+	        					<li><a href="/drivers_order_by/percentile_top_3">Sort (%)</a></li>
+	        				</ul>
+	        			</th>
+
+	        			<th class="{{ th9_activity_tag }} double_sort">
+	        				<a href="/drivers_order_by/top_10">Top 10</a>
+	        				<ul>
+	        					<li><a href="/drivers_order_by/percentile_top_10">Sort (%)</a></li>
+	        				</ul>
+	        			</th>
+	        			<th class="{{ th10_activity_tag }} double_sort">
+	        				<a href="/drivers_order_by/top_100">Top 100</a>
+	        				<ul>
+	        					<li><a href="/drivers_order_by/percentile_top_100">Sort (%)</a></li>
+	        				</ul>
+	        			</th>
+	        			<th class="{{ th11_activity_tag }} double_sort">
+	        				<a href="/drivers_order_by/total_driving_time_seconds">Total Driving Time</a>
+	        			</th>
 	        		</tr>
+
 		        	{% for row in drivers %}
 		        		<tr>	        			
 	        				<td>{{ forloop.counter0|add:drivers.start_index }}</td>                     

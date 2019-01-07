@@ -14,7 +14,7 @@ def database_operations_execution_function():
 
 
 
-    # START functions for changing messages in site during the database update.
+    # START function for changing messages in site during the database update.
     def site_update_status_function(message):
         site_update_status_obj = SiteUpdateStatus.objects.all()
         for i in site_update_status_obj:
@@ -23,12 +23,12 @@ def database_operations_execution_function():
         site_update_status_object = SiteUpdateStatus()
         site_update_status_object.update_status = message
         site_update_status_object.save()
-    # END functions for changing messages in site during the database update.
+    # END function for changing messages in site during the database update.
 
 
 
 
-    site_update_status_function('Site Updating - Phase 1')
+    site_update_status_function('Site Update - Phase 1')
 
 
 
@@ -292,7 +292,7 @@ def database_operations_execution_function():
 
 
 
-    site_update_status_function('Site Updating - Phase 2')
+    site_update_status_function('Site Update - Phase 2')
 
     time_control_2 = timer()
 
@@ -726,9 +726,16 @@ def database_operations_execution_function():
     last_database_update_time_object.save()
     # END code for Last database update time and total days since database active.
 
+
+
+
+
+
+    # Disable Site Update status massage.
     site_update_status_obj = SiteUpdateStatus.objects.all()
     for i in site_update_status_obj:
         i.delete()
+
 
 
 

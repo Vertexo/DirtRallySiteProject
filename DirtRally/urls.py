@@ -17,44 +17,15 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls import url
 
-
-from scrapping.views import driverstats_view, all_events_view, how_this_site_works_view
-
-
-from scrapping.views import top_drivers_sort_countries_view, top_drivers_events_finished_view, top_drivers_average_place_view,\
-top_drivers_first_places_view, top_drivers_top_3_view, top_drivers_top_10_view, top_drivers_top_100_view, top_drivers_driving_time_view
-
-
-from scrapping.views import top_countries_sort_countries_view, top_countries_number_of_drivers_view, top_countries_events_finished_view,\
-top_countries_average_place_view, top_countries_average_place_view, top_countries_first_places_view, top_countries_top_3_view,\
-top_countries_top_10_view, top_countries_top_100_view, top_countries_driving_time_view
-
-
+from scrapping.views import driverstats_view, all_events_view, how_this_site_works_view, top_drivers_order_by_view, top_countries_order_by_view
 
 urlpatterns = [
     url('admin/', admin.site.urls),
 
-    url('top_drivers_sort_countries/', top_drivers_sort_countries_view, name='top_drivers_sort_countries'),
-    url('top_drivers_events_finished/', top_drivers_events_finished_view, name='top_drivers_events_finished'),
-    url('top_drivers_average_place/', top_drivers_average_place_view, name='top_drivers_average_place'),
-    url('top_drivers_first_places/', top_drivers_first_places_view, name='top_drivers_first_places'),
-    url('top_drivers_top_3/', top_drivers_top_3_view, name='top_drivers_top_3'),
-    url('top_drivers_top_10/', top_drivers_top_10_view, name='top_drivers_top_10'),
-    url('top_drivers_top_100/', top_drivers_top_100_view, name='top_drivers_top_100'),
-    url('top_drivers_driving_time/', top_drivers_driving_time_view, name='top_drivers_driving_time'),
-
-    url('top_countries_sort_countries/', top_countries_sort_countries_view, name='top_countries_sort_countries'),
-    url('top_countries_number_of_drivers/', top_countries_number_of_drivers_view, name='top_countries_number_of_drivers'),
-    url('top_countries_events_finished/', top_countries_events_finished_view, name='top_countries_events_finished'),
-    url('top_countries_average_place/', top_countries_average_place_view, name='top_countries_average_place'),
-    url('top_countries_first_places/', top_countries_first_places_view, name='top_countries_first_places'),
-    url('top_countries_top_3/', top_countries_top_3_view, name='top_countries_top_3'),
-    url('top_countries_top_10/', top_countries_top_10_view, name='top_countries_top_10'),
-    url('top_countries_top_100/', top_countries_top_100_view, name='top_countries_top_100'),
-    url('top_countries_driving_time/', top_countries_driving_time_view, name='top_countries_driving_time'),
+    path('drivers_order_by/<order_variable>/', top_drivers_order_by_view, name='top_drivers_order_by_view'),
+    path('countries_order_by/<order_variable>/', top_countries_order_by_view, name='top_countries_order_by_view'),
 
     path('driverstats/<drivers_id>/', driverstats_view, name='driverstats'),
     url('all_events/', all_events_view, name='all_events'),
     url('how_this_site_works/', how_this_site_works_view, name='how_this_site_works'),
-    # path('my_stats', include('scrapping.urls'))
 ]

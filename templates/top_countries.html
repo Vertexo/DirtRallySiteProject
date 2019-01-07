@@ -1,0 +1,105 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+{% load static %}
+
+<div class="page-background">
+    <div class="page-container">
+    	<div>
+    		<h2>Leaderboards</h2>
+    	</div>
+		<table class="top_switch_buttons">
+			<tr>
+				<td class="top_inactive_switch_button"><a href="/drivers_order_by/average_finish_place">Top Drivers</a></td>
+				<td class="top_active_switch_button"><a href="/countries_order_by/average_finish_place">Top Countries</a></td>
+			</tr>	 
+		</table>	    	
+		<div class="unique-drivers unique-countries">
+			<p>{{ total_qualified_countries }}</p>
+            <p>&nbsp;- Total countries qualified</p> 	            
+       	</div>
+
+        <div class="top_tables">	    		    			  
+	        	<table class="top_countries_table">	
+	        		<tr>
+	        			<th>Position</th> 
+
+	        			<th>Flag</th>  
+
+	        			<th class="{{ th3_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/country_name">Country</a>
+	        			</th>	
+
+	        			<th class="{{ th4_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/number_of_drivers">Number of Drivers</a>
+	        			</th>
+
+	        			<th class="{{ th5_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/events_finished">Events Finished</a>
+	        			</th>
+
+	        			<th class="{{ th6_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/average_finish_place">Average Place</a>
+	        			</th>
+
+	        			<th class="{{ th7_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/first_places">1st Places</a>
+	        				<ul>
+	        					<li><a href="/countries_order_by/percentile_1st_place">Sort (%)</a></li>
+	        				</ul>
+	        			</th>
+
+	        			<th class="{{ th8_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/top_3">Top 3</a>
+	        				<ul>
+	        					<li><a href="/countries_order_by/percentile_top_3">Sort (%)</a></li>
+	        				</ul>
+	        			</th>
+
+	        			<th class="{{ th9_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/top_10">Top 10</a>
+	        				<ul>
+	        					<li><a href="/countries_order_by/percentile_top_10">Sort (%)</a></li>
+	        				</ul>
+	        			</th>
+
+	        			<th class="{{ th10_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/top_100">Top 100</a>
+	        				<ul>
+	        					<li><a href="/countries_order_by/percentile_top_100">Sort (%)</a></li>
+	        				</ul>
+	        			</th>
+
+	        			<th class="{{ th11_activity_tag }} double_sort">
+	        				<a href="/countries_order_by/total_driving_time_seconds">Total Driving Time</a>
+	        			</th>
+	        		</tr>
+
+		        	{% for row in object_ordered %}
+		        		<tr>	        			
+	        				<td>{{ forloop.counter }}</td>                     
+                            {% with 'scrapping/Country_Flags/'|add:row.country_name|add:'.jpg' as image_static %}
+                                <td><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ row.country_name }}"></td>
+                            {% endwith %}       
+                            <td>{{ row.country_name }}</td>                                           
+                            <td>{{ row.number_of_drivers }}</td>
+                            <td>{{ row.events_finished }}</td>
+                            <td>{{ row.average_finish_place }}</td>
+                            <td>{{ row.first_places }}&nbsp;<font size='2' color='red'>({{ row.percentile_1st_place }}%)</font></td>
+                            <td>{{ row.top_3 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_3 }}%)</font></td>
+	                        <td>{{ row.top_10 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_10 }}%)</font></td>
+	                        <td>{{ row.top_100 }}&nbsp;<font size='2' color='red'>({{ row.percentile_top_100 }}%)</font></td>
+	                        <td>{{ row.total_driving_time_string }}</td>
+		        		</tr>
+	        		{% endfor %}		        					        	
+	        	</table>	                 	
+        </div>
+
+        <footer>
+        	
+        </footer>
+    </div>
+</div>
+
+{% endblock %}

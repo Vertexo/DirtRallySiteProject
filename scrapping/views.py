@@ -88,170 +88,135 @@ def pagination(request, object):
 
 
 
+"""------------------------------------------------TOP DRIVERS VIEW------------------------------------------------"""
+def top_drivers_order_by_view(request, order_variable):
+
+    th2_activity_tag = 'top_inactive_sort_button'
+    th5_activity_tag = 'top_inactive_sort_button'
+    th6_activity_tag = 'top_inactive_sort_button'
+    th7_activity_tag = 'top_inactive_sort_button'
+    th8_activity_tag = 'top_inactive_sort_button'
+    th9_activity_tag = 'top_inactive_sort_button'
+    th10_activity_tag = 'top_inactive_sort_button'
+    th11_activity_tag = 'top_inactive_sort_button'
 
 
+    object_ordered = PlayersInfo.objects.order_by(order_variable)
 
+    if order_variable == 'country_from':
+        object_ordered = PlayersInfo.objects.order_by(order_variable, 'average_finish_place')
+        th2_activity_tag = 'top_active_sort_button'
 
+    elif order_variable == 'events_finished':
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable)
+        th5_activity_tag = 'top_active_sort_button'
 
+    elif order_variable == 'average_finish_place':
+        object_ordered = PlayersInfo.objects.order_by(order_variable)
+        th6_activity_tag = 'top_active_sort_button'
 
+    elif order_variable == 'first_places' or order_variable == 'percentile_1st_place':
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        th7_activity_tag = 'top_active_sort_button'
 
-"""------------------------------------------------TOP DRIVERS VIEWS------------------------------------------------"""
-# START for Top Drivers Sort Countries.
-def top_drivers_sort_countries_view(request):
-    object_ordered = PlayersInfo.objects.order_by('country_from', 'average_finish_place')
+    elif order_variable == 'top_3' or order_variable == 'percentile_top_3':
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        th8_activity_tag = 'top_active_sort_button'
+
+    elif order_variable == 'top_10' or order_variable == 'percentile_top_10':
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        th9_activity_tag = 'top_active_sort_button'
+
+    elif order_variable == 'top_100' or order_variable == 'percentile_top_100':
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        th10_activity_tag = 'top_active_sort_button'
+
+    elif order_variable == 'total_driving_time_seconds':
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable)
+        th11_activity_tag = 'top_active_sort_button'
+
 
     drivers = pagination(request, object_ordered)
-
 
     context = {}
 
     context['drivers'] = drivers
     context['total_unique_drivers'] = total_unique_drivers()
     context['total_qualified_drivers'] = total_qualified_drivers()
+    context['th2_activity_tag'] = th2_activity_tag
+    context['th5_activity_tag'] = th5_activity_tag
+    context['th6_activity_tag'] = th6_activity_tag
+    context['th7_activity_tag'] = th7_activity_tag
+    context['th8_activity_tag'] = th8_activity_tag
+    context['th9_activity_tag'] = th9_activity_tag
+    context['th10_activity_tag'] = th10_activity_tag
+    context['th11_activity_tag'] = th11_activity_tag
 
-    return render(request, 'top_drivers/top_drivers_sort_countries.html', context)
-# END for Top Drivers Sort Countries.
+    return render(request, 'top_drivers.html', context)
+"""------------------------------------------------TOP DRIVERS VIEW------------------------------------------------"""
 
 
-# START for Top Drivers Events Finished.
-def top_drivers_events_finished_view(request):
-    object_ordered = PlayersInfo.objects.order_by('-events_finished')
 
-    drivers = pagination(request, object_ordered)
 
 
-    context = {}
 
-    context['drivers'] = drivers
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_drivers'] = total_qualified_drivers()
 
-    return render(request, 'top_drivers/top_drivers_events_finished.html', context)
-# END for Top Drivers Events Finished.
 
 
-# START for Top Drivers Average Place.
-def top_drivers_average_place_view(request):
-    object_ordered = PlayersInfo.objects.order_by('average_finish_place')
 
-    drivers = pagination(request, object_ordered)
 
 
-    context = {}
 
-    context['drivers'] = drivers
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_drivers'] = total_qualified_drivers()
+"""------------------------------------------------TOP COUNTRIES VIEW------------------------------------------------"""
+def top_countries_order_by_view(request, order_variable):
 
-    return render(request, 'top_drivers/top_drivers_average_place.html', context)
-# END for Top Drivers Average Place.
+    th3_activity_tag = 'top_inactive_sort_button'
+    th4_activity_tag = 'top_inactive_sort_button'
+    th5_activity_tag = 'top_inactive_sort_button'
+    th6_activity_tag = 'top_inactive_sort_button'
+    th7_activity_tag = 'top_inactive_sort_button'
+    th8_activity_tag = 'top_inactive_sort_button'
+    th9_activity_tag = 'top_inactive_sort_button'
+    th10_activity_tag = 'top_inactive_sort_button'
+    th11_activity_tag = 'top_inactive_sort_button'
 
+    object_ordered = CountriesInfo.objects.order_by(order_variable)
 
-# START for Top Drivers First Places.
-def top_drivers_first_places_view(request):
-    object_ordered = PlayersInfo.objects.order_by('-first_places', 'average_finish_place')
+    if order_variable == 'country_name':
+        object_ordered = CountriesInfo.objects.order_by(order_variable)
+        th3_activity_tag = 'top_active_sort_button'
 
-    drivers = pagination(request, object_ordered)
+    elif order_variable == 'events_finished':
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable)
+        th4_activity_tag = 'top_active_sort_button'
 
+    elif order_variable == 'events_finished':
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable)
+        th5_activity_tag = 'top_active_sort_button'
 
-    context = {}
+    elif order_variable == 'average_finish_place':
+        object_ordered = CountriesInfo.objects.order_by(order_variable)
+        th6_activity_tag = 'top_active_sort_button'
 
-    context['drivers'] = drivers
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_drivers'] = total_qualified_drivers()
+    elif order_variable == 'first_places' or order_variable == 'percentile_1st_place':
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        th7_activity_tag = 'top_active_sort_button'
 
-    return render(request, 'top_drivers/top_drivers_first_places.html', context)
-# END for Top Drivers First Places.
+    elif order_variable == 'top_3' or order_variable == 'percentile_top_3':
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        th8_activity_tag = 'top_active_sort_button'
 
+    elif order_variable == 'top_10' or order_variable == 'percentile_top_10':
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        th9_activity_tag = 'top_active_sort_button'
 
-# START for Top Drivers Top 3.
-def top_drivers_top_3_view(request):
-    object_ordered = PlayersInfo.objects.order_by('-top_3', 'average_finish_place')
+    elif order_variable == 'top_100' or order_variable == 'percentile_top_100':
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        th10_activity_tag = 'top_active_sort_button'
 
-    drivers = pagination(request, object_ordered)
-
-
-    context = {}
-
-    context['drivers'] = drivers
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_drivers'] = total_qualified_drivers()
-
-    return render(request, 'top_drivers/top_drivers_top3.html', context)
-# END for Top Drivers Top 3.
-
-
-# START for Top Drivers Top 10.
-def top_drivers_top_10_view(request):
-    object_ordered = PlayersInfo.objects.order_by('-top_10', 'average_finish_place')
-
-    drivers = pagination(request, object_ordered)
-
-
-    context = {}
-
-    context['drivers'] = drivers
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_drivers'] = total_qualified_drivers()
-
-    return render(request, 'top_drivers/top_drivers_top10.html', context)
-# END for Top Drivers Top 10.
-
-
-# START for Top Drivers Top 100.
-def top_drivers_top_100_view(request):
-    object_ordered = PlayersInfo.objects.order_by('-top_100', 'average_finish_place')
-
-    drivers = pagination(request, object_ordered)
-
-
-    context = {}
-
-    context['drivers'] = drivers
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_drivers'] = total_qualified_drivers()
-
-    return render(request, 'top_drivers/top_drivers_top100.html', context)
-# END for Top Drivers Top 100.
-
-
-# START for Top Drivers Total Driving Time.
-def top_drivers_driving_time_view(request):
-    object_ordered = PlayersInfo.objects.order_by('-total_driving_time_seconds')
-
-    drivers = pagination(request, object_ordered)
-
-
-    context = {}
-
-    context['drivers'] = drivers
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_drivers'] = total_qualified_drivers()
-
-    return render(request, 'top_drivers/top_drivers_driving_time.html', context)
-# END for Top Drivers Total Driving Time.
-"""------------------------------------------------TOP DRIVERS VIEWS------------------------------------------------"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""------------------------------------------------TOP COUNTRIES VIEWS------------------------------------------------"""
-# START for Top Countries Sort Countries.
-def top_countries_sort_countries_view(request):
-    object_ordered = CountriesInfo.objects.order_by('country_name')
+    elif order_variable == 'total_driving_time_seconds':
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable)
+        th11_activity_tag = 'top_active_sort_button'
 
 
     context = {}
@@ -259,162 +224,30 @@ def top_countries_sort_countries_view(request):
     context['object_ordered'] = object_ordered
     context['total_unique_drivers'] = total_unique_drivers()
     context['total_qualified_countries'] = total_qualified_countries()
+    context['th3_activity_tag'] = th3_activity_tag
+    context['th4_activity_tag'] = th4_activity_tag
+    context['th5_activity_tag'] = th5_activity_tag
+    context['th6_activity_tag'] = th6_activity_tag
+    context['th7_activity_tag'] = th7_activity_tag
+    context['th8_activity_tag'] = th8_activity_tag
+    context['th9_activity_tag'] = th9_activity_tag
+    context['th10_activity_tag'] = th10_activity_tag
+    context['th11_activity_tag'] = th11_activity_tag
 
-    return render(request, 'top_countries/top_countries_sort_countries.html', context)
-# END for Top Countries Sort Countries.
+    return render(request, 'top_countries.html', context)
+"""------------------------------------------------TOP COUNTRIES VIEW------------------------------------------------"""
 
 
-# START for Top Countries Number Of Drivers.
-def top_countries_number_of_drivers_view(request):
-    object_ordered = CountriesInfo.objects.order_by('-number_of_drivers')
 
 
-    context = {}
 
-    context['object_ordered'] = object_ordered
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_countries'] = total_qualified_countries()
 
-    return render(request, 'top_countries/top_countries_number_of_drivers.html', context)
-# END for Top Countries Number Of Drivers.
 
 
-# START for Top Countries Events Finished.
-def top_countries_events_finished_view(request):
-    object_ordered = CountriesInfo.objects.order_by('-events_finished')
 
 
-    context = {}
 
-    context['object_ordered'] = object_ordered
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_countries'] = total_qualified_countries()
-
-    return render(request, 'top_countries/top_countries_events_finished.html', context)
-# END for Top Countries Events Finished.
-
-
-# START for Top Countries Average Finish Place.
-def top_countries_average_place_view(request):
-    object_ordered = CountriesInfo.objects.order_by('average_finish_place')
-
-
-    context = {}
-
-    context['object_ordered'] = object_ordered
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_countries'] = total_qualified_countries()
-
-    return render(request, 'top_countries/top_countries_average_place.html', context)
-# END for Top Countries Average Finish Place.
-
-
-# START for Top Countries First Places.
-def top_countries_first_places_view(request):
-    object_ordered = CountriesInfo.objects.order_by('-first_places', 'average_finish_place')
-
-
-    context = {}
-
-    context['object_ordered'] = object_ordered
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_countries'] = total_qualified_countries()
-
-    return render(request, 'top_countries/top_countries_first_places.html', context)
-# END for Top Countries First Places.
-
-
-# START for Top Countries Top 3.
-def top_countries_top_3_view(request):
-    object_ordered = CountriesInfo.objects.order_by('-top_3', 'average_finish_place')
-
-
-    context = {}
-
-    context['object_ordered'] = object_ordered
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_countries'] = total_qualified_countries()
-
-    return render(request, 'top_countries/top_countries_top3.html', context)
-# END for Top Countries Top 3.
-
-
-# START for Top Countries Top 10.
-def top_countries_top_10_view(request):
-    object_ordered = CountriesInfo.objects.order_by('-top_10', 'average_finish_place')
-
-
-    context = {}
-
-    context['object_ordered'] = object_ordered
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_countries'] = total_qualified_countries()
-
-    return render(request, 'top_countries/top_countries_top10.html', context)
-# END for Top Countries Top 10.
-
-
-# START for Top Countries Top 100.
-def top_countries_top_100_view(request):
-    object_ordered = CountriesInfo.objects.order_by('-top_100', 'average_finish_place')
-
-
-    context = {}
-
-    context['object_ordered'] = object_ordered
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_countries'] = total_qualified_countries()
-
-    return render(request, 'top_countries/top_countries_top100.html', context)
-# END for Top Countries Top 100.
-
-
-# START for Top Countries Total Driving Time.
-def top_countries_driving_time_view(request):
-    object_ordered = CountriesInfo.objects.order_by('-total_driving_time_seconds')
-
-
-    context = {}
-
-    context['object_ordered'] = object_ordered
-    context['total_unique_drivers'] = total_unique_drivers()
-    context['total_qualified_countries'] = total_qualified_countries()
-
-
-    return render(request, 'top_countries/top_countries_driving_time.html', context)
-# END for Top Countries Total Driving Time.
-"""------------------------------------------------TOP COUNTRIES VIEWS------------------------------------------------"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""------------------------------------------------DRIVERS STATS VIEWS------------------------------------------------"""
-# START for Drivers Stats.
+"""------------------------------------------------DRIVERS STATS VIEW------------------------------------------------"""
 def driverstats_view(request, drivers_id):
 
     object_ordered = PlayersInfo.objects.filter(player_id__exact=drivers_id)
@@ -431,8 +264,7 @@ def driverstats_view(request, drivers_id):
     context['drivers_id'] = drivers_id
 
     return render(request, 'driver_stats.html', context)
-# END for Drivers Stats.
-"""------------------------------------------------DRIVERS STATS VIEWS------------------------------------------------"""
+"""------------------------------------------------DRIVERS STATS VIEW------------------------------------------------"""
 
 
 
@@ -443,20 +275,7 @@ def driverstats_view(request, drivers_id):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-"""------------------------------------------------ALL EVENTS VIEWS------------------------------------------------"""
-# START for All Events.
+"""------------------------------------------------ALL EVENTS VIEW------------------------------------------------"""
 def all_events_view(request):
 
     obj = LeaderBoard.objects.filter(event_info__event_category__exact='Daily', event_info__date__exact='10.19.2018')
@@ -530,7 +349,6 @@ def all_events_view(request):
         break
 
 
-
     context = {}
 
     context['date'] = date
@@ -547,8 +365,7 @@ def all_events_view(request):
     context['most_participants_ever_date'] = most_participants_ever()[2]
 
     return render(request, 'all_events.html', context)
-# END for All Events.
-"""------------------------------------------------ALL EVENTS VIEWS------------------------------------------------"""
+"""------------------------------------------------ALL EVENTS VIEW------------------------------------------------"""
 
 
 
@@ -558,39 +375,13 @@ def all_events_view(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-"""------------------------------------------------HOW THIS SITE WORKS VIEWS------------------------------------------------"""
-# START for How This Site Works.
+"""------------------------------------------------HOW THIS SITE WORKS VIEW------------------------------------------------"""
 def how_this_site_works_view(request):
 
     context = {}
 
-
     return render(request, 'how_this_site_works.html', context)
-# END for How This Site Works.
-"""------------------------------------------------HOW THIS SITE WORKS VIEWS------------------------------------------------"""
-
-
-
-
-
-
-
-
-
-
-
+"""------------------------------------------------HOW THIS SITE WORKS VIEW------------------------------------------------"""
 
 
 
