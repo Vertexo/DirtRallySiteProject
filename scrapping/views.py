@@ -186,7 +186,7 @@ def top_countries_order_by_view(request, order_variable):
         object_ordered = CountriesInfo.objects.order_by(order_variable)
         th3_activity_tag = 'top_active_sort_button'
 
-    elif order_variable == 'events_finished':
+    elif order_variable == 'number_of_drivers':
         object_ordered = CountriesInfo.objects.order_by('-' + order_variable)
         th4_activity_tag = 'top_active_sort_button'
 
