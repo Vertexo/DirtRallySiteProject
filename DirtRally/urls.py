@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls import url
 
-from scrapping.views import driverstats_view, all_events_view, how_this_site_works_view, top_drivers_order_by_view, top_countries_order_by_view
+from scrapping.views import driverstats_view, all_events_view, how_this_site_works_view, \
+    top_drivers_order_by_view, top_countries_order_by_view, countrystats_view
 
 urlpatterns = [
     url('admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('countries_order_by/<order_variable>/', top_countries_order_by_view, name='top_countries_order_by_view'),
 
     path('driverstats/<drivers_id>/', driverstats_view, name='driverstats'),
-    url('all_events/', all_events_view, name='all_events'),
+    path('countrystats/<country_name>/', countrystats_view, name='countrystats'),
+    path('all_events/<event_category>/<date>/', all_events_view, name='all_events'),
     url('how_this_site_works/', how_this_site_works_view, name='how_this_site_works'),
 ]

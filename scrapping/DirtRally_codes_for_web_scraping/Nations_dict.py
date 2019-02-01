@@ -17,7 +17,7 @@ def nations(nation_number):
                     61: 'NO COUNTRY', 62: 'Serbia', 63: 'South Korea', 64: 'Sweden', 65: 'United Arab Emirates',
                     66: 'NO COUNTRY', 67: 'NO COUNTRY', 68: 'NO COUNTRY', 69: 'Hong Kong', 70: 'Ecuador',
                     71: 'Cuba', 72: 'Venezuela', 73: 'Ghana', 74: 'Cameroon', 75: 'United Kingdom',
-                    76: 'NO COUNTRY', 77: 'Isle of Man', 78: 'Kuwait', 79: 'NO COUNTRY', 80: 'Qatar',
+                    76: 'NO COUNTRY', 77: 'Isle of Man', 78: 'Kuwait', 79: 'Oman', 80: 'Qatar',
                     81: 'Yemen', 82: 'Nigeria', 83: 'Chile', 84: 'Kenya', 85: 'Monaco',
                     86: 'Ukraine', 87: 'Israel', 88: 'Colombia', 89: 'NO COUNTRY', 90: 'NO COUNTRY',
                     91: 'NO COUNTRY', 92: 'NO COUNTRY', 93: 'NO COUNTRY', 94: 'NO COUNTRY', 95: 'NO COUNTRY',

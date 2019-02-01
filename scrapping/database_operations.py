@@ -304,107 +304,107 @@ def database_operations_execution_function():
 
     #TODO: Version 1. Automated PlayerInfo.
 
-    # ******************************Launch this code if web scraping is already automated (web page is in production mode).
-    # START of code for getting all unique players info to database PlayersInfo.
-    # This code gets every PlayerID from all database leaderboards and corresponding player info.
-
-    """Delete PlayerInfo database every time before starting to write new one."""
-    player_id_delete_object = PlayersInfo.objects.all()
-    for i in player_id_delete_object:
-        if i.player_id in player_id_list_for_last_scraping:
-            i.delete()
-    print('Old PlayerInfo entries deleted!')
-    """Delete PlayerInfo database every time before starting to write new one."""
-
-
-    time_control_3 = timer()
-
-
-    print('Starting new PlayersInfo database!')
-    playerinfo_nr = 0
-    for last_scraping_playerid in player_id_list_for_last_scraping:
-
-        leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid)
-
-        events_finished_count = 0
-        sum_of_finish_places = 0
-        first_places_count = 0
-        top_3_count = 0
-        top_10_count = 0
-        top_100_count = 0
-        total_driving_time_count = 0
-
-        event_info_date_list = []
-        for k in leaderb_obj:
-
-            event_info_date_list.append(k.event_info.date)
-
-            events_finished_count += 1
-
-            if k.position == 1:
-                first_places_count += 1
-
-            if k.position <= 3:
-                top_3_count += 1
-
-            if k.position <= 10:
-                top_10_count += 1
-
-            if k.position <= 100:
-                top_100_count += 1
-
-            sum_of_finish_places += k.position
-            total_driving_time_count += k.time_seconds
-
-            percent_1st_place_calc = round(first_places_count / events_finished_count * 100, 2)
-            percent_top_3_calc = round(top_3_count / events_finished_count * 100, 2)
-            percent_top_10_calc = round(top_10_count / events_finished_count * 100, 2)
-            percent_top_100_calc = round(top_100_count / events_finished_count * 100, 2)
-
-
-            # START Code: Find driver's latest name and country.
-            obj = LeaderBoard.objects.filter(event_info__date__exact=find_last_date(event_info_date_list),
-                                             player_id__exact=last_scraping_playerid)
-
-            country = ''
-            name = ''
-            for m in obj:
-                country = m.country_name
-                name = m.name
-                break
-            # END Code: Find driver's latest name and country.
-
-
-
-        if events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
-
-            player_id_object = PlayersInfo()
-
-            player_id_object.country_from = country
-            player_id_object.name = name
-            player_id_object.player_id = last_scraping_playerid
-            player_id_object.events_finished = events_finished_count
-            player_id_object.average_finish_place = round(float(sum_of_finish_places) / events_finished_count, 1)
-            player_id_object.first_places = first_places_count
-            player_id_object.top_3 = top_3_count
-            player_id_object.top_10 = top_10_count
-            player_id_object.top_100 = top_100_count
-            player_id_object.percentile_1st_place = percent_1st_place_calc
-            player_id_object.percentile_top_3 = percent_top_3_calc
-            player_id_object.percentile_top_10 = percent_top_10_calc
-            player_id_object.percentile_top_100 = percent_top_100_calc
-            player_id_object.total_driving_time_seconds = round(total_driving_time_count, 3)
-            player_id_object.total_driving_time_string = time_h_m_s_converter(total_driving_time_count)
-
-            playerinfo_nr += 1
-            print(playerinfo_nr)
-
-            player_id_object.save()
-
-    print('New PlayerInfo database completed!')
-
-    # END of code for getting all unique players info to database PlayersInfo.
-    # ******************************Launch this code if web scraping is already automated (web page is in production mode).
+    # # ******************************Launch this code if web scraping is already automated (web page is in production mode).
+    # # START of code for getting all unique players info to database PlayersInfo.
+    # # This code gets every PlayerID from all database leaderboards and corresponding player info.
+    #
+    # """Delete PlayerInfo database every time before starting to write new one."""
+    # player_id_delete_object = PlayersInfo.objects.all()
+    # for i in player_id_delete_object:
+    #     if i.player_id in player_id_list_for_last_scraping:
+    #         i.delete()
+    # print('Old PlayerInfo entries deleted!')
+    # """Delete PlayerInfo database every time before starting to write new one."""
+    #
+    #
+    # time_control_3 = timer()
+    #
+    #
+    # print('Starting new PlayersInfo database!')
+    # playerinfo_nr = 0
+    # for last_scraping_playerid in player_id_list_for_last_scraping:
+    #
+    #     leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid)
+    #
+    #     events_finished_count = 0
+    #     sum_of_finish_places = 0
+    #     first_places_count = 0
+    #     top_3_count = 0
+    #     top_10_count = 0
+    #     top_100_count = 0
+    #     total_driving_time_count = 0
+    #
+    #     event_info_date_list = []
+    #     for k in leaderb_obj:
+    #
+    #         event_info_date_list.append(k.event_info.date)
+    #
+    #         events_finished_count += 1
+    #
+    #         if k.position == 1:
+    #             first_places_count += 1
+    #
+    #         if k.position <= 3:
+    #             top_3_count += 1
+    #
+    #         if k.position <= 10:
+    #             top_10_count += 1
+    #
+    #         if k.position <= 100:
+    #             top_100_count += 1
+    #
+    #         sum_of_finish_places += k.position
+    #         total_driving_time_count += k.time_seconds
+    #
+    #         percent_1st_place_calc = round(first_places_count / events_finished_count * 100, 2)
+    #         percent_top_3_calc = round(top_3_count / events_finished_count * 100, 2)
+    #         percent_top_10_calc = round(top_10_count / events_finished_count * 100, 2)
+    #         percent_top_100_calc = round(top_100_count / events_finished_count * 100, 2)
+    #
+    #
+    #         # START Code: Find driver's latest name and country.
+    #         obj = LeaderBoard.objects.filter(event_info__date__exact=find_last_date(event_info_date_list),
+    #                                          player_id__exact=last_scraping_playerid)
+    #
+    #         country = ''
+    #         name = ''
+    #         for m in obj:
+    #             country = m.country_name
+    #             name = m.name
+    #             break
+    #         # END Code: Find driver's latest name and country.
+    #
+    #
+    #
+    #     if events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
+    #
+    #         player_id_object = PlayersInfo()
+    #
+    #         player_id_object.country_from = country
+    #         player_id_object.name = name
+    #         player_id_object.player_id = last_scraping_playerid
+    #         player_id_object.events_finished = events_finished_count
+    #         player_id_object.average_finish_place = round(float(sum_of_finish_places) / events_finished_count, 1)
+    #         player_id_object.first_places = first_places_count
+    #         player_id_object.top_3 = top_3_count
+    #         player_id_object.top_10 = top_10_count
+    #         player_id_object.top_100 = top_100_count
+    #         player_id_object.percentile_1st_place = percent_1st_place_calc
+    #         player_id_object.percentile_top_3 = percent_top_3_calc
+    #         player_id_object.percentile_top_10 = percent_top_10_calc
+    #         player_id_object.percentile_top_100 = percent_top_100_calc
+    #         player_id_object.total_driving_time_seconds = round(total_driving_time_count, 3)
+    #         player_id_object.total_driving_time_string = time_h_m_s_converter(total_driving_time_count)
+    #
+    #         playerinfo_nr += 1
+    #         print(playerinfo_nr)
+    #
+    #         player_id_object.save()
+    #
+    # print('New PlayerInfo database completed!')
+    #
+    # # END of code for getting all unique players info to database PlayersInfo.
+    # # ******************************Launch this code if web scraping is already automated (web page is in production mode).
 
 
 
@@ -419,122 +419,122 @@ def database_operations_execution_function():
 
     # TODO: Version 2. Non-Automated PlayerInfo.
 
-    # # ******************************Launch this code if web scraping is already not automated or database is not fully uploaded.
-    # # START of code for getting all unique players info to database PlayersInfo.
-    # # This code gets every PlayerID from all database leaderboards and corresponding player info.
-    #
-    # """Delete PlayerInfo database every time before starting to write new one."""
-    # try:
-    #     player_id_delete_object = PlayersInfo.objects.all()
-    #     for i in player_id_delete_object:
-    #         i.delete()
-    #     print('Old PlayerInfo entries deleted!')
-    # except:
-    #     print('PlayerInfo database was already empty!')
-    # """Delete PlayerInfo database every time before starting to write new one."""
-    #
-    # time_control_3 = timer()
-    #
-    # print('Starting new PlayersInfo database!')
-    # player_id_database_list = []
-    # player_id_obj = LeaderBoard.objects.all()
-    #
-    # count_to_stop = 0
-    # playerinfo_nr = 0
-    # for i in player_id_obj:
-    #
-    #     # # Start. Code for controlling how many values will be saved to database. For testing purposes.
-    #     # count_to_stop += 1
-    #     # if count_to_stop == 1000:
-    #     #     break
-    #     # # End. Code for controlling how many values will be saved to database. For testing purposes.
-    #
-    #     if i.player_id in player_id_database_list:
-    #         continue
-    #
-    #     else:
-    #         player_id_database_list.append(i.player_id)  # Equal to TotalUniqueDrivers value.
-    #
-    #         leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id)
-    #
-    #         event_info_date_list = []
-    #         events_finished_count = 0
-    #         sum_of_finish_places = 0
-    #         first_places_count = 0
-    #         top_3_count = 0
-    #         top_10_count = 0
-    #         top_100_count = 0
-    #         total_driving_time_count = 0
-    #         for k in leaderb_obj:
-    #             event_info_date_list.append(k.event_info.date)
-    #
-    #             events_finished_count += 1
-    #
-    #             if k.position == 1:
-    #                 first_places_count += 1
-    #
-    #             if k.position <= 3:
-    #                 top_3_count += 1
-    #
-    #             if k.position <= 10:
-    #                 top_10_count += 1
-    #
-    #             if k.position <= 100:
-    #                 top_100_count += 1
-    #
-    #             sum_of_finish_places += k.position
-    #             total_driving_time_count += k.time_seconds
-    #
-    #         percent_1st_place_calc = round(first_places_count / events_finished_count * 100, 2)
-    #         percent_top_3_calc = round(top_3_count / events_finished_count * 100, 2)
-    #         percent_top_10_calc = round(top_10_count / events_finished_count * 100, 2)
-    #         percent_top_100_calc = round(top_100_count / events_finished_count * 100, 2)
-    #
-    #
-    #
-    #         # START Code: Find driver's latest name and country.
-    #         obj = LeaderBoard.objects.filter(event_info__date__exact=find_last_date(event_info_date_list),
-    #                                          player_id__exact=i.player_id)
-    #
-    #         country = ''
-    #         name = ''
-    #         for m in obj:
-    #             country = m.country_name
-    #             name = m.name
-    #             break
-    #         # END Code: Find driver's latest name and country.
-    #
-    #
-    #
-    #         if events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
-    #
-    #             player_id_object = PlayersInfo()
-    #
-    #             player_id_object.country_from = country
-    #             player_id_object.name = name
-    #             player_id_object.player_id = i.player_id
-    #             player_id_object.events_finished = events_finished_count
-    #             player_id_object.average_finish_place = round(float(sum_of_finish_places) / events_finished_count, 1)
-    #             player_id_object.first_places = first_places_count
-    #             player_id_object.top_3 = top_3_count
-    #             player_id_object.top_10 = top_10_count
-    #             player_id_object.top_100 = top_100_count
-    #             player_id_object.percentile_1st_place = percent_1st_place_calc
-    #             player_id_object.percentile_top_3 = percent_top_3_calc
-    #             player_id_object.percentile_top_10 = percent_top_10_calc
-    #             player_id_object.percentile_top_100 = percent_top_100_calc
-    #             player_id_object.total_driving_time_seconds = round(total_driving_time_count, 3)
-    #             player_id_object.total_driving_time_string = time_h_m_s_converter(total_driving_time_count)
-    #
-    #             playerinfo_nr += 1
-    #             print(playerinfo_nr)
-    #
-    #             player_id_object.save()
-    #
-    # print('New PlayerInfo database completed!')
-    # # END of code for getting all unique players info to database PlayersInfo.
-    #
-    # # ******************************Launch this code if web scraping is already not automated or database is not fully uploaded.
+    # ******************************Launch this code if web scraping is already not automated or database is not fully uploaded.
+    # START of code for getting all unique players info to database PlayersInfo.
+    # This code gets every PlayerID from all database leaderboards and corresponding player info.
+
+    """Delete PlayerInfo database every time before starting to write new one."""
+    try:
+        player_id_delete_object = PlayersInfo.objects.all()
+        for i in player_id_delete_object:
+            i.delete()
+        print('Old PlayerInfo entries deleted!')
+    except:
+        print('PlayerInfo database was already empty!')
+    """Delete PlayerInfo database every time before starting to write new one."""
+
+    time_control_3 = timer()
+
+    print('Starting new PlayersInfo database!')
+    player_id_database_list = []
+    player_id_obj = LeaderBoard.objects.all()
+
+    count_to_stop = 0
+    playerinfo_nr = 0
+    for i in player_id_obj:
+
+        # # Start. Code for controlling how many values will be saved to database. For testing purposes.
+        # count_to_stop += 1
+        # if count_to_stop == 1000:
+        #     break
+        # # End. Code for controlling how many values will be saved to database. For testing purposes.
+
+        if i.player_id in player_id_database_list:
+            continue
+
+        else:
+            player_id_database_list.append(i.player_id)  # Equal to TotalUniqueDrivers value.
+
+            leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id)
+
+            event_info_date_list = []
+            events_finished_count = 0
+            sum_of_finish_places = 0
+            first_places_count = 0
+            top_3_count = 0
+            top_10_count = 0
+            top_100_count = 0
+            total_driving_time_count = 0
+            for k in leaderb_obj:
+                event_info_date_list.append(k.event_info.date)
+
+                events_finished_count += 1
+
+                if k.position == 1:
+                    first_places_count += 1
+
+                if k.position <= 3:
+                    top_3_count += 1
+
+                if k.position <= 10:
+                    top_10_count += 1
+
+                if k.position <= 100:
+                    top_100_count += 1
+
+                sum_of_finish_places += k.position
+                total_driving_time_count += k.time_seconds
+
+            percent_1st_place_calc = round(first_places_count / events_finished_count * 100, 2)
+            percent_top_3_calc = round(top_3_count / events_finished_count * 100, 2)
+            percent_top_10_calc = round(top_10_count / events_finished_count * 100, 2)
+            percent_top_100_calc = round(top_100_count / events_finished_count * 100, 2)
+
+
+
+            # START Code: Find driver's latest name and country.
+            obj = LeaderBoard.objects.filter(event_info__date__exact=find_last_date(event_info_date_list),
+                                             player_id__exact=i.player_id)
+
+            country = ''
+            name = ''
+            for m in obj:
+                country = m.country_name
+                name = m.name
+                break
+            # END Code: Find driver's latest name and country.
+
+
+
+            if events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
+
+                player_id_object = PlayersInfo()
+
+                player_id_object.country_from = country
+                player_id_object.name = name
+                player_id_object.player_id = i.player_id
+                player_id_object.events_finished = events_finished_count
+                player_id_object.average_finish_place = round(float(sum_of_finish_places) / events_finished_count, 1)
+                player_id_object.first_places = first_places_count
+                player_id_object.top_3 = top_3_count
+                player_id_object.top_10 = top_10_count
+                player_id_object.top_100 = top_100_count
+                player_id_object.percentile_1st_place = percent_1st_place_calc
+                player_id_object.percentile_top_3 = percent_top_3_calc
+                player_id_object.percentile_top_10 = percent_top_10_calc
+                player_id_object.percentile_top_100 = percent_top_100_calc
+                player_id_object.total_driving_time_seconds = round(total_driving_time_count, 3)
+                player_id_object.total_driving_time_string = time_h_m_s_converter(total_driving_time_count)
+
+                playerinfo_nr += 1
+                print(playerinfo_nr)
+
+                player_id_object.save()
+
+    print('New PlayerInfo database completed!')
+    # END of code for getting all unique players info to database PlayersInfo.
+
+    # ******************************Launch this code if web scraping is already not automated or database is not fully uploaded.
 
 
 

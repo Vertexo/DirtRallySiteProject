@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'scrapping.context_processors.last_database_update_time_processor',
                 'scrapping.context_processors.site_update_status',
+                'scrapping.context_processors.last_daily_date',
             ],
         },
     },
@@ -131,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'static/'),
+  os.path.join(BASE_DIR, 'static'),
 )
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 1000000

@@ -21,45 +21,23 @@
            		<p>Event:</p>
             
             	<ul>
-                    <li><a href="">Daily</a></li>
-                    <li><a href="">Daily2</a></li>
-                    <li><a href="">Weekly</a></li>
-                    <li><a href="">Weekly2</a></li>
-                    <li><a href="">Monthly</a></li>
+                    <li class="{{ daily_options_container_active }}"><a href="/all_events/Daily/{{ last_daily_date }}/">Daily</a></li>
+                    <li class="{{ daily2_options_container_active }}"><a href="/all_events/Daily2/{{ last_daily2_date }}/">Daily2</a></li>
+                    <li class="{{ weekly_options_container_active }}"><a href="/all_events/Weekly/{{ last_weekly_date }}/">Weekly</a></li>
+                    <li class="{{ weekly2_options_container_active }}"><a href="/all_events/Weekly2/{{ last_weekly2_date }}/">Weekly2</a></li>
+                    <li class="{{ monthly_options_container_active }}"><a href="/all_events/Monthly/{{ last_monthly_date }}/">Monthly</a></li>
                 </ul>
 
                 <p id="event-options-container_date">Date:</p>
             
                 <div class="date_selector">
-                    <select>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                        <option>{{ date }}</option>
-                    </select>
+                    <form id="mydata_selector">
+                        <select onChange=selectChange(this.value)>
+                            {% for date in date_selector_list %}
+                                <option value="/all_events/Daily/{{ date }}/">{{ date }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
                 </div>
                 
         </div>
@@ -106,13 +84,27 @@
                 {% for row in zipped_leader_list %}
                         <tr>
                             {% for cell in row %}
+
                                 {% if forloop.counter0 == 1 %}
                                     {% with 'scrapping/Country_Flags/'|add:cell|add:'.jpg' as image_static %}
-                                        <td><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ cell }}"></td>
+                                        <td><a style="text-decoration: none; color: inherit;" href="/countrystats/{{ cell }}/"><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ cell }}"></a></td>
                                     {% endwith %}
+
+                                {% elif forloop.counter0 == 2 %}
+
+                                    {% for id in row %}
+                                        {% if forloop.counter0 == 3 %}
+                                            <td><a style="text-decoration: none; color: inherit;" href="/driverstats/{{ id }}/">{{ cell }}</a></td>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                {% elif forloop.counter0 == 3 %}
+                                    <td><a style="text-decoration: none; color: inherit;" href="/driverstats/{{ cell }}/">{{ cell }}</a></td>
+                                        
                                 {% else %}
                                     <td>{{ cell }}</td>
                                 {% endif %}
+
                             {% endfor %}
                         </tr>
                 {% endfor %}
@@ -124,5 +116,14 @@
         </footer>
     </div>
 </div>
+
+
+<!-- <script>
+    function selectChange(val) {
+        //Set the value of action in action attribute of form element.
+        //Submit the form
+        $('#mydata_selector').submit();
+    }
+</script> -->
 
 {% endblock %}

@@ -254,7 +254,7 @@ def repeat_if_error():
 
         try:
             print('----------------------TRY-------------------------')
-            scrapping(0, 1)
+            scrapping(0, 5)
             break
 
         except Exception:

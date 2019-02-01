@@ -1,33 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96ec5973-be2d-4470-92b7-b9cbc94f59b6" name="Default" comment="" />
+    <list default="true" id="96ec5973-be2d-4470-92b7-b9cbc94f59b6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DirtRally/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DirtRally/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../DirtRally/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../DirtRally/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Dirt Rally Challenge database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Dirt Rally Challenge database.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Nations_dict.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Nations_dict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../context_processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../static/scrapping/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../static/scrapping/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../templates/all_events.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../templates/all_events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../templates/driver_stats.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../templates/driver_stats.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../templates/top_countries.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../templates/top_countries.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../templates/top_drivers.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../templates/top_drivers.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1580483952">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="3" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Dirt Rally Challenge database" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Test.py" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../../../../../../../Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="2367" column="23" lean-forward="true" selection-start-line="2367" selection-start-column="23" selection-end-line="2367" selection-end-column="23" />
+            <state relative-caret-position="49707">
+              <caret line="2367" column="23" selection-start-line="2367" selection-start-column="23" selection-end-line="2367" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dirt_Rally_Web_Scraping_for_txt.py" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="245" lean-forward="true" selection-start-line="245" selection-end-line="246" />
+            <state relative-caret-position="294">
+              <caret line="221" column="44" selection-start-line="221" selection-start-column="44" selection-end-line="221" selection-end-column="44" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -35,11 +84,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="URL_eventId_date_extractor.py" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../database_operations.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3045">
+              <caret line="150" column="40" selection-start-line="150" selection-start-column="40" selection-end-line="150" selection-end-column="40" />
+              <folding>
+                <element signature="e#124#165#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="286" column="28" selection-start-line="286" selection-start-column="28" selection-end-line="286" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../URL_eventId_date_extractor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="172" column="12" lean-forward="true" selection-start-line="172" selection-start-column="12" selection-end-line="172" selection-end-column="12" />
+            <state relative-caret-position="315">
+              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -71,6 +150,9 @@
       <find>option</find>
       <find>optio</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -107,23 +189,25 @@
         <option value="$PROJECT_DIR$/../../database_operations.py" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/database_operations.py" />
         <option value="$PROJECT_DIR$/../URL_eventId_date_extractor.py" />
-        <option value="$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/URL_eventId_date_extractor.py" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/Dirt_Rally_Web_Scraping_for_txt.py" />
         <option value="$PROJECT_DIR$/../../../../../../../../../Test.py" />
+        <option value="$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="20" />
-    <option name="width" value="821" />
-    <option name="height" value="1017" />
+    <option name="width" value="825" />
+    <option name="height" value="1020" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -135,7 +219,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -154,7 +237,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Test">
+  <component name="RunManager" selected="Python.Dirt_Rally_Web_Scraping_for_txt">
     <configuration name="Dirt_Rally_Daily_Web_Scraping_for_txt" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Dirt Rally Challenge database" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -172,6 +255,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Dirt_Rally_Web_Scraping_for_txt (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Dirt Rally Challenge database" />
@@ -190,6 +276,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Dirt_Rally_Web_Scraping_for_txt" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Dirt Rally Challenge database" />
@@ -208,6 +297,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Headless" type="PythonConfigurationType" factoryName="Python">
       <module name="Dirt Rally Challenge database" />
@@ -226,6 +318,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Dirt Rally Challenge database" />
@@ -244,6 +339,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Dirt Rally Challenge database" />
@@ -262,6 +360,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.Headless" />
@@ -273,8 +374,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Test" />
         <item itemvalue="Python.Dirt_Rally_Web_Scraping_for_txt" />
+        <item itemvalue="Python.Test" />
         <item itemvalue="Python.Dirt_Rally_Web_Scraping_for_txt (1)" />
         <item itemvalue="Python.Dirt_Rally_Daily_Web_Scraping_for_txt" />
         <item itemvalue="Python.Test (1)" />
@@ -304,46 +405,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16043426" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32995495" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5018094" side_tool="true" weight="0.32545045" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.32995495" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49819058" weight="0.3277027" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15994713" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32995495" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49819058" weight="0.32765958" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32995495" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32995495" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32995495" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5018094" side_tool="true" weight="0.32545045" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
-    <entry file="file://$PROJECT_DIR$/../Test.py" />
-    <entry file="file://$PROJECT_DIR$/Headless Browser.py" />
-    <entry file="file://$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
-    <entry file="file://$PROJECT_DIR$/URL_eventId_extractor.py" />
-    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
-    <entry file="file://$PROJECT_DIR$/../Test.py" />
-    <entry file="file://$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
-    <entry file="file://$PROJECT_DIR$/URL_eventId_extractor.py" />
-    <entry file="file://$PROJECT_DIR$/../Test.py" />
-    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
-    <entry file="file://$PROJECT_DIR$/Dirt_Rally_Daily_Web_Scraping_for_txt.py" />
-    <entry file="file://$PROJECT_DIR$/URL_eventId_extractor.py" />
-    <entry file="file://$PROJECT_DIR$/Nations_dict.py" />
     <entry file="file://$USER_HOME$/1. Python/My projects/My Beginner Examples/My Beginner Examples.py" />
     <entry file="file://$PROJECT_DIR$/Headless Browser.py" />
     <entry file="file://$PROJECT_DIR$/../My Dirt Rally Leaderboard Site/src/DirtRallySite/web_scraper/models.py" />
@@ -367,20 +454,7 @@
     <entry file="file://$USER_HOME$/Desktop/Test.py" />
     <entry file="file://$PROJECT_DIR$/../Leaderboard_txt_to_value_converter.py" />
     <entry file="file://$PROJECT_DIR$/../../Leaderboard_txt_to_value_converter.py" />
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1575110060/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="5575" column="6" selection-start-line="5575" selection-start-column="6" selection-end-line="5575" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-1575110060/builtins.py" />
     <entry file="file://$PROJECT_DIR$/../../../DirtRally/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -391,63 +465,47 @@
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/Dirt_Rally_Web_Scraping_for_txt.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/urls.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/settings.py" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/database_operations.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/database_operations.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Programming backup folder/Dirt Rally Leaderboard Site (08.12.2018)/DirtRallySite/DirtRally/scrapping/DirtRally_codes_for_web_scraping/Dirt_Rally_web_scraping_for_txt/Dirt_Rally_Web_Scraping_for_txt.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/URL_eventId_date_extractor.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/Dirt_Rally_Web_Scraping_for_txt.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8295">
-          <caret line="18" column="63" lean-forward="true" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+        <state relative-caret-position="49707">
+          <caret line="2367" column="23" selection-start-line="2367" selection-start-column="23" selection-end-line="2367" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../database_operations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="295" lean-forward="true" selection-start-line="295" selection-end-line="295" />
+        <state relative-caret-position="3045">
+          <caret line="150" column="40" selection-start-line="150" selection-start-column="40" selection-end-line="150" selection-end-column="40" />
           <folding>
             <element signature="e#124#165#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Programming backup folder/Dirt Rally Leaderboard Site (08.12.2018)/DirtRallySite/DirtRally/scrapping/DirtRally_codes_for_web_scraping/Dirt_Rally_web_scraping_for_txt/Dirt_Rally_Web_Scraping_for_txt.py">
+    <entry file="file://$PROJECT_DIR$/../../models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="189">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="286" column="28" selection-start-line="286" selection-start-column="28" selection-end-line="286" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Dirt_Rally_Web_Scraping_for_txt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="245" lean-forward="true" selection-start-line="245" selection-end-line="246" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../../../../../../Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="2367" column="23" lean-forward="true" selection-start-line="2367" selection-start-column="23" selection-end-line="2367" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/URL_eventId_date_extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="174" column="35" lean-forward="true" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/Dirt_Rally_Web_Scraping_for_txt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="259" column="25" lean-forward="true" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
+        <state relative-caret-position="294">
+          <caret line="221" column="44" selection-start-line="221" selection-start-column="44" selection-end-line="221" selection-end-column="44" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -456,8 +514,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../URL_eventId_date_extractor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="172" column="12" lean-forward="true" selection-start-line="172" selection-start-column="12" selection-end-line="172" selection-end-column="12" />
+        <state relative-caret-position="315">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

@@ -75,6 +75,36 @@ def pagination(request, object):
 
     return users
 # END pagination function.
+
+
+# START function for events date selector string cleaning.
+def date_selector_cleaner(obj):
+    unclean_date_list = []
+    for i in obj:
+        unclean_date_list.append(i.date)
+
+    split_datelist = []
+    for i in unclean_date_list:
+        split_datelist.append(i.split('.'))
+
+    change_year_position_list = []
+    for i in split_datelist:
+        i[0], i[1], i[2] = i[2], i[0], i[1]
+        change_year_position_list.append(i)
+
+    change_year_position_list.sort()
+
+    ordered_list_of_lists = []
+    for i in change_year_position_list:
+        i[2], i[0], i[1] = i[0], i[1], i[2]
+        ordered_list_of_lists.append(i)
+
+    ordered_date_list = []
+    for i in ordered_list_of_lists:
+        ordered_date_list.append('.'.join(i))
+
+    return ordered_date_list[::-1]
+# END function for events date selector string cleaning.
 """------------------------------------------------FUNCTIONS------------------------------------------------"""
 
 
@@ -116,15 +146,15 @@ def top_drivers_order_by_view(request, order_variable):
         th6_activity_tag = 'top_active_sort_button'
 
     elif order_variable == 'first_places' or order_variable == 'percentile_1st_place':
-        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, '-top_3')
         th7_activity_tag = 'top_active_sort_button'
 
     elif order_variable == 'top_3' or order_variable == 'percentile_top_3':
-        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, '-top_10')
         th8_activity_tag = 'top_active_sort_button'
 
     elif order_variable == 'top_10' or order_variable == 'percentile_top_10':
-        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        object_ordered = PlayersInfo.objects.order_by('-' + order_variable, '-top_100')
         th9_activity_tag = 'top_active_sort_button'
 
     elif order_variable == 'top_100' or order_variable == 'percentile_top_100':
@@ -199,15 +229,15 @@ def top_countries_order_by_view(request, order_variable):
         th6_activity_tag = 'top_active_sort_button'
 
     elif order_variable == 'first_places' or order_variable == 'percentile_1st_place':
-        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, '-top_3')
         th7_activity_tag = 'top_active_sort_button'
 
     elif order_variable == 'top_3' or order_variable == 'percentile_top_3':
-        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, '-top_10')
         th8_activity_tag = 'top_active_sort_button'
 
     elif order_variable == 'top_10' or order_variable == 'percentile_top_10':
-        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, 'average_finish_place')
+        object_ordered = CountriesInfo.objects.order_by('-' + order_variable, '-top_100')
         th9_activity_tag = 'top_active_sort_button'
 
     elif order_variable == 'top_100' or order_variable == 'percentile_top_100':
@@ -247,24 +277,58 @@ def top_countries_order_by_view(request, order_variable):
 
 
 
-"""------------------------------------------------DRIVERS STATS VIEW------------------------------------------------"""
+"""------------------------------------------------DRIVER STATS VIEW------------------------------------------------"""
 def driverstats_view(request, drivers_id):
 
-    object_ordered = PlayersInfo.objects.filter(player_id__exact=drivers_id)
+    if PlayersInfo.objects.filter(player_id__exact=drivers_id).exists():
+        object_playerinfo = PlayersInfo.objects.filter(player_id__exact=drivers_id)
 
-    drivers_name = ''
-    drivers_id = ''
+        drivers_name = ''
+        drivers_id_html = ''
+        for i in object_playerinfo:
+            drivers_name = i.name
+            drivers_id_html = i.player_id
+
+        context = {}
+
+        context['drivers_name'] = drivers_name
+        context['drivers_id_html'] = drivers_id_html
+
+        return render(request, 'driver_stats.html', context)
+
+    else:
+        object_leaderboard = LeaderBoard.objects.filter(player_id__exact=drivers_id)
+        finished_events = 0
+        for _ in object_leaderboard:
+            finished_events += 1
+
+        return render(request, 'no_qualified_drivers_page.html', {'finished_events': finished_events})
+"""------------------------------------------------DRIVER STATS VIEW------------------------------------------------"""
+
+
+
+
+
+
+
+
+"""------------------------------------------------COUNTRY STATS VIEW------------------------------------------------"""
+def countrystats_view(request, country_name):
+
+    object_ordered = CountriesInfo.objects.filter(country_name__exact=country_name)
+
+    country_name = ''
     for i in object_ordered:
-        drivers_name = i.name
-        drivers_id = i.player_id
+        country_name = i.country_name
 
     context = {}
 
-    context['drivers_name'] = drivers_name
-    context['drivers_id'] = drivers_id
+    context['country_name'] = country_name
 
-    return render(request, 'driver_stats.html', context)
-"""------------------------------------------------DRIVERS STATS VIEW------------------------------------------------"""
+    return render(request, 'country_stats.html', context)
+"""------------------------------------------------COUNTRY STATS VIEW------------------------------------------------"""
+
+
 
 
 
@@ -276,9 +340,49 @@ def driverstats_view(request, drivers_id):
 
 
 """------------------------------------------------ALL EVENTS VIEW------------------------------------------------"""
-def all_events_view(request):
+def all_events_view(request, event_category, date):
 
-    obj = LeaderBoard.objects.filter(event_info__event_category__exact='Daily', event_info__date__exact='10.19.2018')
+    obj_eventinfo = EventInfo.objects.filter(event_category__exact=event_category)
+
+    obj_daily_eventinfo = EventInfo.objects.filter(event_category__exact='Daily')
+    obj_daily2_eventinfo = EventInfo.objects.filter(event_category__exact='Daily2')
+    obj_weekly_eventinfo = EventInfo.objects.filter(event_category__exact='Weekly')
+    obj_Weekly2_eventinfo = EventInfo.objects.filter(event_category__exact='Weekly2')
+    obj_Monthly_eventinfo = EventInfo.objects.filter(event_category__exact='Monthly')
+
+    obj_leaderboard = LeaderBoard.objects.filter(event_info__event_category__exact=event_category, event_info__date__exact=date)
+
+
+    daily_activity_class = ''
+    daily2_activity_class = ''
+    weekly_activity_class = ''
+    weekly2_activity_class = ''
+    monthly_activity_class = ''
+
+    if event_category == 'Daily':
+        daily_activity_class = 'event-options-container-active'
+
+    elif event_category == 'Daily2':
+        daily2_activity_class = 'event-options-container-active'
+
+    elif event_category == 'Weekly':
+        weekly_activity_class = 'event-options-container-active'
+
+    elif event_category == 'Weekly2':
+        weekly2_activity_class = 'event-options-container-active'
+
+    elif event_category == 'Monthly':
+        monthly_activity_class = 'event-options-container-active'
+
+
+    date_selector_list = date_selector_cleaner(obj_eventinfo)
+
+    date_selector_list_daily = date_selector_cleaner(obj_daily_eventinfo)
+    date_selector_list_daily2 = date_selector_cleaner(obj_daily2_eventinfo)
+    date_selector_list_weekly = date_selector_cleaner(obj_weekly_eventinfo)
+    date_selector_list_weekly2 = date_selector_cleaner(obj_Weekly2_eventinfo)
+    date_selector_list_monthly = date_selector_cleaner(obj_Monthly_eventinfo)
+
 
     position_list = []
     country_name_list = []
@@ -289,7 +393,7 @@ def all_events_view(request):
     diff_1st_list = []
     player_id_list = []
 
-    for i in obj:
+    for i in obj_leaderboard:
 
         position_list.append(i.position)
         country_name_list.append(i.country_name)
@@ -337,7 +441,7 @@ def all_events_view(request):
     weather = ''
     total_drivers = 0
 
-    for info in obj:
+    for info in obj_leaderboard:
 
         date = info.event_info.date
         event_name = info.event_info.event_name
@@ -351,6 +455,18 @@ def all_events_view(request):
 
     context = {}
 
+    context['daily_options_container_active'] = daily_activity_class
+    context['daily2_options_container_active'] = daily2_activity_class
+    context['weekly_options_container_active'] = weekly_activity_class
+    context['weekly2_options_container_active'] = weekly2_activity_class
+    context['monthly_options_container_active'] = monthly_activity_class
+
+    context['date_selector_list'] = date_selector_list
+    context['last_daily_date'] = date_selector_list_daily[0]
+    context['last_daily2_date'] = date_selector_list_daily2[0]
+    context['last_weekly_date'] = date_selector_list_weekly[0]
+    context['last_weekly2_date'] = date_selector_list_weekly2[0]
+    context['last_monthly_date'] = date_selector_list_monthly[0]
     context['date'] = date
     context['event_name'] = event_name
     context['location'] = location
@@ -366,6 +482,8 @@ def all_events_view(request):
 
     return render(request, 'all_events.html', context)
 """------------------------------------------------ALL EVENTS VIEW------------------------------------------------"""
+
+
 
 
 

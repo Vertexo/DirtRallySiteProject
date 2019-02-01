@@ -7,7 +7,8 @@
     <title>Dirt Rally Leaderboards</title>
 
     {% load static %}
-    
+
+    <!-- <script src="jquery-3.3.1.min.js"></script> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="{% static 'scrapping/style.css' %}">
  
@@ -28,9 +29,9 @@
                     </div>
                     <div class="main-nav">
                         <ul>
-                            <li><a href="/drivers_order_by/average_finish_place">Leaderboards</a></li>
-                            <li><a href="/driverstats/133513/">Drivar Stats</a></li>
-                            <li><a href="{% url 'all_events'%}">All Events</a></li>
+                            <li><a href="/drivers_order_by/first_places">Leaderboards</a></li>
+                            <li><a href="/driverstats/133513/">Stats</a></li>
+                            <li><a href="/all_events/Daily/{{ last_date }}/">All Events</a></li>
                             <li><a href="{% url 'how_this_site_works'%}">How This Site Works</a></li>
                         </ul>
                     </div>

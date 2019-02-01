@@ -11,8 +11,8 @@
     	</div>
 		<table class="top_switch_buttons">
 			<tr>
-				<td class="top_inactive_switch_button"><a href="/drivers_order_by/average_finish_place">Top Drivers</a></td>
-				<td class="top_active_switch_button"><a href="/countries_order_by/average_finish_place">Top Countries</a></td>
+				<td class="top_inactive_switch_button"><a href="/drivers_order_by/first_places">Top Drivers</a></td>
+				<td class="top_active_switch_button"><a href="/countries_order_by/first_places">Top Countries</a></td>
 			</tr>	 
 		</table>	    	
 		<div class="unique-drivers unique-countries">
@@ -80,9 +80,9 @@
 		        		<tr>	        			
 	        				<td>{{ forloop.counter }}</td>                     
                             {% with 'scrapping/Country_Flags/'|add:row.country_name|add:'.jpg' as image_static %}
-                                <td><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ row.country_name }}"></td>
+                                <td><a id="flag_links" style="text-decoration: none; color: inherit;" href="/countrystats/{{ row.country_name }}/"><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ row.country_name }}"></a></td>
                             {% endwith %}       
-                            <td>{{ row.country_name }}</td>                                           
+                            <td><a id="name_links" style="text-decoration: none; color: inherit;" href="/countrystats/{{ row.country_name }}/">{{ row.country_name }}</a></td>                                           
                             <td>{{ row.number_of_drivers }}</td>
                             <td>{{ row.events_finished }}</td>
                             <td>{{ row.average_finish_place }}</td>

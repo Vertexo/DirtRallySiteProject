@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="page-background">
+    <div class="page-container">
+        <div>
+            <h2>Country Stats</h2>
+        </div>
+
+        <table class="stats_switch_buttons">
+            <tr>
+                <td class="stats_inactive_switch_button"><a href="/driverstats/133513/">Driver Stats</a></td>
+                <td class="stats_active_switch_button"><a href="/countrystats/Latvia/">Country stats</a></td>
+            </tr>    
+        </table> 
+        
+
+        <div class="country_name">
+            <p>{{ country_name }}</p>
+        </div>
+        
+
+
+        <footer id="stats_footer">
+
+        </footer>
+    </div>
+</div>
+
+{% endblock %}
+

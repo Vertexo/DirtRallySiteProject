@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="page-background">
+    <div class="page-container">
+        <div>
+            <h2>Driver Stats</h2>
+        </div>
+        
+        <table class="stats_switch_buttons">
+            <tr>
+                <td class="stats_active_switch_button"><a href="/driverstats/133513/">Driver Stats</a></td>
+                <td class="stats_inactive_switch_button"><a href="/countrystats/Latvia/">Country stats</a></td>
+            </tr>    
+        </table>            
+        
+
+        <div class="no_qualified_drivers_page">
+            <p>This driver has finished only {{ finished_events }} events so far. To qualify for leaderboards and stats, at least 3 events must be finisher. The purpose of this is to filter out single event cheaters with unrealistic finish times and to clean up the leaderboards for fair drivers.</p>
+        </div>
+
+
+        <footer id="stats_footer">
+
+        </footer>
+    </div>
+</div>
+
+{% endblock %}
+
