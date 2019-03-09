@@ -2,6 +2,10 @@
 
 {% block content %}
 
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="page-background">
     <div class="page-container">
         <div>
@@ -11,18 +15,222 @@
         <table class="stats_switch_buttons">
             <tr>
                 <td class="stats_inactive_switch_button"><a href="/driverstats/133513/">Driver Stats</a></td>
-                <td class="stats_active_switch_button"><a href="/countrystats/Latvia/">Country stats</a></td>
+                <td class="stats_active_switch_button"><a href="/countrystats/{{ country_name }}/overall/overall_points/">Country stats</a></td>
             </tr>    
         </table> 
-        
+
+        <table class="stats_event_category_switch_buttons">
+            <tr>
+                <td class="{{ overall_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/overall/overall_points/">Overall</a></td>
+                <td class="{{ daily_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/daily/daily_points/">Daily</a></td>
+                <td class="{{ daily2_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/daily2/daily2_points/">Daily2</a></td>
+                <td class="{{ weekly_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/weekly/weekly_points/">Weekly</a></td>
+                <td class="{{ weekly2_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/weekly2/weekly2_points/">Weekly2</a></td>
+                <td class="{{ monthly_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/monthly/monthly_points/">Monthly</a></td>
+            </tr>    
+        </table>
 
         <div class="country_name">
             <p>{{ country_name }}</p>
         </div>
+
+        <div class="country_stats_image">
+            {% with 'scrapping/Country_Flags/'|add:country_name|add:'.jpg' as image_static %}
+                <td><img class="flags" src="{% static image_static %}"alt="no picture" height="93px" width="155px" title="{{ country_name }}"></td>
+            {% endwith %}
+        </div>
+
+        {% if event_category == 'overall' %}
+            <div class="country_points_rank_in_the_world"> 
+                <p>Overall World Rank:</p>           
+                <p>{{ overall_country_points_rank_in_the_world }}</p>         
+            </div>
+
+            <div class="stats_unique-drivers">
+                <p>{{ overall_country_qualified_drivers }}</p>
+                <p>&nbsp;- Overall Drivers</p>              
+            </div>
+
+        {% elif event_category == 'daily' %}
+            <div class="country_points_rank_in_the_world"> 
+                <p>Daily World Rank:</p>           
+                <p>{{ daily_country_points_rank_in_the_world }}</p>         
+            </div>    
+
+            <div class="stats_unique-drivers">
+                <p>{{ daily_country_qualified_drivers }}</p>
+                <p>&nbsp;- Daily Drivers</p>                
+            </div>
+
+        {% elif event_category == 'daily2' %}
+            <div class="country_points_rank_in_the_world"> 
+                <p>Daily2 World Rank:</p>           
+                <p>{{ daily2_country_points_rank_in_the_world }}</p>         
+            </div>      
+
+            <div class="stats_unique-drivers">
+                <p>{{ daily2_country_qualified_drivers }}</p>
+                <p>&nbsp;- Daily2 Drivers</p>               
+            </div>
+
+        {% elif event_category == 'weekly' %}
+            <div class="country_points_rank_in_the_world"> 
+                <p>Weekly World Rank:</p>           
+                <p>{{ weekly_country_points_rank_in_the_world }}</p>         
+            </div>
+
+            <div class="stats_unique-drivers">
+                <p>{{ weekly_country_qualified_drivers }}</p>
+                <p>&nbsp;- Weekly Drivers</p>               
+            </div>
+
+        {% elif event_category == 'weekly2' %}
+            <div class="country_points_rank_in_the_world"> 
+                <p>Weekly2 World Rank:</p>           
+                <p>{{ weekly2_country_points_rank_in_the_world }}</p>         
+            </div>
+
+            <div class="stats_unique-drivers">
+                <p>{{ weekly2_country_qualified_drivers }}</p>
+                <p>&nbsp;- Weekly2 Drivers</p>              
+            </div>
+
+        {% elif event_category == 'monthly' %}
+            <div class="country_points_rank_in_the_world"> 
+                <p>Monthly World Rank:</p>           
+                <p>{{ monthly_country_points_rank_in_the_world }}</p>         
+            </div>
+
+            <div class="stats_unique-drivers">
+                <p>{{ monthly_country_qualified_drivers }}</p>
+                <p>&nbsp;- Monthly Drivers</p>              
+            </div>
+
+        {% endif %}
+
+       <!--  <div class="my_pagination_buttons">
+            {% include "includable_html_files/pagination_buttons.html" %}
+        </div> -->
+        
+        <div class="country_stats_tables">                  
+                <table class="country_stats_top_drivers_table">   
+                    <tr>
+                        <th>Position</th>  
+
+                        <th>Name</th>
+
+                        <th>Driver ID</th>
+
+                        <th class="{{ stats_th4_activity_tag }}">
+                            <a href="/countrystats/{{ country_name }}/{{ event_category }}/{{ event_category }}_events_finished/">Events</a>
+                        </th>
+
+                        <th class="{{ stats_th5_activity_tag }}">
+                            <a href="/countrystats/{{ country_name }}/{{ event_category }}/{{ event_category }}_points/">Points</a>
+                        </th>
+
+                        <th class="{{ stats_th6_activity_tag }}">
+                            <a href="/countrystats/{{ country_name }}/{{ event_category }}/{{ event_category }}_average_finish_place/">Average Place</a>
+                        </th>
+
+                        <th class="{{ stats_th7_activity_tag }}">
+                            <a href="/countrystats/{{ country_name }}/{{ event_category }}/{{ event_category }}_first_places/">1st Places</a>
+                        </th>
+
+                        <th class="{{ stats_th8_activity_tag }}">
+                            <a href="/countrystats/{{ country_name }}/{{ event_category }}/{{ event_category }}_top_3/">Top 3</a>
+                        </th>
+
+                        <th class="{{ stats_th9_activity_tag }}">
+                            <a href="/countrystats/{{ country_name }}/{{ event_category }}/{{ event_category }}_top_10/">Top 10</a>
+                        </th>
+
+                        <th class="{{ stats_th10_activity_tag }}">
+                            <a href="/countrystats/{{ country_name }}/{{ event_category }}/{{ event_category }}_top_100/">Top 100</a>
+                        </th>
+
+                        <th class="{{ stats_th11_activity_tag }}">
+                            <a href="/countrystats/{{ country_name }}/{{ event_category }}/{{ event_category }}_driving_time_seconds/">Driving Time</a>
+                        </th>
+                    </tr>
+
+                    {% for row in object_ordered %}
+                        <tr>                        
+                            <td>{{ forloop.counter }}</td>                                           
+                            <td><a id="name_links" title="{{ row.name }}" style="text-decoration: none; color: inherit;" href="/driverstats/{{ row.player_id }}/">{{ row.name }}</a></td>
+                            <td><a id="playerid_links" style="text-decoration: none; color: inherit;" href="/driverstats/{{ row.player_id }}/">{{ row.player_id }}</a></td>
+                            
+                        {% if event_category == 'overall' %}
+                            <td>{{ row.overall_events_finished }}</td>
+                            <td>{{ row.overall_points }}</td>
+                            <td>{{ row.overall_average_finish_place }}</td>                             
+                            <td>{{ row.overall_first_places }}</td>
+                            <td>{{ row.overall_top_3 }}</td>
+                            <td>{{ row.overall_top_10 }}</td>
+                            <td>{{ row.overall_top_100 }}</td>
+                            <td>{{ row.overall_driving_time_seconds }}</td>
+
+                        {% elif event_category == 'daily' %}
+                            <td>{{ row.daily_events_finished }}</td>
+                            <td>{{ row.daily_points }}</td>
+                            <td>{{ row.daily_average_finish_place }}</td>
+                            <td>{{ row.daily_first_places }}</td>
+                            <td>{{ row.daily_top_3 }}</td>
+                            <td>{{ row.daily_top_10 }}</td>
+                            <td>{{ row.daily_top_100 }}</td>
+                            <td>{{ row.daily_driving_time_seconds }}</td>
+
+                        {% elif event_category == 'daily2' %}
+                            <td>{{ row.daily2_events_finished }}</td>
+                            <td>{{ row.daily2_points }}</td>
+                            <td>{{ row.daily2_average_finish_place }}</td>                            
+                            <td>{{ row.daily2_first_places }}</td>
+                            <td>{{ row.daily2_top_3 }}</td>
+                            <td>{{ row.daily2_top_10 }}</td>
+                            <td>{{ row.daily2_top_100 }}</td>
+                            <td>{{ row.daily2_driving_time_seconds }}</td>
+
+                        {% elif event_category == 'weekly' %}
+                            <td>{{ row.weekly_events_finished }}</td>
+                            <td>{{ row.weekly_points }}</td>
+                            <td>{{ row.weekly_average_finish_place }}</td>                         
+                            <td>{{ row.weekly_first_places }}</td>
+                            <td>{{ row.weekly_top_3 }}</td>
+                            <td>{{ row.weekly_top_10 }}</td>
+                            <td>{{ row.weekly_top_100 }}</td>
+                            <td>{{ row.weekly_driving_time_seconds }}</td>
+
+                        {% elif event_category == 'weekly2' %}
+                            <td>{{ row.weekly2_events_finished }}</td>
+                            <td>{{ row.weekly2_points }}</td>
+                            <td>{{ row.weekly2_average_finish_place }}</td>
+                            <td>{{ row.weekly2_first_places }}</td>
+                            <td>{{ row.weekly2_top_3 }}</td>
+                            <td>{{ row.weekly2_top_10 }}</td>
+                            <td>{{ row.weekly2_top_100 }}</td>
+                            <td>{{ row.weekly2_driving_time_seconds }}</td>
+
+
+                        {% elif event_category == 'monthly' %}
+                            <td>{{ row.monthly_events_finished }}</td>
+                            <td>{{ row.monthly_points }}</td>
+                            <td>{{ row.monthly_average_finish_place }}</td>
+                            <td>{{ row.monthly_first_places }}</td>
+                            <td>{{ row.monthly_top_3 }}</td>
+                            <td>{{ row.monthly_top_10 }}</td>
+                            <td>{{ row.monthly_top_100 }}</td>
+                            <td>{{ row.monthly_driving_time_seconds }}</td>
+
+                        {% endif %}
+
+                        </tr>
+                    {% endfor %}                                                
+                </table>                          
+        </div>
         
 
 
-        <footer id="stats_footer">
+        <footer>
 
         </footer>
     </div>

@@ -29,10 +29,10 @@
                     </div>
                     <div class="main-nav">
                         <ul>
-                            <li><a href="/drivers_order_by/first_places">Leaderboards</a></li>
-                            <li><a href="/driverstats/133513/">Stats</a></li>
-                            <li><a href="/all_events/Daily/{{ last_date }}/">All Events</a></li>
-                            <li><a href="{% url 'how_this_site_works'%}">How This Site Works</a></li>
+                            <li class="{{ main_nav_button_1_tag }}"><a href="/drivers_order_by/overall/overall_points/">Leaderboards</a></li>
+                            <li class="{{ main_nav_button_2_tag }}"><a href="/driverstats/133513/">Stats</a></li>
+                            <li class="{{ main_nav_button_3_tag }}"><a href="/all_events/Daily/{{ last_date }}/">All Events</a></li>
+                            <li class="{{ main_nav_button_4_tag }}"><a href="{% url 'how_this_site_works'%}">How This Site Works</a></li>
                         </ul>
                     </div>
                 </div>

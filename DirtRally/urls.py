@@ -17,17 +17,17 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls import url
 
-from scrapping.views import driverstats_view, all_events_view, how_this_site_works_view, \
-    top_drivers_order_by_view, top_countries_order_by_view, countrystats_view
+from scrapping.views import all_events_view, how_this_site_works_view, \
+    top_drivers_order_by_view, top_countries_order_by_view, driverstats_view, countrystats_view
 
 urlpatterns = [
     url('admin/', admin.site.urls),
 
-    path('drivers_order_by/<order_variable>/', top_drivers_order_by_view, name='top_drivers_order_by_view'),
-    path('countries_order_by/<order_variable>/', top_countries_order_by_view, name='top_countries_order_by_view'),
+    path('drivers_order_by/<event_category>/<order_variable>/', top_drivers_order_by_view, name='top_drivers_order_by_view'),
+    path('countries_order_by/<event_category>/<order_variable>/', top_countries_order_by_view, name='top_countries_order_by_view'),
 
     path('driverstats/<drivers_id>/', driverstats_view, name='driverstats'),
-    path('countrystats/<country_name>/', countrystats_view, name='countrystats'),
+    path('countrystats/<country_name>/<event_category>/<order_variable>/', countrystats_view, name='countrystats'),
     path('all_events/<event_category>/<date>/', all_events_view, name='all_events'),
     url('how_this_site_works/', how_this_site_works_view, name='how_this_site_works'),
 ]

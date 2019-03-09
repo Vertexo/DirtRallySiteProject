@@ -2,6 +2,10 @@
 
 {% block content %}
 
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="page-background">
     <div class="page-container">
         <div>
@@ -10,20 +14,224 @@
         
         <table class="stats_switch_buttons">
             <tr>
-                <td class="stats_active_switch_button"><a href="/driverstats/133513/">Driver Stats</a></td>
-                <td class="stats_inactive_switch_button"><a href="/countrystats/Latvia/">Country stats</a></td>
+                <td class="stats_active_switch_button"><a href="/driverstats/{{ drivers_id }}/">Driver Stats</a></td>
+                <td class="stats_inactive_switch_button"><a href="/countrystats/Latvia/overall/overall_points/">Country stats</a></td>
             </tr>    
-        </table>            
+        </table>   
+
+        <div class="search">
+          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID...">
+          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
+       </div>         
         
         <div class="driver_name">
-            <p>{{ drivers_name }}</p>
+            <span>{% with 'scrapping/Country_Flags/'|add:country_from|add:'.jpg' as image_static %}
+                        <td><a id="flag_links" style="text-decoration: none; color: inherit;" href="/countrystats/{{ country_from }}/overall/overall_points/"><img class="flags" src="{% static image_static %}" alt="no picture" height="37.5px" width="62.5px" title="{{ country_from }}"></a></td>
+                    {% endwith %}
+            </span>
+            <span>{{ drivers_name }}</span>
         </div>
+
         <div class="driver_id">
-            <p>{{ drivers_id_html }}</p>
+            <p>Driver ID: {{ drivers_id }}</p>
+        </div>
+
+        <div class="driver_main_stats_table_div">                 
+            <table class="driver_main_stats_table">
+                
+                <tr>
+                    <th colspan="10" style="color: white; background-color: #337ab7;">Stats</th>
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <th>Events</th>
+                    <th>Points</th>
+                    <th title="Average Points per Event">Average Points</th>
+                    <th>Average Place</th>
+                    <th>1st Places</th>
+                    <th>Top 3</th>
+                    <th>Top 10</th>
+                    <th>Top 100</th>
+                    <th>Driving Time</th>
+                </tr>
+
+                <tr>
+                    <th>Overall</th>                                                                        
+                    <td>{{ overall_events_finished }}</td>
+                    <td>{{ overall_points }}</td>
+                    <td>{{ overall_average_points }}</td>
+                    <td>{{ overall_average_finish_place }}</td>                  
+                    <td>{{ overall_first_places }}</td>                  
+                    <td>{{ overall_top_3 }}</td>                   
+                    <td>{{ overall_top_10 }}</td>                   
+                    <td>{{ overall_top_100 }}</td>                   
+                    <td>{{ overall_driving_time_seconds }}</td>
+                </tr>
+
+                <tr>
+                    <th>Daily</th>                                                                        
+                    <td>{{ daily_events_finished }}</td>
+                    <td>{{ daily_points }}</td>
+                    <td>{{ daily_average_points }}</td>
+                    <td>{{ daily_average_finish_place }}</td>                  
+                    <td>{{ daily_first_places }}</td>                  
+                    <td>{{ daily_top_3 }}</td>                   
+                    <td>{{ daily_top_10 }}</td>                   
+                    <td>{{ daily_top_100 }}</td>                   
+                    <td>{{ daily_driving_time_seconds }}</td>
+                </tr>
+
+                <tr>
+                    <th>Daily2</th>                                                                        
+                    <td>{{ daily2_events_finished }}</td>
+                    <td>{{ daily2_points }}</td>
+                    <td>{{ daily2_average_points }}</td>
+                    <td>{{ daily2_average_finish_place }}</td>                  
+                    <td>{{ daily2_first_places }}</td>                  
+                    <td>{{ daily2_top_3 }}</td>                   
+                    <td>{{ daily2_top_10 }}</td>                   
+                    <td>{{ daily2_top_100 }}</td>                   
+                    <td>{{ daily2_driving_time_seconds }}</td>
+                </tr>
+
+                <tr>
+                    <th>Weekly</th>                                                                        
+                    <td>{{ weekly_events_finished }}</td>
+                    <td>{{ weekly_points }}</td>
+                    <td>{{ weekly_average_points }}</td>
+                    <td>{{ weekly_average_finish_place }}</td>                  
+                    <td>{{ weekly_first_places }}</td>                  
+                    <td>{{ weekly_top_3 }}</td>                   
+                    <td>{{ weekly_top_10 }}</td>                   
+                    <td>{{ weekly_top_100 }}</td>                   
+                    <td>{{ weekly_driving_time_seconds }}</td>
+                </tr>
+
+                <tr>
+                    <th>Weekly2</th>                                                                        
+                    <td>{{ weekly2_events_finished }}</td>
+                    <td>{{ weekly2_points }}</td>
+                    <td>{{ weekly2_average_points }}</td>
+                    <td>{{ weekly2_average_finish_place }}</td>                  
+                    <td>{{ weekly2_first_places }}</td>                  
+                    <td>{{ weekly2_top_3 }}</td>                   
+                    <td>{{ weekly2_top_10 }}</td>                   
+                    <td>{{ weekly2_top_100 }}</td>                   
+                    <td>{{ weekly2_driving_time_seconds }}</td>
+                </tr>
+                    
+                <tr>
+                    <th>Monthly</th>                                                                        
+                    <td>{{ monthly_events_finished }}</td>
+                    <td>{{ monthly_points }}</td>
+                    <td>{{ monthly_average_points }}</td>
+                    <td>{{ monthly_average_finish_place }}</td>                  
+                    <td>{{ monthly_first_places }}</td>                  
+                    <td>{{ monthly_top_3 }}</td>                   
+                    <td>{{ monthly_top_10 }}</td>                   
+                    <td>{{ monthly_top_100 }}</td>                   
+                    <td>{{ monthly_driving_time_seconds }}</td>
+                </tr>
+
+            </table>
         </div>
 
 
-        <footer id="stats_footer">
+
+
+
+
+        <div class="driver_events_stats_table">
+            <div class="events_stats_headers">
+                <p>Participation Stats</p>
+            </div>
+            
+            <table class="driver_events_stats_stats_table">
+                <tr>
+                    <th>Daily Events</th> 
+                    <th>Daily2 Events</th>
+                    <th>Weekly Events</th>
+                    <th>Weekly2 Events</th>
+                    <th>Monthly Events</th>
+                </tr>
+                <tr>                                                                        
+                    <td>{{ daily_events_completed }} out of {{ total_daily_events }} events</td>
+                    <td>{{ daily2_events_completed }} out of {{ total_daily2_events }} events</td>                  
+                    <td>{{ weekly_events_completed }} out of {{ total_weekly_events }} events</td>
+                    <td>{{ weekly2_events_completed }} out of {{ total_weekly2_events }} events</td>             
+                    <td>{{ monthly_events_completed }} out of {{ total_monthly_events }} events</td>
+                </tr>
+                <tr class="driver_events_stats_stats_table_percentile">                                                                        
+                    <td><font color='red'>({{ daily_events_completed_percent }}%)</font></td>
+                    <td><font color='red'>({{ daily2_events_completed_percent }}%)</font></td>                  
+                    <td><font color='red'>({{ weekly_events_completed_percent }}%)</font></td>
+                    <td><font color='red'>({{ weekly2_events_completed_percent }}%)</font></td>             
+                    <td><font color='red'>({{ monthly_events_completed_percent }}%)</font></td>
+                </tr>
+                <tr>
+                    <td>                                 
+                        <div class="driver_stats_date_selector">
+                            <form>
+                                <select>
+                                    {% for date in daily_events_date_list %}
+                                        <option value="/all_events/Daily/{{ date }}/">{{ date }}</option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </div>
+                    </td>
+                    <td>                                 
+                        <div class="driver_stats_date_selector">
+                            <form>
+                                <select>
+                                    {% for date in daily2_events_date_list %}
+                                    <option value="/all_events/Daily2/{{ date }}/">{{ date }}</option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </div>
+                    </td>
+                    <td>                                 
+                        <div class="driver_stats_date_selector">
+                            <form>
+                                <select>
+                                    {% for date in weekly_events_date_list %}
+                                        <option value="/all_events/Weekly/{{ date }}/">{{ date }}</option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </div>
+                    </td>
+                    <td>                                 
+                        <div class="driver_stats_date_selector">
+                            <form>
+                                <select>
+                                    {% for date in weekly2_events_date_list %}
+                                        <option value="/all_events/Weekly2/{{ date }}/">{{ date }}</option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </div>
+                    </td>
+                    <td>                                 
+                        <div class="driver_stats_date_selector">
+                            <form>
+                                <select>
+                                    {% for date in monthly_events_date_list %}
+                                        <option value="/all_events/Monthly/{{ date }}/">{{ date }}</option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+        <footer>
 
         </footer>
     </div>

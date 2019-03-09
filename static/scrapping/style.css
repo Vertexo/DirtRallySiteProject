@@ -1,10 +1,5 @@
 
-
-
-/*START for base.html page $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
-
-
-
+/* START of BASE page CSS 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 body {
 	font-family: Arial;
 }
@@ -134,16 +129,24 @@ body {
 	padding: 5px;
 	text-decoration: none;
 	border: 1px solid #73B5CF;
-	border-radius: 5px;
+	border-radius: 7px;
 	box-shadow: 1px 1px 1px 1px #73B5CF;
 	
 }
 .main-nav a:hover {
 	padding: 4px;
 	border: 2px solid #FFF;
-	border-radius: 5px;
+	border-radius: 7px;
 	box-shadow: 1px 1px 1px 1px #FFF;
 }
+
+.main_button_active a {
+	padding: 4px;
+	border: 2px solid #FFF;
+	border-radius: 7px;
+	box-shadow: 2px 2px 2px 2px #FFF;
+}
+
 
 
 
@@ -160,7 +163,7 @@ body {
 }
 
 .page-container {
-	max-width: 1290px;
+	max-width: 1400px;
 	margin: auto;
 	padding-top: 140px;
 }
@@ -233,11 +236,7 @@ body {
 		padding-top: 220px;
 		}
 	}
-
-
-
-/*END for base.html page $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
-
+/* END of BASE page CSS 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 
 
 
@@ -256,17 +255,1076 @@ body {
 
 
 
-/*START for All Events page $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 
 
 
+
+/* START of LEADERBOARDS page CSS 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
+
+/* Two big switch buttons at the top of Drivers and Countries LEADERBOARDS page. 2222222222222222222222222222222222222222222 */
+.leaderboards_switch_buttons {
+	margin: auto;
+	width: 50%;
+	height: 30px;
+	background-color: white;
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+.leaderboards_switch_buttons td {
+	text-align: center;
+	font-size: 24px;
+	width: 50%;
+	border: 2px solid rgba(15, 54, 94, 1);
+}
+
+.leaderboards_switch_buttons a {
+	text-decoration: none;
+	display: block;
+	color: black;
+}
+
+.leaderboards_switch_buttons td:hover {
+	background-color: #337ab7;
+}
+
+.leaderboards_switch_buttons td:hover a {
+	color: white;
+}
+
+.leaderboards_active_switch_button {
+	background-color: rgba(15, 54, 94, 1);
+}
+
+.leaderboards_active_switch_button a {
+	color: white;
+}
+/* Two big switch buttons at the top of Drivers and Countries LEADERBOARDS page. 2222222222222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+
+/* Five event category switch buttons at the top of Drivers and Countries LEADERBOARDS page. 2222222222222222222222222222222 */
+.leaderboards_event_category_switch_buttons {
+	margin: auto;
+	width: 50%;
+	height: 30px;
+	margin-top: 30px;
+	background-color: white;
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+.leaderboards_event_category_switch_buttons td {
+	text-align: center;
+	font-size: 24px;
+	width: 18%;
+	border: 2px solid rgba(15, 54, 94, 1);
+}
+
+.leaderboards_event_category_switch_buttons a {
+	text-decoration: none;
+	display: block;
+	color: black;
+}
+
+.leaderboards_event_category_switch_buttons td:hover {
+	background-color: #337ab7;
+}
+
+.leaderboards_event_category_switch_buttons td:hover a {
+	color: white;
+}
+
+.leaderboards_active_category_switch_button {
+	background-color: rgba(15, 54, 94, 1);
+}
+
+.leaderboards_active_category_switch_button a {
+	color: white;
+}
+/* Five event category switch buttons at the top of Drivers and Countries LEADERBOARDS page. 222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+
+/* Driver counter for each event category on Drivers LEADERBOARDS page. 222222222222222222222222222222222222222222222222222222 */
+.leaderboards_unique-drivers {
+	margin-top: 40px;
+	width: 500px;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+}
+
+.leaderboards_unique-drivers p {
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.leaderboards_unique-drivers p:nth-child(1) {
+	font-size: 25px;
+	background-color: orange;
+	border: 1px solid rgba(15, 54, 94, 1);
+}
+
+.leaderboards_unique-drivers p:nth-child(2) {
+	font-size: 20px;
+}
+/* Driver counter for each event category on Drivers LEADERBOARDS page. 2222222222222222222222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+
+/* SEARCH field on Drivers LEADERBOARDS page 22222222222222222222222222222222222222222222222222222222222222222222222222222222 */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.search{
+	width: 30%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.searchTerm {
+	width: 90%;
+	height: 36px;
+	padding-left: 10px;
+	border: 3px solid rgba(15, 54, 94, 1);
+	box-sizing: border-box;
+	/*border-radius: 5px;*/
+	color: rgba(15, 54, 94, 1);
+	font-size: 20px;
+}
+
+.searchTerm:focus{
+	color: rgba(15, 54, 94, 1);
+}
+
+.searchButton {
+	float: right;
+	width: 10%;
+	height: 36px;
+	/*border: 1px solid rgba(15, 54, 94, 1);*/
+	background: orange;
+	text-align: center;
+	color: rgba(15, 54, 94, 1);
+	/*border-radius: 5px;*/
+	cursor: pointer;
+	font-size: 20px;
+}
+/* SEARCH field on Drivers LEADERBOARDS page 2222222222222222222222222222222222222222222222222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+
+/* Common section for both Drivers and Countries LEADERBOARDS tables 222222222222222222222222222222222222222222222222222222 */
+.leaderboards_tables {
+	font-size: 16px;
+	width: 100%;
+	height: 30px;
+	background-color: white;
+	display: inline-table;
+	box-sizing: border-box;
+	text-align: center;
+	border: 3px solid rgba(15, 54, 94, 1);
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+.leaderboards_tables a {
+	text-decoration: none;
+	display: block;
+}
+
+
+
+#flag_links {
+	display: inline-block;
+}
+
+#name_links {
+	display: inline-block;
+}
+
+#playerid_links {
+	display: inline-block;
+}
+/* Common section for both Drivers and Countries LEADERBOARDS tables 2222222222222222222222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+/* Drivers main table on LEADERBOARDS page 222222222222222222222222222222222222222222222222222222222222222222222222222222 */
+.leaderboards_drivers_table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	background-color: white;
+	table-layout: fixed;
+}
+
+.leaderboards_drivers_table th {
+	height: 40px;
+	margin: 0px;
+	border-bottom: 3px solid rgba(15, 54, 94, 1);
+	background-color: darkorange;
+}
+
+.leaderboards_drivers_table td {
+	height: 40px;
+	padding: 0px;
+	border-bottom: 1px solid rgba(15, 54, 94, 1);
+}
+
+.leaderboards_drivers_table th:nth-child(1) {
+	width: 80px;
+}
+
+.leaderboards_drivers_table th:nth-child(2) {
+	width: 75px;
+}
+
+.leaderboards_drivers_table td:nth-child(3) {
+	width: 164px;
+	text-align: left;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;
+}
+
+
+
+.leaderboards_drivers_table th:nth-child(4) {
+	width: 86px;
+}
+
+.leaderboards_drivers_table th:nth-child(5) {
+	width: 120px;
+}
+
+.leaderboards_drivers_table th:nth-child(6) {
+	width: 133px;
+}
+
+.leaderboards_drivers_table th:nth-child(7) {
+	width: 133px;
+}
+
+.leaderboards_drivers_table th:nth-child(8) {
+	width: 103px;
+}
+
+.leaderboards_drivers_table th:nth-child(9) {
+	width: 103px;
+}
+
+.leaderboards_drivers_table th:nth-child(10) {
+	width: 103px;
+}
+
+.leaderboards_drivers_table th:nth-child(11) {
+	width: 103px;
+}
+
+.leaderboards_drivers_table td:nth-child(12)  {
+	text-align: left;
+	width: 175px;
+}
+
+
+
+
+
+
+
+ 
+.leaderboards_drivers_table .leaderboards_active_sort_button {
+	background-color: rgba(15, 54, 94, 1);
+}
+
+.leaderboards_active_sort_button a {
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.leaderboards_inactive_sort_button a {
+	color: black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.leaderboards_active_sort_button:hover {
+	background-color: #337ab7;
+}
+
+.leaderboards_inactive_sort_button:hover {
+	background-color: #337ab7;
+}
+
+.leaderboards_inactive_sort_button:hover a {
+	color: white;
+}
+/* Drivers main table on LEADERBOARDS page 22222222222222222222222222222222222222222222222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+
+/* Countries counter for each event category on Drivers LEADERBOARDS page. 2222222222222222222222222222222222222222222222 */
+.leaderboards_unique-countries {
+	margin-top: 40px;
+	margin-bottom: 132px;
+	width: 500px;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+}
+
+.leaderboards_unique-countries p {
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.leaderboards_unique-countries p:nth-child(1) {
+	font-size: 25px;
+	background-color: orange;
+	border: 1px solid rgba(15, 54, 94, 1);
+}
+
+.leaderboards_unique-countries p:nth-child(2) {
+	font-size: 20px;
+}
+/* Countries counter for each event category on Drivers LEADERBOARDS page. 222222222222222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+
+/* Countries main table on LEADERBOARDS page 222222222222222222222222222222222222222222222222222222222222222222222222222 */
+.leaderboards_countries_table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	background-color: white;
+}
+
+.leaderboards_countries_table th {
+	height: 40px;
+	border-bottom: 3px solid rgba(15, 54, 94, 1);
+	background-color: darkorange;
+}
+
+.leaderboards_countries_table td {
+	height: 40px;
+	border-bottom: 1px solid rgba(15, 54, 94, 1);
+}
+
+.leaderboards_countries_table td:nth-child(3) {
+	word-wrap: break-word;
+	width: 150px;
+	text-align: left;
+}
+
+.leaderboards_countries_table td:nth-child(4) {
+	width: 75px;
+}
+
+.leaderboards_countries_table td:nth-child(5) {
+	width: 75px;
+}
+
+.leaderboards_countries_table td:nth-child(6) {
+	width: 100px;
+}
+
+.leaderboards_countries_table td:nth-child(7) {
+	width: 130px;
+}
+
+.leaderboards_countries_table td:nth-child(8) {
+	width: 130px;
+}
+
+.leaderboards_countries_table td:nth-child(9) {
+	width: 90px;
+}
+
+.leaderboards_countries_table td:nth-child(10) {
+	width: 90px;
+}
+
+.leaderboards_countries_table td:nth-child(11) {
+	width: 90px;
+}
+
+.leaderboards_countries_table td:nth-child(12) {
+	width: 90px;
+}
+.leaderboards_countries_table td:nth-child(13)  {
+	text-align: left;
+	width: 175px;
+}
+
+.leaderboards_countries_table .leaderboards_active_sort_button {
+	background-color: rgba(15, 54, 94, 1);
+}
+
+.leaderboards_active_sort_button:hover {
+	background-color: #337ab7;
+}
+/* Countries main table on LEADERBOARDS page 2222222222222222222222222222222222222222222222222222222222222222222 */
+
+/* END of LEADERBOARDS page CSS 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
+
+
+
+
+
+
+
+
+
+
+/* START of STATS page CSS 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
+.stats_switch_buttons {
+	margin: auto;
+	width: 50%;
+	height: 30px;
+	background-color: white;
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+.stats_switch_buttons td {
+	text-align: center;
+	font-size: 24px;
+	width: 50%;
+	border: 2px solid rgba(15, 54, 94, 1);
+}
+
+.stats_switch_buttons a {
+	text-decoration: none;
+	display: block;
+	color: black;
+}
+
+.stats_switch_buttons td:hover {
+	background-color: #337ab7;
+}
+
+.stats_switch_buttons td:hover a {
+	color: white;
+}
+
+.stats_active_switch_button {
+	background-color: rgba(15, 54, 94, 1);
+}
+
+.stats_active_switch_button a {
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+/* START of Driver STATS CSS 2222222222222222222222222222222222222222222222222222222222222222 */
+
+/* Driver's Flag, Name and ID 333333333333333333333333333333333333333333333333333333333333333*/
+.driver_name {
+	margin-top: 50px;
+	font-size: 50px;
+	width: 800px;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.driver_name span {
+	color: orange;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.driver_id {
+	margin-bottom: 20px;
+	font-size: 30px;
+	width: 800px;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.driver_id p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: rgba(15, 54, 94, 1)
+}
+/* Driver's Flag, Name and ID 333333333333333333333333333333333333333333333333333333333333333 */
+
+
+
+
+
+
+
+
+
+/* Category stats tables 33333333333333333333333333333333333333333333333333333333333333333333 */
+.driver_main_stats_table_div {
+	font-size: 16px;
+	width: 100%;
+	height: 30px;
+	margin-top: 30px;
+	background-color: white;
+	display: inline-table;
+	box-sizing: border-box;
+	text-align: center;
+	border: 3px solid rgba(15, 54, 94, 1);
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+.driver_main_stats_table_div a {
+	text-decoration: none;
+	display: block;
+}
+
+
+
+
+
+.driver_main_stats_table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	background-color: white;
+	table-layout: fixed;
+}
+
+.driver_main_stats_table th {
+	height: 40px;
+	margin: 0px;
+	border-bottom: 3px solid rgba(15, 54, 94, 1);
+	background-color: darkorange;
+}
+
+.driver_main_stats_table td {
+	height: 40px;
+	padding: 0px;
+	border-bottom: 1px solid rgba(15, 54, 94, 1);
+}
+
+
+
+
+
+.driver_main_stats_table tr:nth-child(1) {
+	font-size: 24px;
+}
+
+.driver_main_stats_table tr:nth-child(n+3) th {
+	border-right: 3px solid rgba(15, 54, 94, 1);
+}
+
+.driver_main_stats_table tr:nth-child(2) th:nth-child(1) {
+	border-right: 3px solid rgba(15, 54, 94, 1);
+}
+
+.driver_main_stats_table tr:nth-child(8) th {
+	border-bottom: none;
+}
+
+.driver_main_stats_table tr:nth-child(8) td {
+	border-bottom: none;
+}
+
+.driver_main_stats_table tr:nth-child(3) td {
+	font-weight: bold;
+	/*font-size: 20px;*/
+}
+/* Category stats tables 33333333333333333333333333333333333333333333333333333333333333333333 */
+
+
+
+
+
+
+
+
+
+
+
+
+.driver_events_stats_table {
+	position: relative;
+	width: 100%;
+	height: 180px;
+	margin-top: 30px;
+	background-color: white;
+	display: inline-table;
+	/*box-sizing: border-box;*/
+	border: 3px solid rgba(15, 54, 94, 1);
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+.events_stats_headers {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	text-align: center;
+	background-color: darkorange;
+}
+
+.events_stats_headers p {
+	font-size: 24px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	margin: 0px;
+	border-bottom: 3px solid rgba(15, 54, 94, 1);
+}
+
+.driver_events_stats_stats_table {
+	position: absolute;
+	right: 100px;
+	bottom: 10px;
+}
+
+.driver_events_stats_stats_table th {
+	border-bottom: 3px solid rgba(15, 54, 94, 1);
+}
+
+.driver_events_stats_stats_table td {
+	text-align: center;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 200px;
+}
+
+.driver_events_stats_stats_table_percentile td {
+	text-align: center;
+	padding-top: 5px;
+	border-top: 0px solid rgba(15, 54, 94, 1);
+	width: 250px;
+}
+
+.driver_stats_date_selector {
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	font-size: 16px;
+	width: 100px;
+}
+
+
+
+
+
+
+
+
+
+/* No qualified drivers page 3333333333333333333333333333333333333333333333333333333333333333333333333 */
+.no_qualified_drivers_page {
+	margin-top: 50px;
+	font-size: 30px;
+	width: 800px;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.no_qualified_drivers_page p {
+	margin-bottom: 0px;
+	color: rgba(15, 54, 94, 1);
+}
+/* No qualified drivers page 3333333333333333333333333333333333333333333333333333333333333333333333333 */
+
+/* END of Driver STATS CSS 222222222222222222222222222222222222222222222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+
+/* START of Country STATS CSS 222222222222222222222222222222222222222222222222222222222222222222222 */
+.country_name {
+	margin-top: 50px;
+	margin-bottom: 10px;
+	font-size: 50px;
+	width: 800px;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.country_name p {
+	margin-bottom: 0px;
+	color: orange;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.country_stats_image {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.country_stats_image img {
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+
+
+
+
+
+.country_points_rank_in_the_world {
+	margin-top: 20px;
+	width: 800px;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+}
+
+.country_points_rank_in_the_world p {
+	font-size: 25px;
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.country_points_rank_in_the_world p:nth-child(1) {
+	font-size: 20px;
+}
+
+.country_points_rank_in_the_world p:nth-child(2) {
+	font-size: 25px;
+	background-color: orange;
+	border: 1px solid rgba(15, 54, 94, 1);
+}
+
+
+
+
+
+/* Five event category switch buttons at the top of Drivers and Countries LEADERBOARDS page. 2222222222222222222222222222222 */
+.stats_event_category_switch_buttons {
+	margin: auto;
+	width: 50%;
+	height: 30px;
+	margin-top: 30px;
+	background-color: white;
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+.stats_event_category_switch_buttons td {
+	text-align: center;
+	font-size: 24px;
+	width: 18%;
+	border: 2px solid rgba(15, 54, 94, 1);
+}
+
+.stats_event_category_switch_buttons a {
+	text-decoration: none;
+	display: block;
+	color: black;
+}
+
+.stats_event_category_switch_buttons td:hover {
+	background-color: #337ab7;
+}
+
+.stats_event_category_switch_buttons td:hover a {
+	color: white;
+}
+
+.stats_active_category_switch_button {
+	background-color: rgba(15, 54, 94, 1);
+}
+
+.stats_active_category_switch_button a {
+	color: white;
+}
+/* Five event category switch buttons at the top of Drivers and Countries LEADERBOARDS page. 222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+/* Driver counter for each event category on Country Stats page. 222222222222222222222222222222222222222222222222222222 */
+.stats_unique-drivers {
+	margin-top: 40px;
+	width: 500px;
+	margin-left: auto; 
+	margin-right: auto;
+	text-align: center;
+}
+
+.stats_unique-drivers p {
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.stats_unique-drivers p:nth-child(1) {
+	font-size: 25px;
+	background-color: orange;
+	border: 1px solid rgba(15, 54, 94, 1);
+}
+
+.stats_unique-drivers p:nth-child(2) {
+	font-size: 20px;
+}
+/* Driver counter for each event category on Country Stats page. 2222222222222222222222222222222222222222222222222222 */
+
+
+
+
+
+
+
+
+
+
+.country_stats_tables {
+	font-size: 16px;
+	width: 100%;
+	height: 30px;
+	margin-top: 20px;
+	background-color: white;
+	display: inline-table;
+	box-sizing: border-box;
+	text-align: center;
+	border: 3px solid rgba(15, 54, 94, 1);
+	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+}
+
+.country_stats_tables a {
+	text-decoration: none;
+	display: block;
+}
+
+
+
+
+
+#flag_links {
+	display: inline-block;
+}
+
+#name_links {
+	display: inline-block;
+}
+
+#playerid_links {
+	display: inline-block;
+}
+
+
+
+
+
+
+.country_stats_top_drivers_table {
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+	background-color: white;
+	table-layout: fixed;
+}
+
+.country_stats_top_drivers_table th {
+	height: 40px;
+	margin: 0px;
+	border-bottom: 3px solid rgba(15, 54, 94, 1);
+	background-color: darkorange;
+}
+
+.country_stats_top_drivers_table td {
+	height: 40px;
+	padding: 0px;
+	border-bottom: 1px solid rgba(15, 54, 94, 1);
+}
+
+
+
+.country_stats_top_drivers_table th:nth-child(1) {
+	width: 80px;
+}
+
+.country_stats_top_drivers_table td:nth-child(2) {
+	width: 120px;
+	text-align: left;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;
+}
+
+.country_stats_top_drivers_table th:nth-child(3) {
+	width: 86px;
+}
+
+.country_stats_top_drivers_table th:nth-child(4) {
+	width: 120px;
+}
+
+.country_stats_top_drivers_table th:nth-child(5) {
+	width: 130px;
+}
+
+.country_stats_top_drivers_table th:nth-child(6) {
+	width: 130px;
+}
+
+.country_stats_top_drivers_table th:nth-child(7) {
+	width: 103px;
+}
+
+.country_stats_top_drivers_table th:nth-child(8) {
+	width: 103px;
+}
+
+.country_stats_top_drivers_table th:nth-child(9) {
+	width: 103px;
+}
+
+.country_stats_top_drivers_table th:nth-child(10) {
+	width: 103px;
+}
+
+.country_stats_top_drivers_table td:nth-child(11) {
+	text-align: left;
+	width: 175px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.country_stats_top_drivers_table .stats_active_sort_button {
+	background-color: rgba(15, 54, 94, 1);
+}
+
+.stats_active_sort_button a {
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.stats_inactive_sort_button a {
+	color: black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.stats_active_sort_button:hover {
+	background-color: #337ab7;
+}
+
+.stats_inactive_sort_button:hover {
+	background-color: #337ab7;
+}
+
+.stats_inactive_sort_button:hover a {
+	color: white;
+}
+/* END of Country STATS CSS 2222222222222222222222222222222222222222222222222222222222222222222222222222 */
+
+/* END of STATS page CSS 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
+
+
+
+
+
+
+
+
+
+
+/* START of ALL EVENTS page CSS 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 .page-container h2 {
 	margin: 0px;
 	margin-bottom: 50px;
 	text-align: center;
 	text-transform: uppercase;
 }	
-
 
 
 
@@ -453,6 +1511,7 @@ body {
 	background-color: white;
 	border: 3px solid rgba(15, 54, 94, 1);
 	margin-top: 40px;
+	table-layout: fixed;
 	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
 	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
 	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
@@ -470,9 +1529,18 @@ body {
 
 .info-table td {
 	text-align: center;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;
 }
 
+.info-table th:nth-child(1) {
+	width: 120px;
+}
 
+.info-table th:nth-child(7) {
+	width: 150px;
+}
 
 
 
@@ -530,6 +1598,9 @@ body {
 
 .lead-table td:nth-child(3) {
 	text-align: left;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;
 }
 
 
@@ -542,9 +1613,7 @@ img.flags {
 	border: 1px solid rgba(200, 200, 200, 1);
 	vertical-align: middle;
 }
-
-/*END for All Events page $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
-
+/* END of ALL EVENTS page CSS 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 
 
 
@@ -555,487 +1624,101 @@ img.flags {
 
 
 
+/* START of CSS from bootstrap for leaderboards pagination 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 
-
-
-
-
-
-
-
-
-
-
-
-/*START of Leaderboards page $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
-
-.top_switch_buttons {
-	margin: auto;
-	width: 50%;
-	height: 30px;
-	background-color: white;
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-}
-
-.top_switch_buttons td {
-	text-align: center;
-	font-size: 24px;
-	width: 50%;
-	border: 2px solid rgba(15, 54, 94, 1);
-	color: black;
-}
-
-.top_switch_buttons a {
-	text-decoration: none;
-	display: block;
-}
-
-
-.top_active_switch_button {
-	background-color: rgba(15, 54, 94, 1);
-}
-
-.top_inactive_switch_button a:hover {
-	background-color: rgba(15, 54, 94, 1);
-	color: rgba(255, 255, 255, 1);
-}
-
-.top_active_switch_button a {
-	color: white;
-}
-
-.top_inactive_switch_button a {
-	color: black;
-}
-
-.top_switch_buttons td:hover {
-	background-color: rgba(15, 54, 94, 1);
-}
-
-.top_switch_buttons td:hover a {
-	color: white;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.unique-drivers {
-	margin-top: 40px;
-	width: 500px;
+/* START of My pagination CSS 222222222222222222222222222222222222222222222222222222222222222222222222222222222 */
+.my_pagination_buttons {
 	margin-left: auto; 
-	margin-right: auto;
-	text-align: center;
+  	margin-right: auto;
+  	width: 75%;
+  	margin-top: 20px;
+  	margin-bottom: 20px;
+  	text-align: center;
+}
+ /*END of My pagination CSS 22222222222222222222222222222222222222222222222222222222222222222222222222222222222 */
+
+
+
+
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: auto;
+  border-radius: 4px;
 }
 
-.unique-drivers p {
-	display: inline-block;
-	margin: 0;
-	vertical-align: middle;
+.pagination > li {
+  display: inline;
 }
 
-.unique-drivers p:nth-child(1) {
-	font-size: 25px;
-	background-color: orange;
-	border: 1px solid rgba(15, 54, 94, 1);
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: 0px;
+  line-height: 1;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: solid #000;
+  border-width: 2px 1px 2px 1px;
 }
 
-.unique-drivers p:nth-child(2) {
-	font-size: 20px;
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border: solid #000;
+  border-width: 2px 1px 2px 2px;
 }
 
-.unique-countries {
-	margin-bottom: 56px;
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
+  border: solid #000;
+  border-width: 2px 2px 2px 1px;
 }
 
-
-
-
-
-
-
-
-
-
-
-.top_tables {
-	font-size: 16px;
-	width: 100%;
-	height: 30px;
-	margin-top: 10px;
-	background-color: white;
-	display: inline-table;
-	box-sizing: border-box;
-	text-align: center;
-	border: 3px solid rgba(15, 54, 94, 1);
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  z-index: 2;
+  color: #23527c;
+  background-color: #fff;
+  border-color: #000;
 }
 
-.top_tables a {
-	text-decoration: none;
-	display: block;
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background-color: #337ab7;
+  border-color: #337ab7;
 }
 
-#flag_links {
-	display: inline-block;
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #000;
 }
+/* END of CSS from bootstrap for leaderboards pagination 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 
-#name_links {
-	display: inline-block;
-}
-
-#playerid_links {
-	display: inline-block;
-}
-
-
-
-
-.top_drivers_table {
-	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
-	background-color: white;
-	table-layout: fixed;
-}
-
-.top_drivers_table th {
-	height: 40px;
-	margin: 0px;
-	border-bottom: 3px solid rgba(15, 54, 94, 1);
-	background-color: darkorange;
-}
-
-.top_drivers_table td {
-	height: 40px;
-	padding: 0px;
-	border-bottom: 1px solid rgba(15, 54, 94, 1);
-}
-
-.top_drivers_table th:nth-child(1) {
-	width: 80px;
-}
-
-.top_drivers_table th:nth-child(2) {
-	width: 75px;
-}
-
-.top_drivers_table td:nth-child(3) {
-	width: 164px;
-	text-align: left;
-	text-overflow: ellipsis;
-  	white-space: nowrap;
-  	overflow: hidden;
-}
-
-.top_drivers_table th:nth-child(4) {
-	width: 86px;
-}
-
-.top_drivers_table th:nth-child(5) {
-	width: 150px;
-}
-
-.top_drivers_table th:nth-child(6) {
-	width: 133px;
-}
-
-.top_drivers_table th:nth-child(7) {
-	width: 96px;
-}
-
-.top_drivers_table th:nth-child(8) {
-	width: 103px;
-}
-
-.top_drivers_table th:nth-child(9) {
-	width: 103px;
-}
-
-.top_drivers_table th:nth-child(10) {
-	width: 103px;
-}
-
-.top_drivers_table td:nth-child(11)  {
-	text-align: left;
-	width: 175px;
-}
-
-
-
-
-
-
-
-
-
-.top_countries_table {
-	width: 100%;
-	text-align: center;
-	border-collapse: collapse;
-	background-color: white;
-}
-
-.top_countries_table th {
-	height: 40px;
-	border-bottom: 3px solid rgba(15, 54, 94, 1);
-	background-color: darkorange;
-}
-
-.top_countries_table td {
-	height: 40px;
-	border-bottom: 1px solid rgba(15, 54, 94, 1);
-}
-
-.top_countries_table td:nth-child(3) {
-	word-wrap: break-word;
-	width: 150px;
-	text-align: left;
-}
-
-.top_countries_table td:nth-child(11)  {
-	text-align: left;
-	width: 175px;
-}
-
-
-
-
-
-
-
-
-
-th.top_active_sort_button  {
-	background-color: rgba(15, 54, 94, 1);
-}
-
-.top_active_sort_button a {
-	color: white;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.top_inactive_sort_button a {
-	color: black;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-
-
-
-
-/*dropdown sort buttons for top*/
-th.double_sort{
-	position: relative;
-	transition-duration: 0.5s;
-}
-
-th.double_sort ul {
-	visibility: hidden;
-	opacity: 0;
-	width: 100%;
-	position: absolute;
-	padding: 0;
-	transition: all 0s ease;
-	margin: 0;
-	margin-top: 2px;
-	left: 0px;
-	display: none;
-}
-
-th.double_sort li {
-	color: black;
-	background-color: darkorange;
-	display: block;
-	float: left;
-	padding: 0;
-	padding-top: 1px;
-	padding-bottom: 3px;
-	position: relative;
-	text-decoration: none;
-	transition-duration: 0.5s;
-}
-
-th.double_sort li:hover, .double_sort:hover {
-	background-color: #337ab7;
-	cursor: pointer;
-}
-
-th.double_sort:hover > ul,
-th.double_sort ul li:hover {
-	/*visibility: visible;*/
-	opacity: 1;
-	display: block;
-}
-
-th.double_sort ul li {
-	clear: both;
-	width: 100%;
-}
-/*Dropdown sort buttons for top*/
-
-
-/*END of Leaderboards page $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
-
-
-
-
-
-
-
-
-
-
-
-/*START of Stats page $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
-
-.stats_switch_buttons {
-	margin: auto;
-	width: 50%;
-	height: 30px;
-	background-color: white;
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-}
-
-.stats_switch_buttons td {
-	text-align: center;
-	font-size: 24px;
-	width: 50%;
-	border: 2px solid rgba(15, 54, 94, 1);
-	color: black;
-}
-
-.stats_switch_buttons a {
-	text-decoration: none;
-	display: block;
-}
-
-
-.stats_active_switch_button {
-	background-color: rgba(15, 54, 94, 1);
-}
-
-.stats_inactive_switch_button a:hover {
-	background-color: rgba(15, 54, 94, 1);
-	color: rgba(255, 255, 255, 1);
-}
-
-.stats_active_switch_button a {
-	color: white;
-}
-
-.stats_inactive_switch_button a {
-	color: black;
-}
-
-.stats_switch_buttons td:hover {
-	background-color: rgba(15, 54, 94, 1);
-}
-
-.stats_switch_buttons td:hover a {
-	color: white;
-}
-
-
-
-
-
-
-
-
-.driver_name {
-	margin-top: 50px;
-	font-size: 50px;
-	width: 800px;
-	margin-left: auto; 
-	margin-right: auto;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.driver_name p {
-	margin-bottom: 0px;
-	color: orange;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-.driver_id {
-	margin-bottom: 20px;
-	font-size: 30px;
-	width: 800px;
-	margin-left: auto; 
-	margin-right: auto;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.driver_id p {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	color: rgba(15, 54, 94, 1)
-}
-
-
-
-
-.no_qualified_drivers_page {
-	margin-top: 50px;
-	font-size: 30px;
-	width: 800px;
-	margin-left: auto; 
-	margin-right: auto;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.no_qualified_drivers_page p {
-	margin-bottom: 0px;
-	color: rgba(15, 54, 94, 1);
-	/*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
-}
-
-
-
-
-
-.country_name {
-	margin-top: 50px;
-	font-size: 50px;
-	width: 800px;
-	margin-left: auto; 
-	margin-right: auto;
-	text-align: center;
-	vertical-align: middle;
-}
-
-.country_name p {
-	margin-bottom: 0px;
-	color: orange;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-
-/*END of Stats page $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 
 
 
@@ -1055,9 +1738,6 @@ footer {
 	background: rgba(153, 204, 30, 1);
 }
 
-#stats_footer {
-	height: 600px;
-}
 
 
 
@@ -1086,87 +1766,5 @@ footer {
 
 
 
-/*START of code from bootstrap for leaderboards pagination $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 
-/*my code*/
-.my_pagination_buttons {
-	margin-left: auto; 
-  	margin-right: auto;
-  	width: 75%;
-  	margin-top: 20px;
-  	text-align: center;
-}
-/*my code*/
-
-.pagination {
-  display: inline-block;
-  padding-left: 0;
-  margin: auto;
-  border-radius: 4px;
-}
-.pagination > li {
-  display: inline;
-}
-.pagination > li > a,
-.pagination > li > span {
-  position: relative;
-  float: left;
-  padding: 6px 12px;
-  margin-left: 0px;
-  line-height: 1;
-  color: #337ab7;
-  text-decoration: none;
-  background-color: #fff;
-  border: solid #000;
-  border-width: 2px 1px 2px 1px;
-}
-.pagination > li:first-child > a,
-.pagination > li:first-child > span {
-  margin-left: 0;
-  border-top-left-radius: 1px;
-  border-bottom-left-radius: 1px;
-  border: solid #000;
-  border-width: 2px 1px 2px 2px;
-}
-.pagination > li:last-child > a,
-.pagination > li:last-child > span {
-  border-top-right-radius: 1px;
-  border-bottom-right-radius: 1px;
-  border: solid #000;
-  border-width: 2px 2px 2px 1px;
-}
-.pagination > li > a:hover,
-.pagination > li > span:hover,
-.pagination > li > a:focus,
-.pagination > li > span:focus {
-  z-index: 2;
-  color: #23527c;
-  background-color: #fff;
-  border-color: #000;
-}
-.pagination > .active > a,
-.pagination > .active > span,
-.pagination > .active > a:hover,
-.pagination > .active > span:hover,
-.pagination > .active > a:focus,
-.pagination > .active > span:focus {
-  z-index: 3;
-  color: #fff;
-  cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
-}
-.pagination > .disabled > span,
-.pagination > .disabled > span:hover,
-.pagination > .disabled > span:focus,
-.pagination > .disabled > a,
-.pagination > .disabled > a:hover,
-.pagination > .disabled > a:focus {
-  color: #777;
-  cursor: not-allowed;
-  background-color: #fff;
-  border-color: #000;
-}
-
-/*END of code from bootstrap for leaderboards pagination $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 

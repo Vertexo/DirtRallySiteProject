@@ -1,5 +1,5 @@
 import sys
-import codecs
+import io
 
 
 sys.path.append('..')
@@ -194,27 +194,27 @@ def scrapping(start_index, end_index):
         if list_of_event_categories[w] == 'Daily':
 
             filename = 'Leaderboard_txt/1. Daily/' + list_of_event_categories[w] + '_' + list_of_dates[w] + '.txt'
-            f = codecs.open(filename, 'w', 'utf-8')
+            f = io.open(filename, 'w', encoding='utf-8')
 
         elif list_of_event_categories[w] == 'Daily2':
 
             filename = 'Leaderboard_txt/2. Daily2/' + list_of_event_categories[w] + '_' + list_of_dates[w] + '.txt'
-            f = codecs.open(filename, 'w', 'utf-8')
+            f = io.open(filename, 'w', encoding='utf-8')
 
         elif list_of_event_categories[w] == 'Weekly':
 
             filename = 'Leaderboard_txt/3. Weekly/' + list_of_event_categories[w] + '_' + list_of_dates[w] + '.txt'
-            f = codecs.open(filename, 'w', 'utf-8')
+            f = io.open(filename, 'w', encoding='utf-8')
 
         elif list_of_event_categories[w] == 'Weekly2':
 
             filename = 'Leaderboard_txt/4. Weekly2/' + list_of_event_categories[w] + '_' + list_of_dates[w] + '.txt'
-            f = codecs.open(filename, 'w', 'utf-8')
+            f = io.open(filename, 'w', encoding='utf-8')
 
         elif list_of_event_categories[w] == 'Monthly':
 
             filename = 'Leaderboard_txt/5. Monthly/' + list_of_event_categories[w] + '_' + list_of_dates[w] + '.txt'
-            f = codecs.open(filename, 'w', 'utf-8')
+            f = io.open(filename, 'w', encoding='utf-8')
 
 
 

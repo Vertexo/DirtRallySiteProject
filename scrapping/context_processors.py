@@ -10,7 +10,7 @@ def last_database_update_time_processor(request):
         total_days = i.days_database_active
 
     return {'last_update': last_update,
-            'total_days': total_days
+            'total_days': total_days,
             }
 
 
@@ -27,7 +27,12 @@ def site_update_status(request):
 
 
 def last_daily_date(request):
+
     date_obj = EventInfo.objects.filter(event_category__exact='Daily')
+
+    # If date_obj is empty return nothing. This will happen when database is empty.
+    if not date_obj:
+        return ''
 
     unclean_date_list = []
     for i in date_obj:
