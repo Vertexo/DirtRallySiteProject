@@ -4,6 +4,10 @@ Link to project website: http://138.68.81.72/drivers_order_by/overall/overall_po
 
 Official Dirt Rally site: https://www.dirtgame.com/us/events
 
+<br>
+
+### Short anotation about this site:
+
 This project emerged from my hobby - simracing (specific simulator/game - Dirt Rally)
 
 The reason I made this leaderboards site was due to inability to determin drivers skills 
