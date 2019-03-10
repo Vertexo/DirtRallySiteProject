@@ -597,48 +597,48 @@ def driverstats_view(request, drivers_id):
 
 
 
-        # Code section for getting stats' rankings by world and driver's country.
-        def world_country_points_ranks(event_category):
-            overall_points_world_rank_obj = PlayersInfo.objects.order_by('-' + event_category + '_points')
-            overall_points_world_rank = 0
-            for driver in overall_points_world_rank_obj:
-                overall_points_world_rank += 1
-                if driver.overall_points == overall_points:
-                    break
-
-            overall_points_country_rank_obj = PlayersInfo.objects.filter(country_from__exact=country_from).order_by('-' + event_category + '_points')
-            overall_points_country_rank = 0
-            for driver in overall_points_country_rank_obj:
-                overall_points_country_rank += 1
-                if driver.overall_points == overall_points:
-                    break
-            return f"{overall_points_world_rank} ({overall_points_country_rank})"
-
-
-        overall_points_rank = ''
-        if overall_events_finished != 0:
-            overall_points_rank = world_country_points_ranks('overall')
-
-        daily_points_rank = ''
-        if daily_events_finished != 0:
-            daily_points_rank = world_country_points_ranks('daily')
-
-        daily2_points_rank = ''
-        if daily2_events_finished != 0:
-            daily2_points_rank = world_country_points_ranks('daily2')
-
-        weekly_points_rank = ''
-        if weekly_events_finished != 0:
-            weekly_points_rank = world_country_points_ranks('weekly')
-
-        weekly2_points_rank = ''
-        if weekly2_events_finished != 0:
-            weekly2_points_rank = world_country_points_ranks('weekly2')
-
-        monthly_points_rank = ''
-        if monthly_events_finished != 0:
-            monthly_points_rank = world_country_points_ranks('monthly')
-        # Code section for getting stats' rankings by world and driver's country.
+        # # Code section for getting stats' rankings by world and driver's country.
+        # def world_country_points_ranks(event_category):
+        #     overall_points_world_rank_obj = PlayersInfo.objects.order_by('-' + event_category + '_points')
+        #     overall_points_world_rank = 0
+        #     for driver in overall_points_world_rank_obj:
+        #         overall_points_world_rank += 1
+        #         if driver.overall_points == overall_points:
+        #             break
+        #
+        #     overall_points_country_rank_obj = PlayersInfo.objects.filter(country_from__exact=country_from).order_by('-' + event_category + '_points')
+        #     overall_points_country_rank = 0
+        #     for driver in overall_points_country_rank_obj:
+        #         overall_points_country_rank += 1
+        #         if driver.overall_points == overall_points:
+        #             break
+        #     return f"{overall_points_world_rank} ({overall_points_country_rank})"
+        #
+        #
+        # overall_points_rank = ''
+        # if overall_events_finished != 0:
+        #     overall_points_rank = world_country_points_ranks('overall')
+        #
+        # daily_points_rank = ''
+        # if daily_events_finished != 0:
+        #     daily_points_rank = world_country_points_ranks('daily')
+        #
+        # daily2_points_rank = ''
+        # if daily2_events_finished != 0:
+        #     daily2_points_rank = world_country_points_ranks('daily2')
+        #
+        # weekly_points_rank = ''
+        # if weekly_events_finished != 0:
+        #     weekly_points_rank = world_country_points_ranks('weekly')
+        #
+        # weekly2_points_rank = ''
+        # if weekly2_events_finished != 0:
+        #     weekly2_points_rank = world_country_points_ranks('weekly2')
+        #
+        # monthly_points_rank = ''
+        # if monthly_events_finished != 0:
+        #     monthly_points_rank = world_country_points_ranks('monthly')
+        # # Code section for getting stats' rankings by world and driver's country.
 
 
 
@@ -710,12 +710,12 @@ def driverstats_view(request, drivers_id):
         context['monthly_driving_time_seconds'] = monthly_driving_time_seconds
 
 
-        context['overall_points_rank'] = overall_points_rank
-        context['daily_points_rank'] = daily_points_rank
-        context['daily2_points_rank'] = daily2_points_rank
-        context['weekly_points_rank'] = weekly_points_rank
-        context['weekly2_points_rank'] = weekly2_points_rank
-        context['monthly_points_rank'] = monthly_points_rank
+        # context['overall_points_rank'] = overall_points_rank
+        # context['daily_points_rank'] = daily_points_rank
+        # context['daily2_points_rank'] = daily2_points_rank
+        # context['weekly_points_rank'] = weekly_points_rank
+        # context['weekly2_points_rank'] = weekly2_points_rank
+        # context['monthly_points_rank'] = monthly_points_rank
 
         context['daily_events_completed'] = len(daily_completed_obj)
         context['daily2_events_completed'] = len(daily2_completed_obj)
