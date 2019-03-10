@@ -592,11 +592,62 @@ def driverstats_view(request, drivers_id):
                 monthly_top_100 = i.monthly_top_100
                 monthly_driving_time_seconds = i.monthly_driving_time_seconds
 
+
+
+
+
+
+        # Code section for getting stats' rankings by world and driver's country.
+        def world_country_points_ranks(event_category):
+            overall_points_world_rank_obj = PlayersInfo.objects.order_by('-' + event_category + '_points')
+            overall_points_world_rank = 0
+            for driver in overall_points_world_rank_obj:
+                overall_points_world_rank += 1
+                if driver.overall_points == overall_points:
+                    break
+
+            overall_points_country_rank_obj = PlayersInfo.objects.filter(country_from__exact=country_from).order_by('-' + event_category + '_points')
+            overall_points_country_rank = 0
+            for driver in overall_points_country_rank_obj:
+                overall_points_country_rank += 1
+                if driver.overall_points == overall_points:
+                    break
+            return f"{overall_points_world_rank} ({overall_points_country_rank})"
+
+
+        overall_points_rank = ''
+        if overall_events_finished != 0:
+            overall_points_rank = world_country_points_ranks('overall')
+
+        daily_points_rank = ''
+        if daily_events_finished != 0:
+            daily_points_rank = world_country_points_ranks('daily')
+
+        daily2_points_rank = ''
+        if daily2_events_finished != 0:
+            daily2_points_rank = world_country_points_ranks('daily2')
+
+        weekly_points_rank = ''
+        if weekly_events_finished != 0:
+            weekly_points_rank = world_country_points_ranks('weekly')
+
+        weekly2_points_rank = ''
+        if weekly2_events_finished != 0:
+            weekly2_points_rank = world_country_points_ranks('weekly2')
+
+        monthly_points_rank = ''
+        if monthly_events_finished != 0:
+            monthly_points_rank = world_country_points_ranks('monthly')
+        # Code section for getting stats' rankings by world and driver's country.
+
+
+
         context = {}
 
         context['country_from'] = country_from
         context['drivers_name'] = drivers_name
         context['drivers_id'] = drivers_id
+
 
         context['overall_events_finished'] = overall_events_finished
         context['overall_points'] = overall_points
@@ -657,6 +708,14 @@ def driverstats_view(request, drivers_id):
         context['monthly_top_10'] = monthly_top_10
         context['monthly_top_100'] = monthly_top_100
         context['monthly_driving_time_seconds'] = monthly_driving_time_seconds
+
+
+        context['overall_points_rank'] = overall_points_rank
+        context['daily_points_rank'] = daily_points_rank
+        context['daily2_points_rank'] = daily2_points_rank
+        context['weekly_points_rank'] = weekly_points_rank
+        context['weekly2_points_rank'] = weekly2_points_rank
+        context['monthly_points_rank'] = monthly_points_rank
 
         context['daily_events_completed'] = len(daily_completed_obj)
         context['daily2_events_completed'] = len(daily2_completed_obj)
@@ -980,6 +1039,7 @@ def all_events_view(request, event_category, date):
     time_seconds_list = []
     diff_1st_list = []
     player_id_list = []
+    earned_points_list = []
 
     for i in obj_leaderboard:
 
@@ -991,6 +1051,7 @@ def all_events_view(request, event_category, date):
         time_seconds_list.append(i.time_seconds)
         diff_1st_list.append(i.diff_1st)
         player_id_list.append(i.player_id)
+        earned_points_list.append(i.earned_points)
 
 
     # START of reverse list script.
@@ -1014,11 +1075,14 @@ def all_events_view(request, event_category, date):
 
     reverse_list = player_id_list[::-1]
     player_id_list = reverse_list
+
+    reverse_list = earned_points_list[::-1]
+    earned_points_list = reverse_list
     # END of reverse list script.
 
 
     zipped_leader_list = list(zip(position_list, country_name_list, name_list,
-                                  player_id_list, vehicle_list,time_list, diff_1st_list
+                                  player_id_list, vehicle_list,time_list, diff_1st_list, earned_points_list
                                   ))
 
     date = ''
