@@ -36,7 +36,7 @@
 	       	</div>
 
 	       	<div class="search">
-	          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID...">
+	          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID..." name="search">
 	          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
 	       </div>
 
@@ -157,65 +157,65 @@
                             <td><a id="playerid_links" style="text-decoration: none; color: inherit;" href="/driverstats/{{ row.player_id }}/">{{ row.player_id }}</a></td>
 
                             {% if event_category == 'overall' %}
-	                            <td>{{ row.overall_events_finished }}</td>
+	                            <td class="percentages_events_finished">{{ row.overall_events_finished }}</td>
 	                            <td>{{ row.overall_points }}</td>
 	                            <td>{{ row.overall_average_finish_place }}</td>	                            
-	                            <td>{{ row.overall_first_places }}</td>
-	                            <td>{{ row.overall_top_3 }}</td>
-		                        <td>{{ row.overall_top_10 }}</td>
-		                        <td>{{ row.overall_top_100 }}</td>
-		                        <td>{{ row.overall_driving_time_seconds }}</td>
+	                            <td class="percentages_first_places">{{ row.overall_first_places }}</td>
+	                            <td class="percentages_top_3">{{ row.overall_top_3 }}</td>
+		                        <td class="percentages_top_10">{{ row.overall_top_10 }}</td>
+		                        <td class="percentages_top_100">{{ row.overall_top_100 }}</td>
+		                        <td class="time_to_convert">{{ row.overall_driving_time_seconds }}</td>
 
 		                    {% elif event_category == 'daily' %}
-	                            <td>{{ row.daily_events_finished }}</td>
+	                            <td class="percentages_events_finished">{{ row.daily_events_finished }}</td>
 	                            <td>{{ row.daily_points }}</td>
 	                            <td>{{ row.daily_average_finish_place }}</td>
-	                            <td>{{ row.daily_first_places }}</td>
-	                            <td>{{ row.daily_top_3 }}</td>
-		                        <td>{{ row.daily_top_10 }}</td>
-		                        <td>{{ row.daily_top_100 }}</td>
-		                        <td>{{ row.daily_driving_time_seconds }}</td>
+	                            <td class="percentages_first_places">{{ row.daily_first_places }}</td>
+	                            <td class="percentages_top_3">{{ row.daily_top_3 }}</td>
+		                        <td class="percentages_top_10">{{ row.daily_top_10 }}</td>
+		                        <td class="percentages_top_100">{{ row.daily_top_100 }}</td>
+		                        <td class="time_to_convert">{{ row.daily_driving_time_seconds }}</td>
 
 		                    {% elif event_category == 'daily2' %}
-	                            <td>{{ row.daily2_events_finished }}</td>
+	                            <td class="percentages_events_finished">{{ row.daily2_events_finished }}</td>
 	                            <td>{{ row.daily2_points }}</td>
 	                            <td>{{ row.daily2_average_finish_place }}</td>                            
-	                            <td>{{ row.daily2_first_places }}</td>
-	                            <td>{{ row.daily2_top_3 }}</td>
-		                        <td>{{ row.daily2_top_10 }}</td>
-		                        <td>{{ row.daily2_top_100 }}</td>
-		                        <td>{{ row.daily2_driving_time_seconds }}</td>
+	                            <td class="percentages_first_places">{{ row.daily2_first_places }}</td>
+	                            <td class="percentages_top_3">{{ row.daily2_top_3 }}</td>
+		                        <td class="percentages_top_10">{{ row.daily2_top_10 }}</td>
+		                        <td class="percentages_top_100">{{ row.daily2_top_100 }}</td>
+		                        <td class="time_to_convert">{{ row.daily2_driving_time_seconds }}</td>
 
 		                    {% elif event_category == 'weekly' %}
-	                            <td>{{ row.weekly_events_finished }}</td>
+	                            <td class="percentages_events_finished">{{ row.weekly_events_finished }}</td>
 	                            <td>{{ row.weekly_points }}</td>
 	                            <td>{{ row.weekly_average_finish_place }}</td>	                       
-	                            <td>{{ row.weekly_first_places }}</td>
-	                            <td>{{ row.weekly_top_3 }}</td>
-		                        <td>{{ row.weekly_top_10 }}</td>
-		                        <td>{{ row.weekly_top_100 }}</td>
-		                        <td>{{ row.weekly_driving_time_seconds }}</td>
+	                            <td class="percentages_first_places">{{ row.weekly_first_places }}</td>
+	                            <td class="percentages_top_3">{{ row.weekly_top_3 }}</td>
+		                        <td class="percentages_top_10">{{ row.weekly_top_10 }}</td>
+		                        <td class="percentages_top_100">{{ row.weekly_top_100 }}</td>
+		                        <td class="time_to_convert">{{ row.weekly_driving_time_seconds }}</td>
 
 		                    {% elif event_category == 'weekly2' %}
-	                            <td>{{ row.weekly2_events_finished }}</td>
+	                            <td class="percentages_events_finished">{{ row.weekly2_events_finished }}</td>
 	                            <td>{{ row.weekly2_points }}</td>
 	                            <td>{{ row.weekly2_average_finish_place }}</td>
-	                            <td>{{ row.weekly2_first_places }}</td>
-	                            <td>{{ row.weekly2_top_3 }}</td>
-		                        <td>{{ row.weekly2_top_10 }}</td>
-		                        <td>{{ row.weekly2_top_100 }}</td>
-		                        <td>{{ row.weekly2_driving_time_seconds }}</td>
+	                            <td class="percentages_first_places">{{ row.weekly2_first_places }}</td>
+	                            <td class="percentages_top_3">{{ row.weekly2_top_3 }}</td>
+		                        <td class="percentages_top_10">{{ row.weekly2_top_10 }}</td>
+		                        <td class="percentages_top_100">{{ row.weekly2_top_100 }}</td>
+		                        <td class="time_to_convert">{{ row.weekly2_driving_time_seconds</td>
 
 
 		                    {% elif event_category == 'monthly' %}
-	                            <td>{{ row.monthly_events_finished }}</td>
+	                            <td class="percentages_events_finished">{{ row.monthly_events_finished }}</td>
 	                            <td>{{ row.monthly_points }}</td>
 	                            <td>{{ row.monthly_average_finish_place }}</td>
-	                            <td>{{ row.monthly_first_places }}</td>
-	                            <td>{{ row.monthly_top_3 }}</td>
-		                        <td>{{ row.monthly_top_10 }}</td>
-		                        <td>{{ row.monthly_top_100 }}</td>
-		                        <td>{{ row.monthly_driving_time_seconds }}</td>
+	                            <td class="percentages_first_places">{{ row.monthly_first_places }}</td>
+	                            <td class="percentages_top_3">{{ row.monthly_top_3 }}</td>
+		                        <td class="percentages_top_10">{{ row.monthly_top_10 }}</td>
+		                        <td class="percentages_top_100">{{ row.monthly_top_100 }}</td>
+		                        <td class="time_to_convert">{{ row.monthly_driving_time_seconds }}</td>
 
 		                    {% endif %}
 		        		</tr>
@@ -233,5 +233,6 @@
         </footer>
     </div>
 </div>
+
 
 {% endblock %}

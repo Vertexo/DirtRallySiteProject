@@ -126,15 +126,15 @@
                             <td><a id="name_links" style="text-decoration: none; color: inherit;" href="/countrystats/{{ row.country_name }}/overall/overall_points/">{{ row.country_name }}</a></td>             
                             {% if event_category == 'overall' %}	                      
 	                            <td>{{ row.overall_number_of_drivers }}</td>
-	                            <td>{{ row.overall_events_finished }}</td>
+	                            <td class="percentages_events_finished">{{ row.overall_events_finished }}</td>
 	                            <td>{{ row.overall_points }}</td>
 	                            <td>{{ row.overall_average_points }}</td>
 	                            <td>{{ row.overall_average_finish_place }}</td>
-	                            <td>{{ row.overall_first_places }}</td>
-	                            <td>{{ row.overall_top_3 }}</td>
-		                        <td>{{ row.overall_top_10 }}</td>
-		                        <td>{{ row.overall_top_100 }}</td>
-		                        <td>{{ row.overall_driving_time_seconds }}</td>
+	                            <td class="percentages_first_places">{{ row.overall_first_places }}</td>
+	                            <td class="percentages_top_3">{{ row.overall_top_3 }}</td>
+		                        <td class="percentages_top_10">{{ row.overall_top_10 }}</td>
+		                        <td class="percentages_top_100">{{ row.overall_top_100 }}</td>
+		                        <td class="time_to_convert">{{ row.overall_driving_time_seconds }}</td>
 
 		                    {% elif event_category == 'daily' %}	                      
 	                            <td>{{ row.daily_number_of_drivers }}</td>

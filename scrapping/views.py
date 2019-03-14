@@ -253,6 +253,16 @@ def top_drivers_order_by_view(request, event_category, order_variable):
         leaderboards_th12_activity_tag = 'leaderboards_active_sort_button'
 
 
+
+
+    # search_term = ''
+    # if 'search' in request.GET:
+    #     search_term = request.GET['search']
+    #     object_ordered = object_ordered.filter(text__icontains=search_term)
+
+
+
+
     drivers = pagination(request, object_ordered)
 
 
@@ -284,6 +294,8 @@ def top_drivers_order_by_view(request, event_category, order_variable):
     context['leaderboards_th10_activity_tag'] = leaderboards_th10_activity_tag
     context['leaderboards_th11_activity_tag'] = leaderboards_th11_activity_tag
     context['leaderboards_th12_activity_tag'] = leaderboards_th12_activity_tag
+
+    # context['search_term'] = search_term
 
     context['main_nav_button_1_tag'] = 'main_button_active'
     context['main_nav_button_2_tag'] = 'main_button_inactive'
@@ -639,6 +651,8 @@ def driverstats_view(request, drivers_id):
         # if monthly_events_finished != 0:
         #     monthly_points_rank = world_country_points_ranks('monthly')
         # # Code section for getting stats' rankings by world and driver's country.
+
+
 
 
 

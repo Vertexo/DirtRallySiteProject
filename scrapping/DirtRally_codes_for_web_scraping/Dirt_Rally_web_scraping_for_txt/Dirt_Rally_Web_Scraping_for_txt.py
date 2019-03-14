@@ -234,10 +234,6 @@ def scrapping(start_index, end_index):
 
 
 
-    after = timer()
-    delta_time = after - before
-    print('delta time: ', delta_time)
-
 
     print('count_no_country_name = ', count_no_country_name)
 
@@ -262,6 +258,12 @@ def repeat_if_error():
             print('------------------------------------------ ', 'Error number: ', error_count, ' ------------------------------------------')
             print(traceback.format_exc())
             continue
+
+
+
+    after = timer()
+    delta_time = after - before
+    print('delta time: ', delta_time)
 
     print('Error_count = ', error_count)
 # END. Make function repeat in case of an error.
