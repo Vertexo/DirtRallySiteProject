@@ -19,10 +19,10 @@
             </tr>    
         </table>   
 
-       <!--  <div class="search">
-          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID...">
-          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-       </div>  -->        
+        <div class="search">
+          <input type="text" class="searchTerm" id="searchField" placeholder="Search by driver's name or ID...">
+          <button id="myBtn" onclick="searchFunction()" type="submit" class="searchButton"><i class="fa fa-search"></i></button>
+       </div>         
         
         <div class="driver_name">
             <span>{% with 'scrapping/Country_Flags/'|add:country_from|add:'.jpg' as image_static %}
@@ -341,7 +341,6 @@
         </footer>
     </div>
 </div>
-
 
 <script>
 

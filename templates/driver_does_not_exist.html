@@ -15,15 +15,15 @@
                 <td class="stats_active_switch_button"><a href="/driverstats/133513/">Driver Stats</a></td>
                 <td class="stats_inactive_switch_button"><a href="/countrystats/Latvia/overall/overall_points/">Country stats</a></td>
             </tr>    
-        </table>            
-        
+        </table>
+
         <div class="search">
             <input type="text" class="searchTerm" id="searchField" placeholder="Search by driver's name or ID...">
             <button id="myBtn" onclick="searchFunction()" type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-        </div>   
-
+        </div>               
+        
         <div class="no_qualified_drivers_page">
-            <p>This driver has finished only {{ finished_events }} events so far. To qualify for leaderboards and stats, at least 3 events must be finished overall. The purpose of this is to filter out single event cheaters with unrealistic finish times and to clean up the leaderboards for fair drivers.</p>
+            <p>Driver with this particular name or ID was not found in database. Try searching again.</p>
         </div>
 
 
@@ -35,4 +35,3 @@
 
 
 {% endblock %}
-

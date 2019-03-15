@@ -456,14 +456,79 @@ def top_countries_order_by_view(request, event_category, order_variable):
 """------------------------------------------------DRIVER STATS VIEW------------------------------------------------"""
 def driverstats_view(request, drivers_id):
 
-    if PlayersInfo.objects.filter(player_id__exact=drivers_id).exists():
-        object_playerinfo = PlayersInfo.objects.filter(player_id__exact=drivers_id)
+    name_id = 0
+    try:
+        if isinstance(drivers_id, int):
+            name_id = 1
+    except:
+        pass
 
-        daily_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Daily')
-        daily2_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Daily2')
-        weekly_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Weekly')
-        weekly2_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Weekly2')
-        monthly_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Monthly')
+
+    if drivers_id == 'notfound':
+
+        context = {}
+
+        context['main_nav_button_1_tag'] = 'main_button_inactive'
+        context['main_nav_button_2_tag'] = 'main_button_active'
+        context['main_nav_button_3_tag'] = 'main_button_inactive'
+        context['main_nav_button_4_tag'] = 'main_button_inactive'
+
+        return render(request, 'driver_does_not_exist.html', context)
+
+    try:
+        if not LeaderBoard.objects.filter(player_id__exact=drivers_id).exists() and not LeaderBoard.objects.filter(name__exact=drivers_id).exists():
+
+            context = {}
+
+            context['main_nav_button_1_tag'] = 'main_button_inactive'
+            context['main_nav_button_2_tag'] = 'main_button_active'
+            context['main_nav_button_3_tag'] = 'main_button_inactive'
+            context['main_nav_button_4_tag'] = 'main_button_inactive'
+
+            return render(request, 'driver_does_not_exist.html', context)
+
+    except:
+        if not LeaderBoard.objects.filter(name__exact=drivers_id).exists():
+
+            context = {}
+
+            context['main_nav_button_1_tag'] = 'main_button_inactive'
+            context['main_nav_button_2_tag'] = 'main_button_active'
+            context['main_nav_button_3_tag'] = 'main_button_inactive'
+            context['main_nav_button_4_tag'] = 'main_button_inactive'
+
+            return render(request, 'driver_does_not_exist.html', context)
+
+    playersInfo_exists = 0
+    try:
+        if PlayersInfo.objects.filter(player_id__exact=drivers_id).exists():
+
+            object_playerinfo = PlayersInfo.objects.filter(player_id__exact=drivers_id)
+
+            daily_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Daily')
+            daily2_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Daily2')
+            weekly_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Weekly')
+            weekly2_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Weekly2')
+            monthly_completed_obj = LeaderBoard.objects.filter(player_id__exact=drivers_id, event_info__event_category__exact='Monthly')
+
+            playersInfo_exists = 1
+        if playersInfo_exists == 0:
+            raise()
+
+    except:
+        if PlayersInfo.objects.filter(name__exact=drivers_id).exists():
+
+            object_playerinfo = PlayersInfo.objects.filter(name__exact=drivers_id)
+
+            daily_completed_obj = LeaderBoard.objects.filter(name__exact=drivers_id, event_info__event_category__exact='Daily')
+            daily2_completed_obj = LeaderBoard.objects.filter(name__exact=drivers_id, event_info__event_category__exact='Daily2')
+            weekly_completed_obj = LeaderBoard.objects.filter(name__exact=drivers_id, event_info__event_category__exact='Weekly')
+            weekly2_completed_obj = LeaderBoard.objects.filter(name__exact=drivers_id, event_info__event_category__exact='Weekly2')
+            monthly_completed_obj = LeaderBoard.objects.filter(name__exact=drivers_id, event_info__event_category__exact='Monthly')
+
+            playersInfo_exists = 1
+
+    if playersInfo_exists == 1:
 
         total_daily_obj = EventInfo.objects.filter(event_category__exact='Daily')
         total_daily2_obj = EventInfo.objects.filter(event_category__exact='Daily2')
@@ -474,6 +539,7 @@ def driverstats_view(request, drivers_id):
 
         country_from = ''
         drivers_name = ''
+        drivers_id = ''
 
         overall_events_finished = ''
         overall_points = ''
@@ -538,6 +604,7 @@ def driverstats_view(request, drivers_id):
         for i in object_playerinfo:
             country_from = i.country_from
             drivers_name = i.name
+            drivers_id = i.player_id
 
             overall_events_finished = i.overall_events_finished
             overall_points = i.overall_points
@@ -662,7 +729,6 @@ def driverstats_view(request, drivers_id):
         context['drivers_name'] = drivers_name
         context['drivers_id'] = drivers_id
 
-
         context['overall_events_finished'] = overall_events_finished
         context['overall_points'] = overall_points
         context['overall_average_points'] = overall_average_points
@@ -769,9 +835,15 @@ def driverstats_view(request, drivers_id):
         return render(request, 'driver_stats.html', context)
 
 
-    # If drvers id in PlayersInfo database does not exist, use this code.
+    # If drivers id in PlayersInfo database does not exist, use one of these two codes.
+    # But it exists in LeaderBoards.
     else:
-        object_leaderboard = LeaderBoard.objects.filter(player_id__exact=drivers_id)
+        try:
+            if LeaderBoard.objects.filter(player_id__exact=drivers_id).exists():
+                object_leaderboard = LeaderBoard.objects.filter(player_id__exact=drivers_id)
+        except:
+            object_leaderboard = LeaderBoard.objects.filter(name__exact=drivers_id)
+
         finished_events = 0
         for _ in object_leaderboard:
             finished_events += 1
@@ -786,6 +858,8 @@ def driverstats_view(request, drivers_id):
         context['main_nav_button_4_tag'] = 'main_button_inactive'
 
         return render(request, 'no_qualified_drivers_page.html', context)
+
+
 """------------------------------------------------DRIVER STATS VIEW------------------------------------------------"""
 
 
