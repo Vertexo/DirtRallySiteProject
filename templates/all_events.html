@@ -31,10 +31,11 @@
                 <p id="event-options-container_date">Date:</p>
             
                 <div class="date_selector">
-                    <form id="mydate_selector">
-                        <select onChange=selectChange(this.value)>
+                    <form>
+                        <select id="date_selector">
+                            <option value="nothing">Select Date</option>
                             {% for date in date_selector_list %}
-                                <option value="/all_events/Daily/{{ date }}/">{{ date }}</option>
+                                <option value="/all_events/{{ event_category }}/{{ date }}/">{{ date }}</option>
                             {% endfor %}
                         </select>
                     </form>
@@ -119,12 +120,15 @@
 </div>
 
 
-<!-- <script>
-    function selectChange(val) {
-        //Set the value of action in action attribute of form element.
-        //Submit the form
-        $('#mydate_selector').submit();
+
+<script>
+    var dateMenu = document.getElementById('date_selector');
+    dateMenu.onchange = function() {
+        var userOption = this.options[this.selectedIndex];
+        if (userOption.value != 'nothing') {
+            location.href = userOption.value;
+        }
     }
-</script> -->
+</script>
 
 {% endblock %}

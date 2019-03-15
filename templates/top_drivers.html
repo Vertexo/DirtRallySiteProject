@@ -35,21 +35,11 @@
 	            <p>&nbsp;- Overall Drivers</p> 	            
 	       	</div>
 
-	       	<div class="search">
-	          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID..." name="search">
-	          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-	       </div>
-
-	    {% elif event_category == 'daily' %}	    		
+	    {% elif event_category == 'daily' %}	       		
 			<div class="leaderboards_unique-drivers">
 				<p>{{ daily_qualified_drivers }}</p>
 	            <p>&nbsp;- Daily Drivers</p> 	            
 	       	</div>
-
-	       	<div class="search">
-	          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID...">
-	          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-	       </div>
 
 	    {% elif event_category == 'daily2' %}	    		
 			<div class="leaderboards_unique-drivers">
@@ -57,21 +47,11 @@
 	            <p>&nbsp;- Daily2 Drivers</p> 	            
 	       	</div>
 
-	       	<div class="search">
-	          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID...">
-	          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-	       </div>
-
 	    {% elif event_category == 'weekly' %}	    		
 			<div class="leaderboards_unique-drivers">
 				<p>{{ weekly_qualified_drivers }}</p>
 	            <p>&nbsp;- Weekly Drivers</p> 	            
 	       	</div>
-
-	       	<div class="search">
-	          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID...">
-	          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-	       </div>
 
 	    {% elif event_category == 'weekly2' %}	    		
 			<div class="leaderboards_unique-drivers">
@@ -79,22 +59,18 @@
 	            <p>&nbsp;- Weekly2 Drivers</p> 	            
 	       	</div>
 
-	       	<div class="search">
-	          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID...">
-	          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-	       </div>
-
 	    {% elif event_category == 'monthly' %}	    		
 			<div class="leaderboards_unique-drivers">
 				<p>{{ monthly_qualified_drivers }}</p>
 	            <p>&nbsp;- Monthly Drivers</p> 	            
 	       	</div>
 
-	       	<div class="search">
+    	{% endif %}
+
+    	<!-- <div class="search">
 	          <input type="text" class="searchTerm" placeholder="Search by driver's name or ID...">
 	          <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
-	       </div>
-    	{% endif %}
+	    </div> -->
 
     	<div class="my_pagination_buttons">
        		{% include "includable_html_files/pagination_buttons.html" %}

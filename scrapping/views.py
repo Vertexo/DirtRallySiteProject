@@ -1127,6 +1127,8 @@ def all_events_view(request, event_category, date):
     context['weekly2_options_container_active'] = weekly2_activity_class
     context['monthly_options_container_active'] = monthly_activity_class
 
+    context['event_category'] = event_category
+
     context['date_selector_list'] = date_selector_list
     context['last_daily_date'] = date_selector_list_daily[0]
     context['last_daily2_date'] = date_selector_list_daily2[0]
