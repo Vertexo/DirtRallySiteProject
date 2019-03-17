@@ -12,10 +12,10 @@ from timeit import default_timer as timer
 
 
 
+before = timer()
 
 def scrapping(start_index, end_index):
 
-    before = timer()
 
     # List of events ID's
     list_of_ids = [ids.daily_previous_1_ID, ids.daily2_previous_1_ID, ids.weekly_previous_1_ID, ids.weekly2_previous_1_ID, ids.monthly_previous_1_ID,
