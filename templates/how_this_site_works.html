@@ -4,104 +4,107 @@
 
 <div class="page-background">
     <div class="page-container">
-    	<div>
-    		<h2>How This Site Works</h2>
-    	</div>
-    	<div>
-    		<!-- <h2 style="color: red;">Under Construction!!!</h2> -->
-    	</div>
-    	<div>
-    		<h4>Short anotation about this site:</h4>
+    	<div id="how_site_works">
+	    	<div>
+	    		<h2>How This Site Works</h2>
+	    	</div>
+	    	<div>
+	    		<!-- <h2 style="color: red;">Under Construction!!!</h2> -->
+	    	</div>
+	    	<div>
+	    		<h4>Short anotation about this site:</h4>
 
-    		<p>
-    			This project emerged from my hobby - simracing (specific simulator/game - Dirt Rally)	
-    		</p>
+	    		<p>
+	    			This project emerged from my hobby - simracing (specific simulator/game - Dirt Rally)	
+	    		</p>
 
-    		<p>
-	    		The reason I made this leaderboards site was due to inability to determin drivers skills or proficiency by visiting the official Dirt Rally website. There was not any ranks or leaderboards to determine the fastes or the most stable driver or who has finished in Top 10 or top 100 more times than any other driver.
-	    	</p>
+	    		<p>
+		    		The reason I made this leaderboards site was due to inability to determin drivers skills or proficiency by visiting the official Dirt Rally website. There was not any ranks or leaderboards to determine the fastes or the most stable driver or who has finished in Top 10 or top 100 more times than any other driver.
+		    	</p>
 
-    		<p>
-    			This site will scrap all completed events information from official site and upload it on this server.
-    		</p>
+	    		<p>
+	    			This site will scrap all completed events information from official site and upload it on this server.
+	    		</p>
 
-    		<p>
-	    		I teached myself programming and web development by making this site. Some areas of the site may still be under development.
-			</p>
+	    		<p>
+		    		I teached myself programming and web development by making this site. Some areas of the site may still be under development.
+				</p>
+				
+				<p>
+					In upper right corner of the site you can see "Database active since: 07.27.2018". It is date, I started working on this site and scraping official events data. So the oldest Daily and Daily 2 event on this site is from 07.27.2018.	
+				</p>
+
+				<br>
+
+	    		<h4>Site update time:</h4>
+
+	    		<p>
+	    			The official site updates new challenge entries every day at 10:00 (UTC).
+	    		</p>
+
+	    		<p>
+	    			This site will update completed leadearboards every day between 12:00 and 13:00 (UTC).
+				</p>
+
+				<p>
+					The 2 hour offset is necessary for minimizing data scraping interuptions due to official site not fully updated yet.
+				</p>
+
+				<br>
+
+				<h4>About Leaderboards page:</h4>
+
+				<p>In Leaderboards page you can find 2 total leaderboards. Top Drivers and Top Countries leaderboards.</p>
+
+				<p>
+					Top Drivers: <br>
+					First is Top Drivers leaderboard in whitch all qualified drivers are sorted by one of the sorting parameters. Default sorting parameter is Points.
+					Driver is qualified (put in the leaderboards) if he/she has completed at least 3 events overall. This was done to try to eliminate cheaters from ruining leaderboards.
+					So if you want to see yourself in Top Drivers leaderboard, you have to complete at least 3 events of any kind.
+				</p>
+
+				<p>
+					Top Countries: <br>
+					Second is Top Countries leaderboard in whitch all qualified drivers from each country are added together.
+				</p>
+
+				<br>
+
+				<h4>About Stats page:</h4>
+
+				<p>In Stats page you can find 2 pages. Driver Stats and Country Stats.</p>
+
+				<p>
+					Driver Stats: <br>
+					First is Drivers Stats where all the stats for one specific driver are displayed.
+				</p>
+
+				<p>
+					Country Stats: <br>
+					Second is Country Stats where all the stats for one specific country are displayed.
+				</p>
+
+				<br>
+
+				<h4>About All Events page:</h4>
+
+				<p>In All Events page you can find and look at every individual event leaderbord from each category. Basically it is the same Events page as on the official Dirt Rally site, except that this site saves more than only last 10 events from each category. Plus there is aditional column of Point added to the tables.</p>
+
+				<br>
+
+				<h4>How Points are calculated:</h4>
+
+				<p>To give some life to the leaderborads and may be also to give reason to compet agains each other I have added Points system. Points for Daily, Weekly and Monthly events are calculated a little bit differently. The higher a driver finishes in particular event the more points he/she will get. Points ar dependent of total participants. </p>
+
+				<br>
+
+				<h4>Future implementations:</h4>
+
+				<p>
+					I have to figure out the best way to determine and rank most skilled drivers. Right now I have set default leaderboard sorting by Points. Percentage of Top 10 finishes also I thing would be a good way to determine the skill and stability. World Rank (Country Rank) table in Driver Stats page is under development.
+				</p>
+			</div>	
 			
-			<p>
-				In upper right corner of the site you can see "Database active since: 07.27.2018". It is date, I started working on this site and scraping official events data. So the oldest Daily and Daily 2 event on this site is from 07.27.2018.	
-			</p>
-
-			<br>
-
-    		<h4>Site update time:</h4>
-
-    		<p>
-    			The official site updates new challenge entries every day at 10:00 (UTC).
-    		</p>
-
-    		<p>
-    			This site will update completed leadearboards every day between 12:00 and 13:00 (UTC).
-			</p>
-
-			<p>
-				The 2 hour offset is necessary for minimizing data scraping interuptions due to official site not fully updated yet.
-			</p>
-
-			<br>
-
-			<h4>About Leaderboards page:</h4>
-
-			<p>In Leaderboards page you can find 2 total leaderboards. Top Drivers and Top Countries leaderboards.</p>
-
-			<p>
-				Top Drivers: <br>
-				First is Top Drivers leaderboard in whitch all qualified drivers are sorted by one of the sorting parameters. Default sorting parameter is Points.
-				Driver is qualified (put in the leaderboards) if he/she has completed at least 3 events overall. This was done to try to eliminate cheaters from ruining leaderboards.
-				So if you want to see yourself in Top Drivers leaderboard, you have to complete at least 3 events of any kind.
-			</p>
-
-			<p>
-				Top Countries: <br>
-				Second is Top Countries leaderboard in whitch all qualified drivers from each country are added together.
-			</p>
-
-			<br>
-
-			<h4>About Stats page:</h4>
-
-			<p>In Stats page you can find 2 pages. Driver Stats and Country Stats.</p>
-
-			<p>
-				Driver Stats: <br>
-				First is Drivers Stats where all the stats for one specific driver are displayed.
-			</p>
-
-			<p>
-				Country Stats: <br>
-				Second is Country Stats where all the stats for one specific country are displayed.
-			</p>
-
-			<br>
-
-			<h4>About All Events page:</h4>
-
-			<p>In All Events page you can find and look at every individual event leaderbord from each category. Basically it is the same Events page as on the official Dirt Rally site, except that this site saves more than only last 10 events from each category. Plus there is aditional column of Point added to the tables.</p>
-
-			<br>
-
-			<h4>How Points are calculated:</h4>
-
-			<p>To give some life to the leaderborads and may be also to give reason to compet agains each other I have added Points system. Points for Daily, Weekly and Monthly events are calculated a little bit differently. The higher a driver finishes in particular event the more points he/she will get. Points ar dependent of total participants. </p>
-
-			<br>
-
-			<h4>Future implementations:</h4>
-
-			<p>
-				I have to figure out the best way to determine and rank most skilled drivers. Right now I have set default leaderboard sorting by Points. Percentage of Top 10 finishes also I thing would be a good way to determine the skill and stability. World Rank (Country Rank) table in Driver Stats page is under development.
-			</p>
     	</div>
 
 

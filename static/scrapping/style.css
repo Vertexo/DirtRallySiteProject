@@ -159,7 +159,13 @@ body {
 	right: 0;
 	margin: 0;
 	padding: 0;
-	background: rgba(153, 204, 30, 1);
+	/*background: rgba(153, 204, 30, 1);*/
+	/*background: rgba(211,211,211, 1);*/
+	/*background: rgba(0,139,139, 0.5);*/
+	/*background: rgba(47,79,79, 0.5);*/
+	background-image: url("/static/scrapping/in-carbon-fiber-wallpaper-previous-next-car-wallpaper-carbon-fiber-1920x1080-carwallpaper-x-previous-next.jpg");
+	
+	
 }
 
 .page-container {
@@ -174,6 +180,7 @@ body {
 	margin-bottom: 50px;
 	text-align: center;
 	text-transform: uppercase;
+	color: white;
 }	
 
 
@@ -393,6 +400,7 @@ body {
 
 .leaderboards_unique-drivers p:nth-child(2) {
 	font-size: 20px;
+	color: white;
 }
 /* Driver counter for each event category on Drivers LEADERBOARDS page. 2222222222222222222222222222222222222222222222222222 */
 
@@ -462,6 +470,7 @@ body {
 	box-sizing: border-box;
 	text-align: center;
 	border: 3px solid rgba(15, 54, 94, 1);
+	/*border: 3px solid rgba(255, 255, 255, 1);*/
 	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
 	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
 	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
@@ -881,7 +890,9 @@ body {
 .driver_id p {
 	margin-top: 0px;
 	margin-bottom: 0px;
-	color: rgba(15, 54, 94, 1)
+	/*color: rgba(15, 54, 94, 1);*/
+	/*text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;*/
+	color: white;
 }
 /* Driver's Flag, Name and ID 333333333333333333333333333333333333333333333333333333333333333 */
 
@@ -1064,7 +1075,9 @@ body {
 
 .no_qualified_drivers_page p {
 	margin-bottom: 0px;
-	color: rgba(15, 54, 94, 1);
+	color: white;
+	/*color: rgba(15, 54, 94, 1);*/
+	/*text-shadow: -1px 0 black, 0 1px white, 1px 0 white, 0 -1px white;*/
 }
 /* No qualified drivers page 3333333333333333333333333333333333333333333333333333333333333333333333333 */
 
@@ -1130,6 +1143,7 @@ body {
 
 .country_points_rank_in_the_world p:nth-child(1) {
 	font-size: 20px;
+	color: white;
 }
 
 .country_points_rank_in_the_world p:nth-child(2) {
@@ -1215,6 +1229,7 @@ body {
 
 .stats_unique-drivers p:nth-child(2) {
 	font-size: 20px;
+	color: white;
 }
 /* Driver counter for each event category on Country Stats page. 2222222222222222222222222222222222222222222222222222 */
 
@@ -1433,6 +1448,7 @@ body {
 
 .most_participants_ever p:nth-child(1) {
 	font-size: 20px;
+	color: white;
 }
 
 .most_participants_ever p:nth-child(2) {
@@ -1443,7 +1459,20 @@ body {
 
 .most_participants_ever p:nth-child(3) {
 	font-size: 20px;
+	color: white;
 }
+
+.most_participants_ever p:nth-child(4) {
+	font-size: 25px;
+	color: white;
+}
+
+
+.most_participants_ever p:nth-child(5) {
+	font-size: 25px;
+	color: white;
+}
+
 
 
 
@@ -1759,6 +1788,29 @@ img.hover_flag:hover {
 
 
 
+
+
+
+
+
+/* START of HOW THIS SITE WORKS page CSS 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
+#how_site_works {
+	color: white;
+}
+/* START of HOW THIS SITE WORKS page CSS 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* START of CSS from bootstrap for leaderboards pagination 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 
 /* START of My pagination CSS 222222222222222222222222222222222222222222222222222222222222222222222222222222222 */
@@ -1870,7 +1922,7 @@ img.hover_flag:hover {
 footer {
 	clear: both;
 	height: 300px;
-	background: rgba(153, 204, 30, 1);
+	background: rgba(153, 204, 30, 0);
 }
 
 
