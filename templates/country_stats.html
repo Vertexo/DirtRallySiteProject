@@ -36,7 +36,7 @@
 
         <div class="country_stats_image">
             {% with 'scrapping/Country_Flags/'|add:country_name|add:'.jpg' as image_static %}
-                <td><img class="flags" src="{% static image_static %}"alt="no picture" height="93px" width="155px" title="{{ country_name }}"></td>
+                <td><img class="flags" src="{% static image_static %}"alt="no picture" style="height: 93px; width: 155px;" title="{{ country_name }}"></td>
             {% endwith %}
         </div>
 

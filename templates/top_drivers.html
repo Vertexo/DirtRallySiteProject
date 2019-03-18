@@ -127,7 +127,7 @@
 		        		<tr>	        			
 	        				<td>{{ forloop.counter0|add:drivers.start_index }}</td>                     
                             {% with 'scrapping/Country_Flags/'|add:row.country_from|add:'.jpg' as image_static %}
-                                <td><a id="flag_links" style="text-decoration: none; color: inherit;" href="/countrystats/{{ row.country_from }}/overall/overall_points/"><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ row.country_from }}"></a></td>
+                                <td><a id="flag_links" style="text-decoration: none; color: inherit;" href="/countrystats/{{ row.country_from }}/overall/overall_points/"><img class="hover_flag" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ row.country_from }}"></a></td>
                             {% endwith %}                         
                             <td><a id="name_links" title="{{ row.name }}" style="text-decoration: none; color: inherit;" href="/driverstats/{{ row.player_id }}/">{{ row.name }}</a></td>
                             <td><a id="playerid_links" style="text-decoration: none; color: inherit;" href="/driverstats/{{ row.player_id }}/">{{ row.player_id }}</a></td>

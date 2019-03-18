@@ -166,7 +166,15 @@ body {
 	max-width: 1400px;
 	margin: auto;
 	padding-top: 140px;
+
 }
+
+.page-container h2 {
+	margin: 0px;
+	margin-bottom: 50px;
+	text-align: center;
+	text-transform: uppercase;
+}	
 
 
 
@@ -511,58 +519,84 @@ body {
 
 .leaderboards_drivers_table th:nth-child(1) {
 	width: 80px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table th:nth-child(2) {
 	width: 75px;
+	padding: 0px;
+}
+
+.leaderboards_drivers_table th:nth-child(3) {
+	width: 164px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table td:nth-child(3) {
-	width: 164px;
 	text-align: left;
 	text-overflow: ellipsis;
   	white-space: nowrap;
   	overflow: hidden;
 }
 
+.leaderboards_drivers_table td:nth-child(3) a:hover {
+	font-size: 20px;
+}
 
 
 .leaderboards_drivers_table th:nth-child(4) {
 	width: 86px;
+	padding: 0px;
+}
+
+.leaderboards_drivers_table td:nth-child(4) a:hover {
+	font-size: 20px;
 }
 
 .leaderboards_drivers_table th:nth-child(5) {
 	width: 120px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table th:nth-child(6) {
 	width: 133px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table th:nth-child(7) {
 	width: 133px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table th:nth-child(8) {
 	width: 103px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table th:nth-child(9) {
 	width: 103px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table th:nth-child(10) {
 	width: 103px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table th:nth-child(11) {
 	width: 103px;
+	padding: 0px;
+}
+
+.leaderboards_drivers_table td:nth-child(12)  {
+	width: 175px;
+	padding: 0px;
 }
 
 .leaderboards_drivers_table td:nth-child(12)  {
 	text-align: left;
-	width: 175px;
 }
+
 
 
 
@@ -651,63 +685,101 @@ body {
 	text-align: center;
 	border-collapse: collapse;
 	background-color: white;
+	table-layout: fixed;
 }
 
 .leaderboards_countries_table th {
 	height: 40px;
+	margin: 0px;
 	border-bottom: 3px solid rgba(15, 54, 94, 1);
 	background-color: darkorange;
 }
 
 .leaderboards_countries_table td {
 	height: 40px;
+	padding: 0px;
 	border-bottom: 1px solid rgba(15, 54, 94, 1);
 }
 
+.leaderboards_countries_table th:nth-child(1) {
+	width: 70px;
+	padding: 0px;
+}
+
+.leaderboards_countries_table th:nth-child(2) {
+	width: 82px;
+	padding: 0px;
+}
+
+.leaderboards_countries_table th:nth-child(3) {
+	width: 140px;
+	padding: 0px;
+	
+}
+
+.leaderboards_countries_table td:nth-child(3) a:hover {
+	font-size: 20px;
+}
+
 .leaderboards_countries_table td:nth-child(3) {
-	word-wrap: break-word;
-	width: 150px;
 	text-align: left;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;
 }
 
-.leaderboards_countries_table td:nth-child(4) {
+.leaderboards_countries_table th:nth-child(4) {
 	width: 75px;
+	padding: 0px;
 }
 
-.leaderboards_countries_table td:nth-child(5) {
+.leaderboards_countries_table th:nth-child(5) {
 	width: 75px;
+	padding: 0px;
 }
 
-.leaderboards_countries_table td:nth-child(6) {
+.leaderboards_countries_table th:nth-child(6) {
 	width: 100px;
+	padding: 0px;
 }
 
-.leaderboards_countries_table td:nth-child(7) {
-	width: 120px;
+.leaderboards_countries_table th:nth-child(7) {
+	width: 125px;
+	padding: 0px;
 }
 
-.leaderboards_countries_table td:nth-child(8) {
-	width: 120px;
+.leaderboards_countries_table th:nth-child(8) {
+	width: 117px;
+	padding: 0px;
 }
 
-.leaderboards_countries_table td:nth-child(9) {
-	width: 105px;
+.leaderboards_countries_table th:nth-child(9) {
+	width: 110px;
+	padding: 0px;
 }
 
-.leaderboards_countries_table td:nth-child(10) {
-	width: 105px;
+.leaderboards_countries_table th:nth-child(10) {
+	width: 110px;
+	padding: 0px;
 }
 
-.leaderboards_countries_table td:nth-child(11) {
-	width: 105px;
+.leaderboards_countries_table th:nth-child(11) {
+	width: 110px;
+	padding: 0px;
 }
 
-.leaderboards_countries_table td:nth-child(12) {
-	width: 105px;
+.leaderboards_countries_table th:nth-child(12) {
+	width: 110px;
+	padding: 0px;
 }
+
+.leaderboards_countries_table th:nth-child(13)  {
+	width: 170px;
+	padding: 0px;
+}
+
 .leaderboards_countries_table td:nth-child(13)  {
 	text-align: left;
-	width: 175px;
 }
 
 .leaderboards_countries_table .leaderboards_active_sort_button {
@@ -1220,52 +1292,77 @@ body {
 
 
 .country_stats_top_drivers_table th:nth-child(1) {
-	width: 80px;
+	width: 90px;
+	padding: 0px;
+}
+
+.country_stats_top_drivers_table th:nth-child(2) {
+	width: 134px;
+	padding: 0px;
 }
 
 .country_stats_top_drivers_table td:nth-child(2) {
-	width: 120px;
 	text-align: left;
 	text-overflow: ellipsis;
   	white-space: nowrap;
   	overflow: hidden;
 }
 
+.country_stats_top_drivers_table td:nth-child(2) a:hover {
+	font-size: 20px;
+}
+
 .country_stats_top_drivers_table th:nth-child(3) {
-	width: 86px;
+	width: 96px;
+	padding: 0px;
+}
+
+.country_stats_top_drivers_table td:nth-child(3) a:hover {
+	font-size: 20px;
 }
 
 .country_stats_top_drivers_table th:nth-child(4) {
-	width: 120px;
+	width: 134px;
+	padding: 0px;
 }
 
 .country_stats_top_drivers_table th:nth-child(5) {
-	width: 130px;
+	width: 145px;
+	padding: 0px;
 }
 
 .country_stats_top_drivers_table th:nth-child(6) {
-	width: 130px;
+	width: 145px;
+	padding: 0px;
 }
 
 .country_stats_top_drivers_table th:nth-child(7) {
-	width: 103px;
+	width: 114px;
+	padding: 0px;
 }
 
 .country_stats_top_drivers_table th:nth-child(8) {
-	width: 103px;
+	width: 114px;
+	padding: 0px;
 }
 
 .country_stats_top_drivers_table th:nth-child(9) {
-	width: 103px;
+	width: 114px;
+	padding: 0px;
 }
 
 .country_stats_top_drivers_table th:nth-child(10) {
-	width: 103px;
+	width: 114px;
+	padding: 0px;
+}
+
+.country_stats_top_drivers_table th:nth-child(11) {
+	width: 194px;
+	padding: 0px;
 }
 
 .country_stats_top_drivers_table td:nth-child(11) {
 	text-align: left;
-	width: 175px;
 }
 
 
@@ -1319,17 +1416,6 @@ body {
 
 
 /* START of ALL EVENTS page CSS 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
-.page-container h2 {
-	margin: 0px;
-	margin-bottom: 50px;
-	text-align: center;
-	text-transform: uppercase;
-}	
-
-
-
-
-
 .most_participants_ever {
 	margin-top: 40px;
 	width: 800px;
@@ -1507,6 +1593,7 @@ body {
 .info-table {
 	font-size: 16px;
 	border-collapse: collapse;
+	box-sizing: border-box;
 	width: 100%;
 	background-color: white;
 	border: 3px solid rgba(15, 54, 94, 1);
@@ -1549,11 +1636,11 @@ body {
 
 
 
-
 .lead-table {
 	font-size: 16px;
 	margin-top: 100px;
 	border-collapse: collapse;
+	box-sizing: border-box;
 	width: 100%;
 	background-color: white;
 	border: 3px solid rgba(15, 54, 94, 1);
@@ -1567,24 +1654,61 @@ body {
 .lead-table th {
 	border-top: 1px solid rgba(15, 54, 94, 1);
 	border-bottom: 3px solid rgba(15, 54, 94, 1);
-	padding-top: 10px;
-	padding-bottom: 10px;
+	height: 40px;
 	text-align: center;
 	background-color: darkorange;
 }
 
 
 .lead-table th:nth-child(1) {
-	width: 100px;
+	width: 104px;
+	padding: 0px;
 }
 
-/*.lead-table th:nth-child(3) {
-	width: 20%;
+.lead-table th:nth-child(2) {
+	width: 180px;
+	padding: 0px;
+}
+
+.lead-table th:nth-child(3) {
+	width: 180px;
+	padding: 0px;
+}
+
+.lead-table td:nth-child(3) a:hover {
+	font-size: 20px;
+}
+
+.lead-table th:nth-child(4) {
+	width: 180px;
+	padding: 0px;
+}
+
+.lead-table td:nth-child(4) a:hover {
+	font-size: 20px;
 }
 
 .lead-table th:nth-child(5) {
-	width: 20%;
-}*/
+	width: 180px;
+	padding: 0px;
+}
+
+.lead-table th:nth-child(6) {
+	width: 180px;
+	padding: 0px;
+}
+
+.lead-table th:nth-child(7) {
+	width: 180px;
+	padding: 0px;
+}
+
+.lead-table th:nth-child(8) {
+	width: 210px;
+	padding: 0px;
+}
+
+
 
 
 .lead-table tbody tr {
@@ -1613,6 +1737,17 @@ img.flags {
 	border: 1px solid rgba(200, 200, 200, 1);
 	vertical-align: middle;
 }
+
+img.hover_flag {
+	border: 1px solid rgba(200, 200, 200, 1);
+	vertical-align: middle;
+}
+
+img.hover_flag:hover {
+	height: 30px;
+	width: 50px;
+}
+
 /* END of ALL EVENTS page CSS 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 
 

@@ -32,7 +32,7 @@
             
                 <div class="date_selector">
                     <form>
-                        <select id="date_selector">
+                        <select style="color: red;" id="date_selector">
                             <option value="nothing">Select Date</option>
                             {% for date in date_selector_list %}
                                 <option value="/all_events/{{ event_category }}/{{ date }}/">{{ date }}</option>
@@ -89,7 +89,7 @@
 
                                 {% if forloop.counter0 == 1 %}
                                     {% with 'scrapping/Country_Flags/'|add:cell|add:'.jpg' as image_static %}
-                                        <td><a style="text-decoration: none; color: inherit;" href="/countrystats/{{ cell }}/overall/overall_points/"><img class="flags" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ cell }}"></a></td>
+                                        <td><a style="text-decoration: none; color: inherit;" href="/countrystats/{{ cell }}/overall/overall_points/"><img class="hover_flag" src="{% static image_static %}" alt="no picture" height="24px" width="40px" title="{{ cell }}"></a></td>
                                     {% endwith %}
 
                                 {% elif forloop.counter0 == 2 %}
