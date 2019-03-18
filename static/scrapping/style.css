@@ -128,9 +128,9 @@ body {
 	color: #fff;
 	padding: 5px;
 	text-decoration: none;
-	border: 1px solid #73B5CF;
+	border: 1px solid white;
 	border-radius: 7px;
-	box-shadow: 1px 1px 1px 1px #73B5CF;
+	box-shadow: 1px 1px 1px 1px white;
 	
 }
 .main-nav a:hover {
