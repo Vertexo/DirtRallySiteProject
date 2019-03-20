@@ -22,4 +22,4 @@ In upper right corner of the site you can see "Database active since: 07.27.2018
 and scraping official events data. So the oldest Daily and Daily 2 event on this site is from 07.27.2018.
 
 
-![Screenshot](Screenshot.png)
+![Screenshot](Screenshot_black.png)
