@@ -221,11 +221,11 @@ def top_drivers_order_by_view(request, event_category, order_variable):
         leaderboards_th2_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_events_finished':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable)
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
         leaderboards_th5_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_points':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable)
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
         leaderboards_th6_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_average_finish_place':
@@ -233,23 +233,23 @@ def top_drivers_order_by_view(request, event_category, order_variable):
         leaderboards_th7_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_first_places':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_top_3')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_top_3', '-' + event_category + '_top_10', '-' + event_category + '_top_100', event_category + '_average_finish_place')
         leaderboards_th8_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_top_3':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_top_10')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_first_places', '-' + event_category + '_top_10', '-' + event_category + '_top_100', event_category + '_average_finish_place')
         leaderboards_th9_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_top_10':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_top_100')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_first_places', '-' + event_category + '_top_3', '-' + event_category + '_top_100', event_category + '_average_finish_place')
         leaderboards_th10_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_top_100':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_first_places', '-' + event_category + '_top_3', '-' + event_category + '_top_10', event_category + '_average_finish_place')
         leaderboards_th11_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_driving_time_seconds':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable)
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
         leaderboards_th12_activity_tag = 'leaderboards_active_sort_button'
 
 

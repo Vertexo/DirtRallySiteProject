@@ -97,6 +97,8 @@ class PlayersInfo(models.Model):
     monthly_driving_time_seconds = models.FloatField()
     monthly_points = models.IntegerField()
 
+    overall_world_rank_events_finished = models.IntegerField()
+
     def __str__(self):
         return '{}'.format(self.player_id)
     class Meta:
