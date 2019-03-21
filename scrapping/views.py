@@ -308,7 +308,6 @@ def top_drivers_order_by_view(request, event_category, order_variable):
     context['leaderboards_th11_activity_tag'] = leaderboards_th11_activity_tag
     context['leaderboards_th12_activity_tag'] = leaderboards_th12_activity_tag
 
-    # context['search_term'] = search_term
 
     context['main_nav_button_1_tag'] = 'main_button_active'
     context['main_nav_button_2_tag'] = 'main_button_inactive'

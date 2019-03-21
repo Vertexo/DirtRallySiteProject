@@ -103,6 +103,9 @@
                                 {% elif forloop.counter0 == 3 %}
                                     <td><a style="text-decoration: none; color: inherit;" href="/driverstats/{{ cell }}/">{{ cell }}</a></td>
                                         
+                                {% elif forloop.counter0 == 4 %}
+                                    <td title="{{ cell }}">{{ cell }}</td>
+
                                 {% else %}
                                     <td>{{ cell }}</td>
                                 {% endif %}

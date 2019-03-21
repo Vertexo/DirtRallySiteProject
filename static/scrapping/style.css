@@ -98,7 +98,7 @@ body {
 .main-nav ul {
 	padding: 0px;
 	margin: 0px;
-	margin-top: 15px;
+	margin-top: 0px;
 }
 
 .main-nav li {
@@ -113,7 +113,7 @@ body {
 	text-decoration: none;
 	border: 1px solid white;
 	border-radius: 5px;
-	padding: 3px;
+	padding: 2px;
 	background-color: rgba(255, 255, 255, 1);
 	
 }
@@ -1549,9 +1549,12 @@ body {
 	font-size: 16px;
 	margin-left: 50px;
 	width: 150px;
+	
 }
 
-
+.date_selector option {
+	border-radius: 10px;
+}
 
 
 
@@ -1685,6 +1688,13 @@ body {
 	padding: 0px;
 }
 
+.lead-table td:nth-child(3) {
+	text-align: left;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;
+}
+
 .lead-table td:nth-child(3) a:hover {
 	font-size: 20px;
 }
@@ -1703,6 +1713,13 @@ body {
 	padding: 0px;
 }
 
+.lead-table td:nth-child(5) {
+	text-align: left;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	overflow: hidden;
+}
+
 .lead-table th:nth-child(6) {
 	width: 180px;
 	padding: 0px;
@@ -1718,22 +1735,15 @@ body {
 	padding: 0px;
 }
 
-
 .lead-table td {
 	text-align: center;
 }
 
-.lead-table tbody tr {
-	height: 35px;
+.lead-table tbody tr td {
+	height: 33.5px;
 	border-bottom: 1px solid rgba(15, 54, 94, 1);
 }
 
-.lead-table td:nth-child(3) {
-	text-align: left;
-	text-overflow: ellipsis;
-  	white-space: nowrap;
-  	overflow: hidden;
-}
 
 
 
