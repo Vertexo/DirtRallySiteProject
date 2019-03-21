@@ -217,48 +217,61 @@ def top_drivers_order_by_view(request, event_category, order_variable):
     }
 
     if order_variable == 'country_from':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(order_variable, event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(order_variable,
+                                                                           event_category + '_average_finish_place')
         leaderboards_th2_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_events_finished':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                           event_category + '_average_finish_place')
         leaderboards_th5_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_points':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                           event_category + '_average_finish_place')
         leaderboards_th6_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_average_finish_place':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(order_variable)
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(order_variable,
+                                                                           event_category + '_points')
         leaderboards_th7_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_first_places':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_top_3', '-' + event_category + '_top_10', '-' + event_category + '_top_100', event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                           '-' + event_category + '_top_3',
+                                                                           '-' + event_category + '_top_10',
+                                                                           '-' + event_category + '_top_100',
+                                                                           event_category + '_average_finish_place')
         leaderboards_th8_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_top_3':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_first_places', '-' + event_category + '_top_10', '-' + event_category + '_top_100', event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                           '-' + event_category + '_first_places',
+                                                                           '-' + event_category + '_top_10',
+                                                                           '-' + event_category + '_top_100',
+                                                                           event_category + '_average_finish_place')
         leaderboards_th9_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_top_10':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_first_places', '-' + event_category + '_top_3', '-' + event_category + '_top_100', event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                           '-' + event_category + '_first_places',
+                                                                           '-' + event_category + '_top_3',
+                                                                           '-' + event_category + '_top_100',
+                                                                           event_category + '_average_finish_place')
         leaderboards_th10_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_top_100':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_first_places', '-' + event_category + '_top_3', '-' + event_category + '_top_10', event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                           '-' + event_category + '_first_places',
+                                                                           '-' + event_category + '_top_3',
+                                                                           '-' + event_category + '_top_10',
+                                                                           event_category + '_average_finish_place')
         leaderboards_th11_activity_tag = 'leaderboards_active_sort_button'
 
     elif order_variable == event_category + '_driving_time_seconds':
-        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                           event_category + '_average_finish_place')
         leaderboards_th12_activity_tag = 'leaderboards_active_sort_button'
-
-
-
-
-    # search_term = ''
-    # if 'search' in request.GET:
-    #     search_term = request.GET['search']
-    #     object_ordered = object_ordered.filter(text__icontains=search_term)
 
 
 
@@ -541,6 +554,7 @@ def driverstats_view(request, drivers_id):
         drivers_name = ''
         drivers_id = ''
 
+
         overall_events_finished = ''
         overall_points = ''
         overall_average_points = ''
@@ -550,6 +564,27 @@ def driverstats_view(request, drivers_id):
         overall_top_10 = ''
         overall_top_100 = ''
         overall_driving_time_seconds = ''
+
+        overall_world_rank_events_finished = ''
+        overall_world_rank_points = ''
+        overall_world_rank_average_points = ''
+        overall_world_rank_average_finish_place = ''
+        overall_world_rank_first_places = ''
+        overall_world_rank_top_3 = ''
+        overall_world_rank_top_10 = ''
+        overall_world_rank_top_100 = ''
+        overall_world_rank_driving_time_seconds = ''
+
+        overall_country_rank_events_finished = ''
+        overall_country_rank_points = ''
+        overall_country_rank_average_points = ''
+        overall_country_rank_average_finish_place = ''
+        overall_country_rank_first_places = ''
+        overall_country_rank_top_3 = ''
+        overall_country_rank_top_10 = ''
+        overall_country_rank_top_100 = ''
+        overall_country_rank_driving_time_seconds = ''
+
 
         daily_events_finished = ''
         daily_points = ''
@@ -561,6 +596,27 @@ def driverstats_view(request, drivers_id):
         daily_top_100 = ''
         daily_driving_time_seconds = ''
 
+        daily_world_rank_events_finished = ''
+        daily_world_rank_points = ''
+        daily_world_rank_average_points = ''
+        daily_world_rank_average_finish_place = ''
+        daily_world_rank_first_places = ''
+        daily_world_rank_top_3 = ''
+        daily_world_rank_top_10 = ''
+        daily_world_rank_top_100 = ''
+        daily_world_rank_driving_time_seconds = ''
+
+        daily_country_rank_events_finished = ''
+        daily_country_rank_points = ''
+        daily_country_rank_average_points = ''
+        daily_country_rank_average_finish_place = ''
+        daily_country_rank_first_places = ''
+        daily_country_rank_top_3 = ''
+        daily_country_rank_top_10 = ''
+        daily_country_rank_top_100 = ''
+        daily_country_rank_driving_time_seconds = ''
+
+
         daily2_events_finished = ''
         daily2_points = ''
         daily2_average_points = ''
@@ -570,6 +626,27 @@ def driverstats_view(request, drivers_id):
         daily2_top_10 = ''
         daily2_top_100 = ''
         daily2_driving_time_seconds = ''
+
+        daily2_world_rank_events_finished = ''
+        daily2_world_rank_points = ''
+        daily2_world_rank_average_points = ''
+        daily2_world_rank_average_finish_place = ''
+        daily2_world_rank_first_places = ''
+        daily2_world_rank_top_3 = ''
+        daily2_world_rank_top_10 = ''
+        daily2_world_rank_top_100 = ''
+        daily2_world_rank_driving_time_seconds = ''
+
+        daily2_country_rank_events_finished = ''
+        daily2_country_rank_points = ''
+        daily2_country_rank_average_points = ''
+        daily2_country_rank_average_finish_place = ''
+        daily2_country_rank_first_places = ''
+        daily2_country_rank_top_3 = ''
+        daily2_country_rank_top_10 = ''
+        daily2_country_rank_top_100 = ''
+        daily2_country_rank_driving_time_seconds = ''
+
 
         weekly_events_finished = ''
         weekly_points = ''
@@ -581,6 +658,27 @@ def driverstats_view(request, drivers_id):
         weekly_top_100 = ''
         weekly_driving_time_seconds = ''
 
+        weekly_world_rank_events_finished = ''
+        weekly_world_rank_points = ''
+        weekly_world_rank_average_points = ''
+        weekly_world_rank_average_finish_place = ''
+        weekly_world_rank_first_places = ''
+        weekly_world_rank_top_3 = ''
+        weekly_world_rank_top_10 = ''
+        weekly_world_rank_top_100 = ''
+        weekly_world_rank_driving_time_seconds = ''
+
+        weekly_country_rank_events_finished = ''
+        weekly_country_rank_points = ''
+        weekly_country_rank_average_points = ''
+        weekly_country_rank_average_finish_place = ''
+        weekly_country_rank_first_places = ''
+        weekly_country_rank_top_3 = ''
+        weekly_country_rank_top_10 = ''
+        weekly_country_rank_top_100 = ''
+        weekly_country_rank_driving_time_seconds = ''
+
+
         weekly2_events_finished = ''
         weekly2_points = ''
         weekly2_average_points = ''
@@ -591,6 +689,27 @@ def driverstats_view(request, drivers_id):
         weekly2_top_100 = ''
         weekly2_driving_time_seconds = ''
 
+        weekly2_world_rank_events_finished = ''
+        weekly2_world_rank_points = ''
+        weekly2_world_rank_average_points = ''
+        weekly2_world_rank_average_finish_place = ''
+        weekly2_world_rank_first_places = ''
+        weekly2_world_rank_top_3 = ''
+        weekly2_world_rank_top_10 = ''
+        weekly2_world_rank_top_100 = ''
+        weekly2_world_rank_driving_time_seconds = ''
+
+        weekly2_country_rank_events_finished = ''
+        weekly2_country_rank_points = ''
+        weekly2_country_rank_average_points = ''
+        weekly2_country_rank_average_finish_place = ''
+        weekly2_country_rank_first_places = ''
+        weekly2_country_rank_top_3 = ''
+        weekly2_country_rank_top_10 = ''
+        weekly2_country_rank_top_100 = ''
+        weekly2_country_rank_driving_time_seconds = ''
+
+
         monthly_events_finished = ''
         monthly_points = ''
         monthly_average_points = ''
@@ -600,6 +719,27 @@ def driverstats_view(request, drivers_id):
         monthly_top_10 = ''
         monthly_top_100 = ''
         monthly_driving_time_seconds = ''
+
+        monthly_world_rank_events_finished = ''
+        monthly_world_rank_points = ''
+        monthly_world_rank_average_points = ''
+        monthly_world_rank_average_finish_place = ''
+        monthly_world_rank_first_places = ''
+        monthly_world_rank_top_3 = ''
+        monthly_world_rank_top_10 = ''
+        monthly_world_rank_top_100 = ''
+        monthly_world_rank_driving_time_seconds = ''
+
+        monthly_country_rank_events_finished = ''
+        monthly_country_rank_points = ''
+        monthly_country_rank_average_points = ''
+        monthly_country_rank_average_finish_place = ''
+        monthly_country_rank_first_places = ''
+        monthly_country_rank_top_3 = ''
+        monthly_country_rank_top_10 = ''
+        monthly_country_rank_top_100 = ''
+        monthly_country_rank_driving_time_seconds = ''
+
 
         for i in object_playerinfo:
             country_from = i.country_from
@@ -616,6 +756,26 @@ def driverstats_view(request, drivers_id):
             overall_top_100 = i.overall_top_100
             overall_driving_time_seconds = i.overall_driving_time_seconds
 
+            overall_world_rank_events_finished = i.overall_world_rank_events_finished
+            overall_world_rank_points = i.overall_world_rank_points
+            overall_world_rank_average_points = i.overall_world_rank_average_points
+            overall_world_rank_average_finish_place = i.overall_world_rank_average_finish_place
+            overall_world_rank_first_places = i.overall_world_rank_first_places
+            overall_world_rank_top_3 = i.overall_world_rank_top_3
+            overall_world_rank_top_10 = i.overall_world_rank_top_10
+            overall_world_rank_top_100 = i.overall_world_rank_top_100
+            overall_world_rank_driving_time_seconds = i.overall_world_rank_driving_time_seconds
+
+            overall_country_rank_events_finished = i.overall_country_rank_events_finished
+            overall_country_rank_points = i.overall_country_rank_points
+            overall_country_rank_average_points = i.overall_country_rank_average_points
+            overall_country_rank_average_finish_place = i.overall_country_rank_average_finish_place
+            overall_country_rank_first_places = i.overall_country_rank_first_places
+            overall_country_rank_top_3 = i.overall_country_rank_top_3
+            overall_country_rank_top_10 = i.overall_country_rank_top_10
+            overall_country_rank_top_100 = i.overall_country_rank_top_100
+            overall_country_rank_driving_time_seconds = i.overall_country_rank_driving_time_seconds
+
             daily_events_finished = i.daily_events_finished
             if daily_events_finished != 0:
                 daily_points = i.daily_points
@@ -626,6 +786,26 @@ def driverstats_view(request, drivers_id):
                 daily_top_10 = i.daily_top_10
                 daily_top_100 = i.daily_top_100
                 daily_driving_time_seconds = i.daily_driving_time_seconds
+
+                daily_world_rank_events_finished = i.daily_world_rank_events_finished
+                daily_world_rank_points = i.daily_world_rank_points
+                daily_world_rank_average_points = i.daily_world_rank_average_points
+                daily_world_rank_average_finish_place = i.daily_world_rank_average_finish_place
+                daily_world_rank_first_places = i.daily_world_rank_first_places
+                daily_world_rank_top_3 = i.daily_world_rank_top_3
+                daily_world_rank_top_10 = i.daily_world_rank_top_10
+                daily_world_rank_top_100 = i.daily_world_rank_top_100
+                daily_world_rank_driving_time_seconds = i.daily_world_rank_driving_time_seconds
+
+                daily_country_rank_events_finished = i.daily_country_rank_events_finished
+                daily_country_rank_points = i.daily_country_rank_points
+                daily_country_rank_average_points = i.daily_country_rank_average_points
+                daily_country_rank_average_finish_place = i.daily_country_rank_average_finish_place
+                daily_country_rank_first_places = i.daily_country_rank_first_places
+                daily_country_rank_top_3 = i.daily_country_rank_top_3
+                daily_country_rank_top_10 = i.daily_country_rank_top_10
+                daily_country_rank_top_100 = i.daily_country_rank_top_100
+                daily_country_rank_driving_time_seconds = i.daily_country_rank_driving_time_seconds
 
             daily2_events_finished = i.daily2_events_finished
             if daily2_events_finished != 0:
@@ -638,6 +818,26 @@ def driverstats_view(request, drivers_id):
                 daily2_top_100 = i.daily2_top_100
                 daily2_driving_time_seconds = i.daily2_driving_time_seconds
 
+                daily2_world_rank_events_finished = i.daily2_world_rank_events_finished
+                daily2_world_rank_points = i.daily2_world_rank_points
+                daily2_world_rank_average_points = i.daily2_world_rank_average_points
+                daily2_world_rank_average_finish_place = i.daily2_world_rank_average_finish_place
+                daily2_world_rank_first_places = i.daily2_world_rank_first_places
+                daily2_world_rank_top_3 = i.daily2_world_rank_top_3
+                daily2_world_rank_top_10 = i.daily2_world_rank_top_10
+                daily2_world_rank_top_100 = i.daily2_world_rank_top_100
+                daily2_world_rank_driving_time_seconds = i.daily2_world_rank_driving_time_seconds
+
+                daily2_country_rank_events_finished = i.daily2_country_rank_events_finished
+                daily2_country_rank_points = i.daily2_country_rank_points
+                daily2_country_rank_average_points = i.daily2_country_rank_average_points
+                daily2_country_rank_average_finish_place = i.daily2_country_rank_average_finish_place
+                daily2_country_rank_first_places = i.daily2_country_rank_first_places
+                daily2_country_rank_top_3 = i.daily2_country_rank_top_3
+                daily2_country_rank_top_10 = i.daily2_country_rank_top_10
+                daily2_country_rank_top_100 = i.daily2_country_rank_top_100
+                daily2_country_rank_driving_time_seconds = i.daily2_country_rank_driving_time_seconds
+
             weekly_events_finished = i.weekly_events_finished
             if weekly_events_finished != 0:
                 weekly_points = i.weekly_points
@@ -648,6 +848,26 @@ def driverstats_view(request, drivers_id):
                 weekly_top_10 = i.weekly_top_10
                 weekly_top_100 = i.weekly_top_100
                 weekly_driving_time_seconds = i.weekly_driving_time_seconds
+
+                weekly_world_rank_events_finished = i.weekly_world_rank_events_finished
+                weekly_world_rank_points = i.weekly_world_rank_points
+                weekly_world_rank_average_points = i.weekly_world_rank_average_points
+                weekly_world_rank_average_finish_place = i.weekly_world_rank_average_finish_place
+                weekly_world_rank_first_places = i.weekly_world_rank_first_places
+                weekly_world_rank_top_3 = i.weekly_world_rank_top_3
+                weekly_world_rank_top_10 = i.weekly_world_rank_top_10
+                weekly_world_rank_top_100 = i.weekly_world_rank_top_100
+                weekly_world_rank_driving_time_seconds = i.weekly_world_rank_driving_time_seconds
+
+                weekly_country_rank_events_finished = i.weekly_country_rank_events_finished
+                weekly_country_rank_points = i.weekly_country_rank_points
+                weekly_country_rank_average_points = i.weekly_country_rank_average_points
+                weekly_country_rank_average_finish_place = i.weekly_country_rank_average_finish_place
+                weekly_country_rank_first_places = i.weekly_country_rank_first_places
+                weekly_country_rank_top_3 = i.weekly_country_rank_top_3
+                weekly_country_rank_top_10 = i.weekly_country_rank_top_10
+                weekly_country_rank_top_100 = i.weekly_country_rank_top_100
+                weekly_country_rank_driving_time_seconds = i.weekly_country_rank_driving_time_seconds
 
             weekly2_events_finished = i.weekly2_events_finished
             if weekly2_events_finished != 0:
@@ -660,6 +880,26 @@ def driverstats_view(request, drivers_id):
                 weekly2_top_100 = i.weekly2_top_100
                 weekly2_driving_time_seconds = i.weekly2_driving_time_seconds
 
+                weekly2_world_rank_events_finished = i.weekly2_world_rank_events_finished
+                weekly2_world_rank_points = i.weekly2_world_rank_points
+                weekly2_world_rank_average_points = i.weekly2_world_rank_average_points
+                weekly2_world_rank_average_finish_place = i.weekly2_world_rank_average_finish_place
+                weekly2_world_rank_first_places = i.weekly2_world_rank_first_places
+                weekly2_world_rank_top_3 = i.weekly2_world_rank_top_3
+                weekly2_world_rank_top_10 = i.weekly2_world_rank_top_10
+                weekly2_world_rank_top_100 = i.weekly2_world_rank_top_100
+                weekly2_world_rank_driving_time_seconds = i.weekly2_world_rank_driving_time_seconds
+
+                weekly2_country_rank_events_finished = i.weekly2_country_rank_events_finished
+                weekly2_country_rank_points = i.weekly2_country_rank_points
+                weekly2_country_rank_average_points = i.weekly2_country_rank_average_points
+                weekly2_country_rank_average_finish_place = i.weekly2_country_rank_average_finish_place
+                weekly2_country_rank_first_places = i.weekly2_country_rank_first_places
+                weekly2_country_rank_top_3 = i.weekly2_country_rank_top_3
+                weekly2_country_rank_top_10 = i.weekly2_country_rank_top_10
+                weekly2_country_rank_top_100 = i.weekly2_country_rank_top_100
+                weekly2_country_rank_driving_time_seconds = i.weekly2_country_rank_driving_time_seconds
+
             monthly_events_finished = i.monthly_events_finished
             if monthly_events_finished != 0:
                 monthly_points = i.monthly_points
@@ -671,55 +911,25 @@ def driverstats_view(request, drivers_id):
                 monthly_top_100 = i.monthly_top_100
                 monthly_driving_time_seconds = i.monthly_driving_time_seconds
 
+                monthly_world_rank_events_finished = i.monthly_world_rank_events_finished
+                monthly_world_rank_points = i.monthly_world_rank_points
+                monthly_world_rank_average_points = i.monthly_world_rank_average_points
+                monthly_world_rank_average_finish_place = i.monthly_world_rank_average_finish_place
+                monthly_world_rank_first_places = i.monthly_world_rank_first_places
+                monthly_world_rank_top_3 = i.monthly_world_rank_top_3
+                monthly_world_rank_top_10 = i.monthly_world_rank_top_10
+                monthly_world_rank_top_100 = i.monthly_world_rank_top_100
+                monthly_world_rank_driving_time_seconds = i.monthly_world_rank_driving_time_seconds
 
-
-
-
-
-        # # Code section for getting stats' rankings by world and driver's country.
-        # def world_country_points_ranks(event_category):
-        #     overall_points_world_rank_obj = PlayersInfo.objects.order_by('-' + event_category + '_points')
-        #     overall_points_world_rank = 0
-        #     for driver in overall_points_world_rank_obj:
-        #         overall_points_world_rank += 1
-        #         if driver.overall_points == overall_points:
-        #             break
-        #
-        #     overall_points_country_rank_obj = PlayersInfo.objects.filter(country_from__exact=country_from).order_by('-' + event_category + '_points')
-        #     overall_points_country_rank = 0
-        #     for driver in overall_points_country_rank_obj:
-        #         overall_points_country_rank += 1
-        #         if driver.overall_points == overall_points:
-        #             break
-        #     return f"{overall_points_world_rank} ({overall_points_country_rank})"
-        #
-        #
-        # overall_points_rank = ''
-        # if overall_events_finished != 0:
-        #     overall_points_rank = world_country_points_ranks('overall')
-        #
-        # daily_points_rank = ''
-        # if daily_events_finished != 0:
-        #     daily_points_rank = world_country_points_ranks('daily')
-        #
-        # daily2_points_rank = ''
-        # if daily2_events_finished != 0:
-        #     daily2_points_rank = world_country_points_ranks('daily2')
-        #
-        # weekly_points_rank = ''
-        # if weekly_events_finished != 0:
-        #     weekly_points_rank = world_country_points_ranks('weekly')
-        #
-        # weekly2_points_rank = ''
-        # if weekly2_events_finished != 0:
-        #     weekly2_points_rank = world_country_points_ranks('weekly2')
-        #
-        # monthly_points_rank = ''
-        # if monthly_events_finished != 0:
-        #     monthly_points_rank = world_country_points_ranks('monthly')
-        # # Code section for getting stats' rankings by world and driver's country.
-
-
+                monthly_country_rank_events_finished = i.monthly_country_rank_events_finished
+                monthly_country_rank_points = i.monthly_country_rank_points
+                monthly_country_rank_average_points = i.monthly_country_rank_average_points
+                monthly_country_rank_average_finish_place = i.monthly_country_rank_average_finish_place
+                monthly_country_rank_first_places = i.monthly_country_rank_first_places
+                monthly_country_rank_top_3 = i.monthly_country_rank_top_3
+                monthly_country_rank_top_10 = i.monthly_country_rank_top_10
+                monthly_country_rank_top_100 = i.monthly_country_rank_top_100
+                monthly_country_rank_driving_time_seconds = i.monthly_country_rank_driving_time_seconds
 
 
 
@@ -790,12 +1000,131 @@ def driverstats_view(request, drivers_id):
         context['monthly_driving_time_seconds'] = monthly_driving_time_seconds
 
 
-        # context['overall_points_rank'] = overall_points_rank
-        # context['daily_points_rank'] = daily_points_rank
-        # context['daily2_points_rank'] = daily2_points_rank
-        # context['weekly_points_rank'] = weekly_points_rank
-        # context['weekly2_points_rank'] = weekly2_points_rank
-        # context['monthly_points_rank'] = monthly_points_rank
+        context['overall_world_rank_events_finished'] = overall_world_rank_events_finished
+        context['overall_world_rank_points'] = overall_world_rank_points
+        context['overall_world_rank_average_points'] = overall_world_rank_average_points
+        context['overall_world_rank_average_finish_place'] = overall_world_rank_average_finish_place
+        context['overall_world_rank_first_places'] = overall_world_rank_first_places
+        context['overall_world_rank_top_3'] = overall_world_rank_top_3
+        context['overall_world_rank_top_10'] = overall_world_rank_top_10
+        context['overall_world_rank_top_100'] = overall_world_rank_top_100
+        context['overall_world_rank_driving_time_seconds'] = overall_world_rank_driving_time_seconds
+
+        context['overall_country_rank_events_finished'] = overall_country_rank_events_finished
+        context['overall_country_rank_points'] = overall_country_rank_points
+        context['overall_country_rank_average_points'] = overall_country_rank_average_points
+        context['overall_country_rank_average_finish_place'] = overall_country_rank_average_finish_place
+        context['overall_country_rank_first_places'] = overall_country_rank_first_places
+        context['overall_country_rank_top_3'] = overall_country_rank_top_3
+        context['overall_country_rank_top_10'] = overall_country_rank_top_10
+        context['overall_country_rank_top_100'] = overall_country_rank_top_100
+        context['overall_country_rank_driving_time_seconds'] = overall_country_rank_driving_time_seconds
+
+
+        context['daily_world_rank_events_finished'] = daily_world_rank_events_finished
+        context['daily_world_rank_points'] = daily_world_rank_points
+        context['daily_world_rank_average_points'] = daily_world_rank_average_points
+        context['daily_world_rank_average_finish_place'] = daily_world_rank_average_finish_place
+        context['daily_world_rank_first_places'] = daily_world_rank_first_places
+        context['daily_world_rank_top_3'] = daily_world_rank_top_3
+        context['daily_world_rank_top_10'] = daily_world_rank_top_10
+        context['daily_world_rank_top_100'] = daily_world_rank_top_100
+        context['daily_world_rank_driving_time_seconds'] = daily_world_rank_driving_time_seconds
+
+        context['daily_country_rank_events_finished'] = daily_country_rank_events_finished
+        context['daily_country_rank_points'] = daily_country_rank_points
+        context['daily_country_rank_average_points'] = daily_country_rank_average_points
+        context['daily_country_rank_average_finish_place'] = daily_country_rank_average_finish_place
+        context['daily_country_rank_first_places'] = daily_country_rank_first_places
+        context['daily_country_rank_top_3'] = daily_country_rank_top_3
+        context['daily_country_rank_top_10'] = daily_country_rank_top_10
+        context['daily_country_rank_top_100'] = daily_country_rank_top_100
+        context['daily_country_rank_driving_time_seconds'] = daily_country_rank_driving_time_seconds
+
+
+        context['daily2_world_rank_events_finished'] = daily2_world_rank_events_finished
+        context['daily2_world_rank_points'] = daily2_world_rank_points
+        context['daily2_world_rank_average_points'] = daily2_world_rank_average_points
+        context['daily2_world_rank_average_finish_place'] = daily2_world_rank_average_finish_place
+        context['daily2_world_rank_first_places'] = daily2_world_rank_first_places
+        context['daily2_world_rank_top_3'] = daily2_world_rank_top_3
+        context['daily2_world_rank_top_10'] = daily2_world_rank_top_10
+        context['daily2_world_rank_top_100'] = daily2_world_rank_top_100
+        context['daily2_world_rank_driving_time_seconds'] = daily2_world_rank_driving_time_seconds
+
+        context['daily2_country_rank_events_finished'] = daily2_country_rank_events_finished
+        context['daily2_country_rank_points'] = daily2_country_rank_points
+        context['daily2_country_rank_average_points'] = daily2_country_rank_average_points
+        context['daily2_country_rank_average_finish_place'] = daily2_country_rank_average_finish_place
+        context['daily2_country_rank_first_places'] = daily2_country_rank_first_places
+        context['daily2_country_rank_top_3'] = daily2_country_rank_top_3
+        context['daily2_country_rank_top_10'] = daily2_country_rank_top_10
+        context['daily2_country_rank_top_100'] = daily2_country_rank_top_100
+        context['daily2_country_rank_driving_time_seconds'] = daily2_country_rank_driving_time_seconds
+
+
+        context['weekly_world_rank_events_finished'] = weekly_world_rank_events_finished
+        context['weekly_world_rank_points'] = weekly_world_rank_points
+        context['weekly_world_rank_average_points'] = weekly_world_rank_average_points
+        context['weekly_world_rank_average_finish_place'] = weekly_world_rank_average_finish_place
+        context['weekly_world_rank_first_places'] = weekly_world_rank_first_places
+        context['weekly_world_rank_top_3'] = weekly_world_rank_top_3
+        context['weekly_world_rank_top_10'] = weekly_world_rank_top_10
+        context['weekly_world_rank_top_100'] = weekly_world_rank_top_100
+        context['weekly_world_rank_driving_time_seconds'] = weekly_world_rank_driving_time_seconds
+
+        context['weekly_country_rank_events_finished'] = weekly_country_rank_events_finished
+        context['weekly_country_rank_points'] = weekly_country_rank_points
+        context['weekly_country_rank_average_points'] = weekly_country_rank_average_points
+        context['weekly_country_rank_average_finish_place'] = weekly_country_rank_average_finish_place
+        context['weekly_country_rank_first_places'] = weekly_country_rank_first_places
+        context['weekly_country_rank_top_3'] = weekly_country_rank_top_3
+        context['weekly_country_rank_top_10'] = weekly_country_rank_top_10
+        context['weekly_country_rank_top_100'] = weekly_country_rank_top_100
+        context['weekly_country_rank_driving_time_seconds'] = weekly_country_rank_driving_time_seconds
+
+
+        context['weekly2_world_rank_events_finished'] = weekly2_world_rank_events_finished
+        context['weekly2_world_rank_points'] = weekly2_world_rank_points
+        context['weekly2_world_rank_average_points'] = weekly2_world_rank_average_points
+        context['weekly2_world_rank_average_finish_place'] = weekly2_world_rank_average_finish_place
+        context['weekly2_world_rank_first_places'] = weekly2_world_rank_first_places
+        context['weekly2_world_rank_top_3'] = weekly2_world_rank_top_3
+        context['weekly2_world_rank_top_10'] = weekly2_world_rank_top_10
+        context['weekly2_world_rank_top_100'] = weekly2_world_rank_top_100
+        context['weekly2_world_rank_driving_time_seconds'] = weekly2_world_rank_driving_time_seconds
+
+        context['weekly2_country_rank_events_finished'] = weekly2_country_rank_events_finished
+        context['weekly2_country_rank_points'] = weekly2_country_rank_points
+        context['weekly2_country_rank_average_points'] = weekly2_country_rank_average_points
+        context['weekly2_country_rank_average_finish_place'] = weekly2_country_rank_average_finish_place
+        context['weekly2_country_rank_first_places'] = weekly2_country_rank_first_places
+        context['weekly2_country_rank_top_3'] = weekly2_country_rank_top_3
+        context['weekly2_country_rank_top_10'] = weekly2_country_rank_top_10
+        context['weekly2_country_rank_top_100'] = weekly2_country_rank_top_100
+        context['weekly2_country_rank_driving_time_seconds'] = weekly2_country_rank_driving_time_seconds
+
+
+        context['monthly_world_rank_events_finished'] = monthly_world_rank_events_finished
+        context['monthly_world_rank_points'] = monthly_world_rank_points
+        context['monthly_world_rank_average_points'] = monthly_world_rank_average_points
+        context['monthly_world_rank_average_finish_place'] = monthly_world_rank_average_finish_place
+        context['monthly_world_rank_first_places'] = monthly_world_rank_first_places
+        context['monthly_world_rank_top_3'] = monthly_world_rank_top_3
+        context['monthly_world_rank_top_10'] = monthly_world_rank_top_10
+        context['monthly_world_rank_top_100'] = monthly_world_rank_top_100
+        context['monthly_world_rank_driving_time_seconds'] = monthly_world_rank_driving_time_seconds
+
+        context['monthly_country_rank_events_finished'] = monthly_country_rank_events_finished
+        context['monthly_country_rank_points'] = monthly_country_rank_points
+        context['monthly_country_rank_average_points'] = monthly_country_rank_average_points
+        context['monthly_country_rank_average_finish_place'] = monthly_country_rank_average_finish_place
+        context['monthly_country_rank_first_places'] = monthly_country_rank_first_places
+        context['monthly_country_rank_top_3'] = monthly_country_rank_top_3
+        context['monthly_country_rank_top_10'] = monthly_country_rank_top_10
+        context['monthly_country_rank_top_100'] = monthly_country_rank_top_100
+        context['monthly_country_rank_driving_time_seconds'] = monthly_country_rank_driving_time_seconds
+
 
         context['daily_events_completed'] = len(daily_completed_obj)
         context['daily2_events_completed'] = len(daily2_completed_obj)
@@ -869,6 +1198,9 @@ def driverstats_view(request, drivers_id):
 
 
 
+
+
+
 """------------------------------------------------COUNTRY STATS VIEW------------------------------------------------"""
 def countrystats_view(request, country_name, event_category, order_variable):
 
@@ -909,35 +1241,51 @@ def countrystats_view(request, country_name, event_category, order_variable):
     }
 
     if order_variable == event_category + '_events_finished':
-        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable)
+        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
         stats_th4_activity_tag = 'stats_active_sort_button'
 
     elif order_variable == event_category + '_points':
-        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable)
+        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
         stats_th5_activity_tag = 'stats_active_sort_button'
 
     elif order_variable == event_category + '_average_finish_place':
-        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by(order_variable)
+        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by(order_variable, event_category + '_points')
         stats_th6_activity_tag = 'stats_active_sort_button'
 
     elif order_variable == event_category + '_first_places':
-        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_top_3')
+        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                                                                    '-' + event_category + '_top_3',
+                                                                                                                    '-' + event_category + '_top_10',
+                                                                                                                    '-' + event_category + '_top_100',
+                                                                                                                    event_category + '_average_finish_place')
         stats_th7_activity_tag = 'stats_active_sort_button'
 
     elif order_variable == event_category + '_top_3':
-        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_top_10')
+        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                                                                    '-' + event_category + '_first_places',
+                                                                                                                    '-' + event_category + '_top_10',
+                                                                                                                    '-' + event_category + '_top_100',
+                                                                                                                    event_category + '_average_finish_place')
         stats_th8_activity_tag = 'stats_active_sort_button'
 
     elif order_variable == event_category + '_top_10':
-        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable, '-' + event_category + '_top_100')
+        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                                                                    '-' + event_category + '_first_places',
+                                                                                                                    '-' + event_category + '_top_3',
+                                                                                                                    '-' + event_category + '_top_100',
+                                                                                                                    event_category + '_average_finish_place')
         stats_th9_activity_tag = 'stats_active_sort_button'
 
     elif order_variable == event_category + '_top_100':
-        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
+        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable,
+                                                                                                                    '-' + event_category + '_first_places',
+                                                                                                                    '-' + event_category + '_top_3',
+                                                                                                                    '-' + event_category + '_top_10',
+                                                                                                                    event_category + '_average_finish_place')
         stats_th10_activity_tag = 'stats_active_sort_button'
 
     elif order_variable == event_category + '_driving_time_seconds':
-        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable)
+        object_ordered = PlayersInfo.objects.filter(country_from__exact=country_name).filter(~Q(**kwargs)).order_by('-' + order_variable, event_category + '_average_finish_place')
         stats_th11_activity_tag = 'stats_active_sort_button'
 
 

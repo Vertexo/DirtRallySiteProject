@@ -86,66 +86,49 @@ body {
 
 
 .main-nav {
+	margin: auto;
+	width: 100%;
+	height: 46px;
+	padding: 0px;
+	text-align: center;
 	background: rgba(15, 54, 94, 1);
-	color: #222;
 	box-shadow: 0 0 15px rgba(255, 255, 255, 1);
 }
 
 .main-nav ul {
-	margin: auto;
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 15px;
 }
 
 .main-nav li {
 	display: inline-block;
-}
-
-.main-nav li:nth-child(1) {
-	padding-right: 50px;
-}
-
-.main-nav li:nth-child(2) {
-	padding-right: 50px;
-}
-
-.main-nav li:nth-child(3) {
-	padding-right: 50px;
-}
-
-.main-nav li:nth-child(4) {
-	padding-right: 50px;
-}
-
-.main-nav li:nth-child(5) {
-
+	margin-left: 10px;
+	margin-top: 9px;
 }
 
 .main-nav a {
-	margin-right: 20px;
-	font-size: 18px;
-	color: #fff;
-	padding: 5px;
+	color: black;
+	font-size: 25px;
 	text-decoration: none;
 	border: 1px solid white;
-	border-radius: 7px;
-	box-shadow: 1px 1px 1px 1px white;
+	border-radius: 5px;
+	padding: 3px;
+	background-color: rgba(255, 255, 255, 1);
 	
 }
 .main-nav a:hover {
-	padding: 4px;
-	border: 2px solid #FFF;
-	border-radius: 7px;
-	box-shadow: 1px 1px 1px 1px #FFF;
+	background-color: rgba(15, 54, 94, 1);
+	color: rgba(255, 255, 255, 1);
+	border: 1px solid white;
+	border-radius: 5px;
 }
 
 .main_button_active a {
-	padding: 4px;
-	border: 2px solid #FFF;
-	border-radius: 7px;
-	box-shadow: 2px 2px 2px 2px #FFF;
+	background-color: rgba(15, 54, 94, 1);
+	color: white;
 }
+
 
 
 
@@ -268,51 +251,46 @@ body {
 
 
 
-
-
-
-
-
-
 /* START of LEADERBOARDS page CSS 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
-
 /* Two big switch buttons at the top of Drivers and Countries LEADERBOARDS page. 2222222222222222222222222222222222222222222 */
 .leaderboards_switch_buttons {
 	margin: auto;
-	width: 50%;
-	height: 30px;
-	background-color: white;
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	width: 100%;
+	height: 46px;
+	padding: 0px;
+	text-align: center;
 }
 
-.leaderboards_switch_buttons td {
-	text-align: center;
-	font-size: 24px;
-	width: 50%;
-	border: 2px solid rgba(15, 54, 94, 1);
+.leaderboards_switch_buttons ul {
+	padding: 0px;
+	margin-right: 10px;
+}
+
+.leaderboards_switch_buttons li {
+	display: inline-block;
+	margin-left: 10px;
 }
 
 .leaderboards_switch_buttons a {
-	text-decoration: none;
-	display: block;
 	color: black;
+	font-size: 25px;
+	text-decoration: none;
+	border: 1px solid white;
+	border-radius: 5px;
+	height: 30px;
+	padding: 3px;
+	background-color: rgba(255, 255, 255, 1);
 }
 
-.leaderboards_switch_buttons td:hover {
-	background-color: #337ab7;
-}
-
-.leaderboards_switch_buttons td:hover a {
-	color: white;
-}
-
-.leaderboards_active_switch_button {
+.leaderboards_switch_buttons a:hover {
 	background-color: rgba(15, 54, 94, 1);
+	color: rgba(255, 255, 255, 1);
+	border: 1px solid white;
+	border-radius: 5px;
 }
 
 .leaderboards_active_switch_button a {
+	background-color: rgba(15, 54, 94, 1);
 	color: white;
 }
 /* Two big switch buttons at the top of Drivers and Countries LEADERBOARDS page. 2222222222222222222222222222222222222222222 */
@@ -329,41 +307,42 @@ body {
 /* Five event category switch buttons at the top of Drivers and Countries LEADERBOARDS page. 2222222222222222222222222222222 */
 .leaderboards_event_category_switch_buttons {
 	margin: auto;
-	width: 50%;
-	height: 30px;
-	margin-top: 30px;
-	background-color: white;
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	width: 100%;
+	height: 46px;
+	padding: 0px;
+	text-align: center;
 }
 
-.leaderboards_event_category_switch_buttons td {
-	text-align: center;
-	font-size: 24px;
-	width: 18%;
-	border: 2px solid rgba(15, 54, 94, 1);
+.leaderboards_event_category_switch_buttons ul {
+	padding: 0px;
+	margin-right: 10px;
+}
+
+.leaderboards_event_category_switch_buttons li {
+	display: inline-block;
+	margin-left: 10px;
 }
 
 .leaderboards_event_category_switch_buttons a {
-	text-decoration: none;
-	display: block;
 	color: black;
+	font-size: 23px;
+	text-decoration: none;
+	border: 1px solid white;
+	border-radius: 5px;
+	height: 30px;
+	padding: 3px;
+	background-color: rgba(255, 255, 255, 1);
 }
 
-.leaderboards_event_category_switch_buttons td:hover {
-	background-color: #337ab7;
-}
-
-.leaderboards_event_category_switch_buttons td:hover a {
-	color: white;
-}
-
-.leaderboards_active_category_switch_button {
+.leaderboards_event_category_switch_buttons a:hover {
 	background-color: rgba(15, 54, 94, 1);
+	color: rgba(255, 255, 255, 1);
+	border: 1px solid white;
+	border-radius: 5px;
 }
 
 .leaderboards_active_category_switch_button a {
+	background-color: rgba(15, 54, 94, 1);
 	color: white;
 }
 /* Five event category switch buttons at the top of Drivers and Countries LEADERBOARDS page. 222222222222222222222222222222222 */
@@ -471,9 +450,9 @@ body {
 	text-align: center;
 	border: 3px solid rgba(15, 54, 94, 1);
 	/*border: 3px solid rgba(255, 255, 255, 1);*/
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	/*-webkit-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	-moz-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);*/
 }
 
 .leaderboards_tables a {
@@ -521,7 +500,7 @@ body {
 }
 
 .leaderboards_drivers_table td {
-	height: 40px;
+	height: 35px;
 	padding: 0px;
 	border-bottom: 1px solid rgba(15, 54, 94, 1);
 }
@@ -655,7 +634,7 @@ body {
 /* Countries counter for each event category on Drivers LEADERBOARDS page. 2222222222222222222222222222222222222222222222 */
 .leaderboards_unique-countries {
 	margin-top: 40px;
-	margin-bottom: 132px;
+	margin-bottom: 76px;
 	width: 500px;
 	margin-left: auto; 
 	margin-right: auto;
@@ -676,6 +655,7 @@ body {
 
 .leaderboards_unique-countries p:nth-child(2) {
 	font-size: 20px;
+	color: white;
 }
 /* Countries counter for each event category on Drivers LEADERBOARDS page. 222222222222222222222222222222222222222222222 */
 
@@ -698,14 +678,14 @@ body {
 }
 
 .leaderboards_countries_table th {
-	height: 40px;
+	height: 42px;
 	margin: 0px;
 	border-bottom: 3px solid rgba(15, 54, 94, 1);
 	background-color: darkorange;
 }
 
 .leaderboards_countries_table td {
-	height: 40px;
+	height: 35px;
 	padding: 0px;
 	border-bottom: 1px solid rgba(15, 54, 94, 1);
 }
@@ -814,43 +794,44 @@ body {
 /* START of STATS page CSS 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 */
 .stats_switch_buttons {
 	margin: auto;
-	width: 50%;
-	height: 30px;
-	background-color: white;
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	width: 100%;
+	height: 46px;
+	padding: 0px;
+	text-align: center;
 }
 
-.stats_switch_buttons td {
-	text-align: center;
-	font-size: 24px;
-	width: 50%;
-	border: 2px solid rgba(15, 54, 94, 1);
+.stats_switch_buttons ul {
+	padding: 0px;
+	margin-right: 10px;
+}
+
+.stats_switch_buttons li {
+	display: inline-block;
+	margin-left: 10px;
 }
 
 .stats_switch_buttons a {
-	text-decoration: none;
-	display: block;
 	color: black;
+	font-size: 25px;
+	text-decoration: none;
+	border: 1px solid white;
+	border-radius: 5px;
+	height: 30px;
+	padding: 3px;
+	background-color: rgba(255, 255, 255, 1);
 }
 
-.stats_switch_buttons td:hover {
-	background-color: #337ab7;
-}
-
-.stats_switch_buttons td:hover a {
-	color: white;
-}
-
-.stats_active_switch_button {
+.stats_switch_buttons a:hover {
 	background-color: rgba(15, 54, 94, 1);
+	color: rgba(255, 255, 255, 1);
+	border: 1px solid white;
+	border-radius: 5px;
 }
 
 .stats_active_switch_button a {
+	background-color: rgba(15, 54, 94, 1);
 	color: white;
 }
-
 
 
 
@@ -915,9 +896,9 @@ body {
 	box-sizing: border-box;
 	text-align: center;
 	border: 3px solid rgba(15, 54, 94, 1);
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	/*-webkit-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	-moz-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);*/
 }
 
 .driver_main_stats_table_div a {
@@ -1000,9 +981,9 @@ body {
 	display: inline-table;
 	box-sizing: border-box;
 	border: 3px solid rgba(15, 54, 94, 1);
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	/*-webkit-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	-moz-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);*/
 }
 
 .events_stats_headers {
@@ -1116,9 +1097,9 @@ body {
 }
 
 .country_stats_image img {
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	/*-webkit-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	-moz-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);*/
 }
 
 
@@ -1159,41 +1140,42 @@ body {
 /* Five event category switch buttons at the top of Drivers and Countries LEADERBOARDS page. 2222222222222222222222222222222 */
 .stats_event_category_switch_buttons {
 	margin: auto;
-	width: 50%;
-	height: 30px;
-	margin-top: 30px;
-	background-color: white;
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	width: 100%;
+	height: 46px;
+	padding: 0px;
+	text-align: center;
 }
 
-.stats_event_category_switch_buttons td {
-	text-align: center;
-	font-size: 24px;
-	width: 18%;
-	border: 2px solid rgba(15, 54, 94, 1);
+.stats_event_category_switch_buttons ul {
+	padding: 0px;
+	margin-right: 10px;
+}
+
+.stats_event_category_switch_buttons li {
+	display: inline-block;
+	margin-left: 10px;
 }
 
 .stats_event_category_switch_buttons a {
-	text-decoration: none;
-	display: block;
 	color: black;
+	font-size: 23px;
+	text-decoration: none;
+	border: 1px solid white;
+	border-radius: 5px;
+	height: 30px;
+	padding: 3px;
+	background-color: rgba(255, 255, 255, 1);
 }
 
-.stats_event_category_switch_buttons td:hover {
-	background-color: #337ab7;
-}
-
-.stats_event_category_switch_buttons td:hover a {
-	color: white;
-}
-
-.stats_active_category_switch_button {
+.stats_event_category_switch_buttons a:hover {
 	background-color: rgba(15, 54, 94, 1);
+	color: rgba(255, 255, 255, 1);
+	border: 1px solid white;
+	border-radius: 5px;
 }
 
 .stats_active_category_switch_button a {
+	background-color: rgba(15, 54, 94, 1);
 	color: white;
 }
 /* Five event category switch buttons at the top of Drivers and Countries LEADERBOARDS page. 222222222222222222222222222222222 */
@@ -1252,9 +1234,9 @@ body {
 	box-sizing: border-box;
 	text-align: center;
 	border: 3px solid rgba(15, 54, 94, 1);
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	/*-webkit-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	-moz-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);*/
 }
 
 .country_stats_tables a {
@@ -1299,7 +1281,7 @@ body {
 }
 
 .country_stats_top_drivers_table td {
-	height: 40px;
+	height: 35px;
 	padding: 0px;
 	border-bottom: 1px solid rgba(15, 54, 94, 1);
 }
@@ -1486,9 +1468,9 @@ body {
 	margin-top: 20px;
 	height: 46px;
 	border: 3px solid rgba(15, 54, 94, 1);
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	/*-webkit-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	-moz-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);*/
 }
 
 .event-options-container p {
@@ -1628,9 +1610,9 @@ body {
 	border: 3px solid rgba(15, 54, 94, 1);
 	margin-top: 40px;
 	table-layout: fixed;
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	/*-webkit-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	-moz-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);*/
 	
 }
 
@@ -1675,9 +1657,9 @@ body {
 	border: 3px solid rgba(15, 54, 94, 1);
 	margin-top: 40px;
 	table-layout: fixed;
-	-webkit-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
-	box-shadow: -10px -10px 20px 0px rgba(0,0,0,0.5);
+	/*-webkit-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	-moz-box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);
+	box-shadow: 0px -10px 16px -5px rgba(255,255,255,1);*/
 }
 
 .lead-table th {
@@ -1687,7 +1669,6 @@ body {
 	text-align: center;
 	background-color: darkorange;
 }
-
 
 .lead-table th:nth-child(1) {
 	width: 104px;
@@ -1738,15 +1719,13 @@ body {
 }
 
 
-
-
-.lead-table tbody tr {
-	height: 44px;
-	border-bottom: 1px solid rgba(15, 54, 94, 1);
-}
-
 .lead-table td {
 	text-align: center;
+}
+
+.lead-table tbody tr {
+	height: 35px;
+	border-bottom: 1px solid rgba(15, 54, 94, 1);
 }
 
 .lead-table td:nth-child(3) {

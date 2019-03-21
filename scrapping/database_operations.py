@@ -3,6 +3,7 @@
 from timeit import default_timer as timer
 import os
 import io
+from django.db.models import Q
 
 from .models import EventInfo, LeaderBoard, TotalUniqueDrivers, TotalQualifiedDrivers, NoCountryNameCheck, PlayersInfo,\
 CountriesInfo, TotalQualifiedCountries, LastDatabaseUpdateTime, SiteUpdateStatus
@@ -116,6 +117,8 @@ def database_operations_execution_function():
 
 
 
+
+    # timer
     time_control_1 = timer()
 
     # START of code for getting data to database.
@@ -312,6 +315,7 @@ def database_operations_execution_function():
 
     site_update_status_function('Site Update - Phase 2')
 
+    # timer
     time_control_2 = timer()
 
     #TODO: !!!!!!!!!!!!!!!!!!WARNING: Remember to comment out one of the PlayerInfo database codes versions!!!!!!!!!!!!!!!!!!
@@ -322,280 +326,291 @@ def database_operations_execution_function():
 
     #TODO: Version 1. Automated PlayerInfo.
 
-    # ******************************Launch this code if web scraping is already automated (web page is in production mode).
-    # START of code for getting all unique players info to database PlayersInfo.
-    # This code gets every PlayerID from all database leaderboards and corresponding player info.
-
-    """Delete PlayerInfo database every time before starting to write new one."""
-    player_id_delete_object = PlayersInfo.objects.all()
-    for i in player_id_delete_object:
-        if i.player_id in player_id_list_for_last_scraping:
-            i.delete()
-    print('Old PlayerInfo entries deleted!')
-    """Delete PlayerInfo database every time before starting to write new one."""
-
-
-    time_control_3 = timer()
-
-
-    print('Starting new PlayersInfo database!')
-    playerinfo_nr = 0
-    for last_scraping_playerid in player_id_list_for_last_scraping:
-
-        leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Daily')
-
-        daily_events_finished_count = 0
-        daily_sum_of_finish_places = 0
-        daily_first_places_count = 0
-        daily_top_3_count = 0
-        daily_top_10_count = 0
-        daily_top_100_count = 0
-        daily_driving_time_count = 0
-        daily_points_count = 0
-
-        for k in leaderb_obj:
-            daily_events_finished_count += 1
-            if k.position == 1:
-                daily_first_places_count += 1
-            if k.position <= 3:
-                daily_top_3_count += 1
-            if k.position <= 10:
-                daily_top_10_count += 1
-            if k.position <= 100:
-                daily_top_100_count += 1
-
-            daily_sum_of_finish_places += k.position
-            daily_driving_time_count += k.time_seconds
-            daily_points_count += k.earned_points
-
-
-        leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Daily2')
-
-        daily2_events_finished_count = 0
-        daily2_sum_of_finish_places = 0
-        daily2_first_places_count = 0
-        daily2_top_3_count = 0
-        daily2_top_10_count = 0
-        daily2_top_100_count = 0
-        daily2_driving_time_count = 0
-        daily2_points_count = 0
-
-        for k in leaderb_obj:
-            daily2_events_finished_count += 1
-            if k.position == 1:
-                daily2_first_places_count += 1
-            if k.position <= 3:
-                daily2_top_3_count += 1
-            if k.position <= 10:
-                daily2_top_10_count += 1
-            if k.position <= 100:
-                daily2_top_100_count += 1
-
-            daily2_sum_of_finish_places += k.position
-            daily2_driving_time_count += k.time_seconds
-            daily2_points_count += k.earned_points
-
-
-        leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Weekly')
-
-        weekly_events_finished_count = 0
-        weekly_sum_of_finish_places = 0
-        weekly_first_places_count = 0
-        weekly_top_3_count = 0
-        weekly_top_10_count = 0
-        weekly_top_100_count = 0
-        weekly_driving_time_count = 0
-        weekly_points_count = 0
-
-        for k in leaderb_obj:
-            weekly_events_finished_count += 1
-            if k.position == 1:
-                weekly_first_places_count += 1
-            if k.position <= 3:
-                weekly_top_3_count += 1
-            if k.position <= 10:
-                weekly_top_10_count += 1
-            if k.position <= 100:
-                weekly_top_100_count += 1
-
-            weekly_sum_of_finish_places += k.position
-            weekly_driving_time_count += k.time_seconds
-            weekly_points_count += k.earned_points
-
-
-        leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Weekly2')
-
-        weekly2_events_finished_count = 0
-        weekly2_sum_of_finish_places = 0
-        weekly2_first_places_count = 0
-        weekly2_top_3_count = 0
-        weekly2_top_10_count = 0
-        weekly2_top_100_count = 0
-        weekly2_driving_time_count = 0
-        weekly2_points_count = 0
-
-        for k in leaderb_obj:
-            weekly2_events_finished_count += 1
-            if k.position == 1:
-                weekly2_first_places_count += 1
-            if k.position <= 3:
-                weekly2_top_3_count += 1
-            if k.position <= 10:
-                weekly2_top_10_count += 1
-            if k.position <= 100:
-                weekly2_top_100_count += 1
-
-            weekly2_sum_of_finish_places += k.position
-            weekly2_driving_time_count += k.time_seconds
-            weekly2_points_count += k.earned_points
-
-
-        leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Monthly')
-
-        monthly_events_finished_count = 0
-        monthly_sum_of_finish_places = 0
-        monthly_first_places_count = 0
-        monthly_top_3_count = 0
-        monthly_top_10_count = 0
-        monthly_top_100_count = 0
-        monthly_driving_time_count = 0
-        monthly_points_count = 0
-
-        for k in leaderb_obj:
-            monthly_events_finished_count += 1
-            if k.position == 1:
-                monthly_first_places_count += 1
-            if k.position <= 3:
-                monthly_top_3_count += 1
-            if k.position <= 10:
-                monthly_top_10_count += 1
-            if k.position <= 100:
-                monthly_top_100_count += 1
-
-            monthly_sum_of_finish_places += k.position
-            monthly_driving_time_count += k.time_seconds
-            monthly_points_count += k.earned_points
-
-
-        overall_events_finished_count = daily_events_finished_count + daily2_events_finished_count + weekly_events_finished_count + weekly2_events_finished_count + monthly_events_finished_count
-        overall_sum_of_finish_places = daily_sum_of_finish_places + daily2_sum_of_finish_places + weekly_sum_of_finish_places + weekly2_sum_of_finish_places + monthly_sum_of_finish_places
-        overall_first_places_count = daily_first_places_count + daily2_first_places_count + weekly_first_places_count + weekly2_first_places_count + monthly_first_places_count
-        overall_top_3_count = daily_top_3_count + daily2_top_3_count + weekly_top_3_count + weekly2_top_3_count + monthly_top_3_count
-        overall_top_10_count = daily_top_10_count + daily2_top_10_count + weekly_top_10_count + weekly2_top_10_count + monthly_top_10_count
-        overall_top_100_count = daily_top_100_count + daily2_top_100_count + weekly_top_100_count + weekly2_top_100_count + monthly_top_100_count
-        overall_driving_time_count = daily_driving_time_count + daily2_driving_time_count + weekly_driving_time_count + weekly2_driving_time_count + monthly_driving_time_count
-        overall_points_count = daily_points_count + daily2_points_count + weekly_points_count + weekly2_points_count + monthly_points_count
-
-
-
-        # Make obj just for getting last driven event date list.
-        leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid)
-
-        event_info_date_list = []
-        for k in leaderb_obj:
-            event_info_date_list.append(k.event_info.date)
-        # Make obj just for getting last driven event date list.
-
-        # START Code: Find driver's latest name and country.
-        obj = LeaderBoard.objects.filter(event_info__date__exact=find_last_date(event_info_date_list), player_id__exact=last_scraping_playerid)
-
-        country = ''
-        name = ''
-        for m in obj:
-            country = m.country_name
-            name = m.name
-            break
-        # END Code: Find driver's latest name and country.
-
-
-
-        if overall_events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
-
-            player_id_object = PlayersInfo()
-
-            player_id_object.country_from = country
-            player_id_object.name = name
-            player_id_object.player_id = last_scraping_playerid
-
-            player_id_object.overall_events_finished = overall_events_finished_count
-            player_id_object.overall_average_finish_place = round(float(overall_sum_of_finish_places) / overall_events_finished_count, 1)
-            player_id_object.overall_first_places = overall_first_places_count
-            player_id_object.overall_top_3 = overall_top_3_count
-            player_id_object.overall_top_10 = overall_top_10_count
-            player_id_object.overall_top_100 = overall_top_100_count
-            player_id_object.overall_driving_time_seconds = round(overall_driving_time_count, 3)
-            player_id_object.overall_points = overall_points_count
-
-            player_id_object.daily_events_finished = daily_events_finished_count
-            if daily_events_finished_count != 0:
-                player_id_object.daily_average_finish_place = round(float(daily_sum_of_finish_places) / daily_events_finished_count, 1)
-            else:
-                player_id_object.daily_average_finish_place = 0
-            player_id_object.daily_first_places = daily_first_places_count
-            player_id_object.daily_top_3 = daily_top_3_count
-            player_id_object.daily_top_10 = daily_top_10_count
-            player_id_object.daily_top_100 = daily_top_100_count
-            player_id_object.daily_driving_time_seconds = round(daily_driving_time_count, 3)
-            player_id_object.daily_points = daily_points_count
-
-            player_id_object.daily2_events_finished = daily2_events_finished_count
-            if daily2_events_finished_count != 0:
-                player_id_object.daily2_average_finish_place = round(float(daily2_sum_of_finish_places) / daily2_events_finished_count, 1)
-            else:
-                player_id_object.daily2_average_finish_place = 0
-            player_id_object.daily2_first_places = daily2_first_places_count
-            player_id_object.daily2_top_3 = daily2_top_3_count
-            player_id_object.daily2_top_10 = daily2_top_10_count
-            player_id_object.daily2_top_100 = daily2_top_100_count
-            player_id_object.daily2_driving_time_seconds = round(daily2_driving_time_count, 3)
-            player_id_object.daily2_points = daily2_points_count
-
-            player_id_object.weekly_events_finished = weekly_events_finished_count
-            if weekly_events_finished_count != 0:
-                player_id_object.weekly_average_finish_place = round(float(weekly_sum_of_finish_places) / weekly_events_finished_count, 1)
-            else:
-                player_id_object.weekly_average_finish_place = 0
-            player_id_object.weekly_first_places = weekly_first_places_count
-            player_id_object.weekly_top_3 = weekly_top_3_count
-            player_id_object.weekly_top_10 = weekly_top_10_count
-            player_id_object.weekly_top_100 = weekly_top_100_count
-            player_id_object.weekly_driving_time_seconds = round(weekly_driving_time_count, 3)
-            player_id_object.weekly_points = weekly_points_count
-
-            player_id_object.weekly2_events_finished = weekly2_events_finished_count
-            if weekly2_events_finished_count != 0:
-                player_id_object.weekly2_average_finish_place = round(float(weekly2_sum_of_finish_places) / weekly2_events_finished_count, 1)
-            else:
-                player_id_object.weekly2_average_finish_place = 0
-            player_id_object.weekly2_first_places = weekly2_first_places_count
-            player_id_object.weekly2_top_3 = weekly2_top_3_count
-            player_id_object.weekly2_top_10 = weekly2_top_10_count
-            player_id_object.weekly2_top_100 = weekly2_top_100_count
-            player_id_object.weekly2_driving_time_seconds = round(weekly2_driving_time_count, 3)
-            player_id_object.weekly2_points = weekly2_points_count
-
-            player_id_object.monthly_events_finished = monthly_events_finished_count
-            if monthly_events_finished_count != 0:
-                player_id_object.monthly_average_finish_place = round(float(monthly_sum_of_finish_places) / monthly_events_finished_count, 1)
-            else:
-                player_id_object.monthly_average_finish_place = 0
-            player_id_object.monthly_first_places = monthly_first_places_count
-            player_id_object.monthly_top_3 = monthly_top_3_count
-            player_id_object.monthly_top_10 = monthly_top_10_count
-            player_id_object.monthly_top_100 = monthly_top_100_count
-            player_id_object.monthly_driving_time_seconds = round(monthly_driving_time_count, 3)
-            player_id_object.monthly_points = monthly_points_count
-
-
-            playerinfo_nr += 1
-            print(playerinfo_nr)
-
-            player_id_object.save()
-
-    print('New PlayerInfo database completed!')
-
-    # END of code for getting all unique players info to database PlayersInfo.
-    # ******************************Launch this code if web scraping is already automated (web page is in production mode).
+    # # ******************************Launch this code if web scraping is already automated (web page is in production mode).
+    # # START of code for getting all unique players info to database PlayersInfo.
+    # # This code gets every PlayerID from all database leaderboards and corresponding player info.
+    #
+    # """Delete PlayerInfo database every time before starting to write new one."""
+    # player_id_delete_object = PlayersInfo.objects.all()
+    # for i in player_id_delete_object:
+    #     if i.player_id in player_id_list_for_last_scraping:
+    #         i.delete()
+    # print('Old PlayerInfo entries deleted!')
+    # """Delete PlayerInfo database every time before starting to write new one."""
+    #
+    # # timer
+    # time_control_3 = timer()
+    #
+    #
+    # print('Starting new PlayersInfo database!')
+    # playerinfo_nr = 0
+    # for last_scraping_playerid in player_id_list_for_last_scraping:
+    #
+    #     leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Daily')
+    #
+    #     daily_events_finished_count = 0
+    #     daily_sum_of_finish_places = 0
+    #     daily_first_places_count = 0
+    #     daily_top_3_count = 0
+    #     daily_top_10_count = 0
+    #     daily_top_100_count = 0
+    #     daily_driving_time_count = 0
+    #     daily_points_count = 0
+    #
+    #     for k in leaderb_obj:
+    #         daily_events_finished_count += 1
+    #         if k.position == 1:
+    #             daily_first_places_count += 1
+    #         if k.position <= 3:
+    #             daily_top_3_count += 1
+    #         if k.position <= 10:
+    #             daily_top_10_count += 1
+    #         if k.position <= 100:
+    #             daily_top_100_count += 1
+    #
+    #         daily_sum_of_finish_places += k.position
+    #         daily_driving_time_count += k.time_seconds
+    #         daily_points_count += k.earned_points
+    #
+    #
+    #     leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Daily2')
+    #
+    #     daily2_events_finished_count = 0
+    #     daily2_sum_of_finish_places = 0
+    #     daily2_first_places_count = 0
+    #     daily2_top_3_count = 0
+    #     daily2_top_10_count = 0
+    #     daily2_top_100_count = 0
+    #     daily2_driving_time_count = 0
+    #     daily2_points_count = 0
+    #
+    #     for k in leaderb_obj:
+    #         daily2_events_finished_count += 1
+    #         if k.position == 1:
+    #             daily2_first_places_count += 1
+    #         if k.position <= 3:
+    #             daily2_top_3_count += 1
+    #         if k.position <= 10:
+    #             daily2_top_10_count += 1
+    #         if k.position <= 100:
+    #             daily2_top_100_count += 1
+    #
+    #         daily2_sum_of_finish_places += k.position
+    #         daily2_driving_time_count += k.time_seconds
+    #         daily2_points_count += k.earned_points
+    #
+    #
+    #     leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Weekly')
+    #
+    #     weekly_events_finished_count = 0
+    #     weekly_sum_of_finish_places = 0
+    #     weekly_first_places_count = 0
+    #     weekly_top_3_count = 0
+    #     weekly_top_10_count = 0
+    #     weekly_top_100_count = 0
+    #     weekly_driving_time_count = 0
+    #     weekly_points_count = 0
+    #
+    #     for k in leaderb_obj:
+    #         weekly_events_finished_count += 1
+    #         if k.position == 1:
+    #             weekly_first_places_count += 1
+    #         if k.position <= 3:
+    #             weekly_top_3_count += 1
+    #         if k.position <= 10:
+    #             weekly_top_10_count += 1
+    #         if k.position <= 100:
+    #             weekly_top_100_count += 1
+    #
+    #         weekly_sum_of_finish_places += k.position
+    #         weekly_driving_time_count += k.time_seconds
+    #         weekly_points_count += k.earned_points
+    #
+    #
+    #     leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Weekly2')
+    #
+    #     weekly2_events_finished_count = 0
+    #     weekly2_sum_of_finish_places = 0
+    #     weekly2_first_places_count = 0
+    #     weekly2_top_3_count = 0
+    #     weekly2_top_10_count = 0
+    #     weekly2_top_100_count = 0
+    #     weekly2_driving_time_count = 0
+    #     weekly2_points_count = 0
+    #
+    #     for k in leaderb_obj:
+    #         weekly2_events_finished_count += 1
+    #         if k.position == 1:
+    #             weekly2_first_places_count += 1
+    #         if k.position <= 3:
+    #             weekly2_top_3_count += 1
+    #         if k.position <= 10:
+    #             weekly2_top_10_count += 1
+    #         if k.position <= 100:
+    #             weekly2_top_100_count += 1
+    #
+    #         weekly2_sum_of_finish_places += k.position
+    #         weekly2_driving_time_count += k.time_seconds
+    #         weekly2_points_count += k.earned_points
+    #
+    #
+    #     leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid, event_info__event_category__exact='Monthly')
+    #
+    #     monthly_events_finished_count = 0
+    #     monthly_sum_of_finish_places = 0
+    #     monthly_first_places_count = 0
+    #     monthly_top_3_count = 0
+    #     monthly_top_10_count = 0
+    #     monthly_top_100_count = 0
+    #     monthly_driving_time_count = 0
+    #     monthly_points_count = 0
+    #
+    #     for k in leaderb_obj:
+    #         monthly_events_finished_count += 1
+    #         if k.position == 1:
+    #             monthly_first_places_count += 1
+    #         if k.position <= 3:
+    #             monthly_top_3_count += 1
+    #         if k.position <= 10:
+    #             monthly_top_10_count += 1
+    #         if k.position <= 100:
+    #             monthly_top_100_count += 1
+    #
+    #         monthly_sum_of_finish_places += k.position
+    #         monthly_driving_time_count += k.time_seconds
+    #         monthly_points_count += k.earned_points
+    #
+    #
+    #     overall_events_finished_count = daily_events_finished_count + daily2_events_finished_count + weekly_events_finished_count + weekly2_events_finished_count + monthly_events_finished_count
+    #     overall_sum_of_finish_places = daily_sum_of_finish_places + daily2_sum_of_finish_places + weekly_sum_of_finish_places + weekly2_sum_of_finish_places + monthly_sum_of_finish_places
+    #     overall_first_places_count = daily_first_places_count + daily2_first_places_count + weekly_first_places_count + weekly2_first_places_count + monthly_first_places_count
+    #     overall_top_3_count = daily_top_3_count + daily2_top_3_count + weekly_top_3_count + weekly2_top_3_count + monthly_top_3_count
+    #     overall_top_10_count = daily_top_10_count + daily2_top_10_count + weekly_top_10_count + weekly2_top_10_count + monthly_top_10_count
+    #     overall_top_100_count = daily_top_100_count + daily2_top_100_count + weekly_top_100_count + weekly2_top_100_count + monthly_top_100_count
+    #     overall_driving_time_count = daily_driving_time_count + daily2_driving_time_count + weekly_driving_time_count + weekly2_driving_time_count + monthly_driving_time_count
+    #     overall_points_count = daily_points_count + daily2_points_count + weekly_points_count + weekly2_points_count + monthly_points_count
+    #
+    #
+    #
+    #     # Make obj just for getting last driven event date list.
+    #     leaderb_obj = LeaderBoard.objects.filter(player_id__exact=last_scraping_playerid)
+    #
+    #     event_info_date_list = []
+    #     for k in leaderb_obj:
+    #         event_info_date_list.append(k.event_info.date)
+    #     # Make obj just for getting last driven event date list.
+    #
+    #     # START Code: Find driver's latest name and country.
+    #     obj = LeaderBoard.objects.filter(event_info__date__exact=find_last_date(event_info_date_list), player_id__exact=last_scraping_playerid)
+    #
+    #     country = ''
+    #     name = ''
+    #     for m in obj:
+    #         country = m.country_name
+    #         name = m.name
+    #         break
+    #     # END Code: Find driver's latest name and country.
+    #
+    #
+    #
+    #     if overall_events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
+    #
+    #         player_id_object = PlayersInfo()
+    #
+    #         player_id_object.country_from = country
+    #         player_id_object.name = name
+    #         player_id_object.player_id = last_scraping_playerid
+    #
+    #         player_id_object.overall_events_finished = overall_events_finished_count
+    #         player_id_object.overall_average_finish_place = round(float(overall_sum_of_finish_places) / overall_events_finished_count, 1)
+    #         player_id_object.overall_first_places = overall_first_places_count
+    #         player_id_object.overall_top_3 = overall_top_3_count
+    #         player_id_object.overall_top_10 = overall_top_10_count
+    #         player_id_object.overall_top_100 = overall_top_100_count
+    #         player_id_object.overall_driving_time_seconds = round(overall_driving_time_count, 3)
+    #         player_id_object.overall_points = overall_points_count
+    #         player_id_object.overall_average_points = round(float(overall_points_count) / overall_events_finished_count, 1)
+    #
+    #         player_id_object.daily_events_finished = daily_events_finished_count
+    #         if daily_events_finished_count != 0:
+    #             player_id_object.daily_average_finish_place = round(float(daily_sum_of_finish_places) / daily_events_finished_count, 1)
+    #             player_id_object.daily_average_points = round(float(daily_points_count) / daily_events_finished_count, 1)
+    #         else:
+    #             player_id_object.daily_average_finish_place = 0
+    #             player_id_object.daily_average_points = 0
+    #         player_id_object.daily_first_places = daily_first_places_count
+    #         player_id_object.daily_top_3 = daily_top_3_count
+    #         player_id_object.daily_top_10 = daily_top_10_count
+    #         player_id_object.daily_top_100 = daily_top_100_count
+    #         player_id_object.daily_driving_time_seconds = round(daily_driving_time_count, 3)
+    #         player_id_object.daily_points = daily_points_count
+    #
+    #         player_id_object.daily2_events_finished = daily2_events_finished_count
+    #         if daily2_events_finished_count != 0:
+    #             player_id_object.daily2_average_finish_place = round(float(daily2_sum_of_finish_places) / daily2_events_finished_count, 1)
+    #             player_id_object.daily2_average_points = round(float(daily2_points_count) / daily2_events_finished_count, 1)
+    #         else:
+    #             player_id_object.daily2_average_finish_place = 0
+    #             player_id_object.daily2_average_points = 0
+    #         player_id_object.daily2_first_places = daily2_first_places_count
+    #         player_id_object.daily2_top_3 = daily2_top_3_count
+    #         player_id_object.daily2_top_10 = daily2_top_10_count
+    #         player_id_object.daily2_top_100 = daily2_top_100_count
+    #         player_id_object.daily2_driving_time_seconds = round(daily2_driving_time_count, 3)
+    #         player_id_object.daily2_points = daily2_points_count
+    #
+    #         player_id_object.weekly_events_finished = weekly_events_finished_count
+    #         if weekly_events_finished_count != 0:
+    #             player_id_object.weekly_average_finish_place = round(float(weekly_sum_of_finish_places) / weekly_events_finished_count, 1)
+    #             player_id_object.weekly_average_points = round(float(weekly_points_count) / weekly_events_finished_count, 1)
+    #         else:
+    #             player_id_object.weekly_average_finish_place = 0
+    #             player_id_object.weekly_average_points = 0
+    #         player_id_object.weekly_first_places = weekly_first_places_count
+    #         player_id_object.weekly_top_3 = weekly_top_3_count
+    #         player_id_object.weekly_top_10 = weekly_top_10_count
+    #         player_id_object.weekly_top_100 = weekly_top_100_count
+    #         player_id_object.weekly_driving_time_seconds = round(weekly_driving_time_count, 3)
+    #         player_id_object.weekly_points = weekly_points_count
+    #
+    #         player_id_object.weekly2_events_finished = weekly2_events_finished_count
+    #         if weekly2_events_finished_count != 0:
+    #             player_id_object.weekly2_average_finish_place = round(float(weekly2_sum_of_finish_places) / weekly2_events_finished_count, 1)
+    #             player_id_object.weekly2_average_points = round(float(weekly2_points_count) / weekly2_events_finished_count, 1)
+    #         else:
+    #             player_id_object.weekly2_average_finish_place = 0
+    #             player_id_object.weekly2_average_points = 0
+    #         player_id_object.weekly2_first_places = weekly2_first_places_count
+    #         player_id_object.weekly2_top_3 = weekly2_top_3_count
+    #         player_id_object.weekly2_top_10 = weekly2_top_10_count
+    #         player_id_object.weekly2_top_100 = weekly2_top_100_count
+    #         player_id_object.weekly2_driving_time_seconds = round(weekly2_driving_time_count, 3)
+    #         player_id_object.weekly2_points = weekly2_points_count
+    #
+    #         player_id_object.monthly_events_finished = monthly_events_finished_count
+    #         if monthly_events_finished_count != 0:
+    #             player_id_object.monthly_average_finish_place = round(float(monthly_sum_of_finish_places) / monthly_events_finished_count, 1)
+    #             player_id_object.monthly_average_points = round(float(monthly_points_count) / monthly_events_finished_count, 1)
+    #         else:
+    #             player_id_object.monthly_average_finish_place = 0
+    #             player_id_object.monthly_average_points = 0
+    #         player_id_object.monthly_first_places = monthly_first_places_count
+    #         player_id_object.monthly_top_3 = monthly_top_3_count
+    #         player_id_object.monthly_top_10 = monthly_top_10_count
+    #         player_id_object.monthly_top_100 = monthly_top_100_count
+    #         player_id_object.monthly_driving_time_seconds = round(monthly_driving_time_count, 3)
+    #         player_id_object.monthly_points = monthly_points_count
+    #
+    #
+    #         playerinfo_nr += 1
+    #         print(playerinfo_nr)
+    #
+    #         player_id_object.save()
+    #
+    # print('New PlayerInfo database completed!')
+    #
+    # # END of code for getting all unique players info to database PlayersInfo.
+    # # ******************************Launch this code if web scraping is already automated (web page is in production mode).
 
 
 
@@ -610,303 +625,317 @@ def database_operations_execution_function():
 
     # TODO: Version 2. Non-Automated PlayerInfo.
 
-    # # ******************************Launch this code if web scraping is already not automated or database is not fully uploaded.
-    # # START of code for getting all unique players info to database PlayersInfo.
-    # # This code gets every PlayerID from all database leaderboards and corresponding player info.
-    #
-    # """Delete PlayerInfo database every time before starting to write new one."""
-    # try:
-    #     player_id_delete_object = PlayersInfo.objects.all()
-    #     for i in player_id_delete_object:
-    #         i.delete()
-    #     print('Old PlayerInfo entries deleted!')
-    # except:
-    #     print('PlayerInfo database was already empty!')
-    # """Delete PlayerInfo database every time before starting to write new one."""
-    #
-    #
-    # time_control_3 = timer()
-    #
-    #
-    # print('Starting new PlayersInfo database!')
-    #
-    # player_id_database_list = []
-    # player_id_obj = LeaderBoard.objects.all()
-    #
-    # count_to_stop = 0
-    #
-    # playerinfo_nr = 0
-    # for i in player_id_obj:
-    #
-    #     # # Start. Code for controlling how many values will be saved to database. For testing purposes.
-    #     # count_to_stop += 1
-    #     # if count_to_stop == 1000:
-    #     #     break
-    #     # # End. Code for controlling how many values will be saved to database. For testing purposes.
-    #
-    #     if i.player_id in player_id_database_list:
-    #         continue
-    #
-    #     else:
-    #         player_id_database_list.append(i.player_id)  # Equal to TotalUniqueDrivers value.
-    #
-    #         leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Daily')
-    #
-    #         daily_events_finished_count = 0
-    #         daily_sum_of_finish_places = 0
-    #         daily_first_places_count = 0
-    #         daily_top_3_count = 0
-    #         daily_top_10_count = 0
-    #         daily_top_100_count = 0
-    #         daily_driving_time_count = 0
-    #         daily_points_count = 0
-    #
-    #         for k in leaderb_obj:
-    #             daily_events_finished_count += 1
-    #             if k.position == 1:
-    #                 daily_first_places_count += 1
-    #             if k.position <= 3:
-    #                 daily_top_3_count += 1
-    #             if k.position <= 10:
-    #                 daily_top_10_count += 1
-    #             if k.position <= 100:
-    #                 daily_top_100_count += 1
-    #
-    #             daily_sum_of_finish_places += k.position
-    #             daily_driving_time_count += k.time_seconds
-    #             daily_points_count += k.earned_points
-    #
-    #
-    #         leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Daily2')
-    #
-    #         daily2_events_finished_count = 0
-    #         daily2_sum_of_finish_places = 0
-    #         daily2_first_places_count = 0
-    #         daily2_top_3_count = 0
-    #         daily2_top_10_count = 0
-    #         daily2_top_100_count = 0
-    #         daily2_driving_time_count = 0
-    #         daily2_points_count = 0
-    #
-    #         for k in leaderb_obj:
-    #             daily2_events_finished_count += 1
-    #             if k.position == 1:
-    #                 daily2_first_places_count += 1
-    #             if k.position <= 3:
-    #                 daily2_top_3_count += 1
-    #             if k.position <= 10:
-    #                 daily2_top_10_count += 1
-    #             if k.position <= 100:
-    #                 daily2_top_100_count += 1
-    #
-    #             daily2_sum_of_finish_places += k.position
-    #             daily2_driving_time_count += k.time_seconds
-    #             daily2_points_count += k.earned_points
-    #
-    #
-    #         leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Weekly')
-    #
-    #         weekly_events_finished_count = 0
-    #         weekly_sum_of_finish_places = 0
-    #         weekly_first_places_count = 0
-    #         weekly_top_3_count = 0
-    #         weekly_top_10_count = 0
-    #         weekly_top_100_count = 0
-    #         weekly_driving_time_count = 0
-    #         weekly_points_count = 0
-    #
-    #         for k in leaderb_obj:
-    #             weekly_events_finished_count += 1
-    #             if k.position == 1:
-    #                 weekly_first_places_count += 1
-    #             if k.position <= 3:
-    #                 weekly_top_3_count += 1
-    #             if k.position <= 10:
-    #                 weekly_top_10_count += 1
-    #             if k.position <= 100:
-    #                 weekly_top_100_count += 1
-    #
-    #             weekly_sum_of_finish_places += k.position
-    #             weekly_driving_time_count += k.time_seconds
-    #             weekly_points_count += k.earned_points
-    #
-    #
-    #         leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Weekly2')
-    #
-    #         weekly2_events_finished_count = 0
-    #         weekly2_sum_of_finish_places = 0
-    #         weekly2_first_places_count = 0
-    #         weekly2_top_3_count = 0
-    #         weekly2_top_10_count = 0
-    #         weekly2_top_100_count = 0
-    #         weekly2_driving_time_count = 0
-    #         weekly2_points_count = 0
-    #
-    #         for k in leaderb_obj:
-    #             weekly2_events_finished_count += 1
-    #             if k.position == 1:
-    #                 weekly2_first_places_count += 1
-    #             if k.position <= 3:
-    #                 weekly2_top_3_count += 1
-    #             if k.position <= 10:
-    #                 weekly2_top_10_count += 1
-    #             if k.position <= 100:
-    #                 weekly2_top_100_count += 1
-    #
-    #             weekly2_sum_of_finish_places += k.position
-    #             weekly2_driving_time_count += k.time_seconds
-    #             weekly2_points_count += k.earned_points
-    #
-    #         leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Monthly')
-    #
-    #         monthly_events_finished_count = 0
-    #         monthly_sum_of_finish_places = 0
-    #         monthly_first_places_count = 0
-    #         monthly_top_3_count = 0
-    #         monthly_top_10_count = 0
-    #         monthly_top_100_count = 0
-    #         monthly_driving_time_count = 0
-    #         monthly_points_count = 0
-    #
-    #         for k in leaderb_obj:
-    #             monthly_events_finished_count += 1
-    #             if k.position == 1:
-    #                 monthly_first_places_count += 1
-    #             if k.position <= 3:
-    #                 monthly_top_3_count += 1
-    #             if k.position <= 10:
-    #                 monthly_top_10_count += 1
-    #             if k.position <= 100:
-    #                 monthly_top_100_count += 1
-    #
-    #             monthly_sum_of_finish_places += k.position
-    #             monthly_driving_time_count += k.time_seconds
-    #             monthly_points_count += k.earned_points
-    #
-    #
-    #         overall_events_finished_count = daily_events_finished_count + daily2_events_finished_count + weekly_events_finished_count + weekly2_events_finished_count + monthly_events_finished_count
-    #         overall_sum_of_finish_places = daily_sum_of_finish_places + daily2_sum_of_finish_places + weekly_sum_of_finish_places + weekly2_sum_of_finish_places + monthly_sum_of_finish_places
-    #         overall_first_places_count = daily_first_places_count + daily2_first_places_count + weekly_first_places_count + weekly2_first_places_count + monthly_first_places_count
-    #         overall_top_3_count = daily_top_3_count + daily2_top_3_count + weekly_top_3_count + weekly2_top_3_count + monthly_top_3_count
-    #         overall_top_10_count = daily_top_10_count + daily2_top_10_count + weekly_top_10_count + weekly2_top_10_count + monthly_top_10_count
-    #         overall_top_100_count = daily_top_100_count + daily2_top_100_count + weekly_top_100_count + weekly2_top_100_count + monthly_top_100_count
-    #         overall_driving_time_count = daily_driving_time_count + daily2_driving_time_count + weekly_driving_time_count + weekly2_driving_time_count + monthly_driving_time_count
-    #         overall_points_count = daily_points_count + daily2_points_count + weekly_points_count + weekly2_points_count + monthly_points_count
-    #
-    #
-    #         # Make obj just for getting last driven event date list.
-    #         leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id)
-    #
-    #         event_info_date_list = []
-    #         for k in leaderb_obj:
-    #             event_info_date_list.append(k.event_info.date)
-    #         # Make obj just for getting last driven event date list.
-    #
-    #
-    #         # START Code: Find driver's name and country from last finished even.
-    #         obj = LeaderBoard.objects.filter(event_info__date__exact=find_last_date(event_info_date_list), player_id__exact=i.player_id)
-    #
-    #         country = ''
-    #         name = ''
-    #         for m in obj:
-    #             country = m.country_name
-    #             name = m.name
-    #             break
-    #         # END Code: Find driver's name and country from last finished even.
-    #
-    #
-    #
-    #         if overall_events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
-    #
-    #             player_id_object = PlayersInfo()
-    #
-    #             player_id_object.country_from = country
-    #             player_id_object.name = name
-    #             player_id_object.player_id = i.player_id
-    #
-    #             player_id_object.overall_events_finished = overall_events_finished_count
-    #             player_id_object.overall_average_finish_place = round(float(overall_sum_of_finish_places) / overall_events_finished_count, 1)
-    #             player_id_object.overall_first_places = overall_first_places_count
-    #             player_id_object.overall_top_3 = overall_top_3_count
-    #             player_id_object.overall_top_10 = overall_top_10_count
-    #             player_id_object.overall_top_100 = overall_top_100_count
-    #             player_id_object.overall_driving_time_seconds = round(overall_driving_time_count, 3)
-    #             player_id_object.overall_points = overall_points_count
-    #
-    #
-    #             player_id_object.daily_events_finished = daily_events_finished_count
-    #             if daily_events_finished_count != 0:
-    #                 player_id_object.daily_average_finish_place = round(float(daily_sum_of_finish_places) / daily_events_finished_count, 1)
-    #             else:
-    #                 player_id_object.daily_average_finish_place = 0
-    #             player_id_object.daily_first_places = daily_first_places_count
-    #             player_id_object.daily_top_3 = daily_top_3_count
-    #             player_id_object.daily_top_10 = daily_top_10_count
-    #             player_id_object.daily_top_100 = daily_top_100_count
-    #             player_id_object.daily_driving_time_seconds = round(daily_driving_time_count, 3)
-    #             player_id_object.daily_points = daily_points_count
-    #
-    #
-    #             player_id_object.daily2_events_finished = daily2_events_finished_count
-    #             if daily2_events_finished_count != 0:
-    #                 player_id_object.daily2_average_finish_place = round(float(daily2_sum_of_finish_places) / daily2_events_finished_count, 1)
-    #             else:
-    #                 player_id_object.daily2_average_finish_place = 0
-    #             player_id_object.daily2_first_places = daily2_first_places_count
-    #             player_id_object.daily2_top_3 = daily2_top_3_count
-    #             player_id_object.daily2_top_10 = daily2_top_10_count
-    #             player_id_object.daily2_top_100 = daily2_top_100_count
-    #             player_id_object.daily2_driving_time_seconds = round(daily2_driving_time_count, 3)
-    #             player_id_object.daily2_points = daily2_points_count
-    #
-    #
-    #             player_id_object.weekly_events_finished = weekly_events_finished_count
-    #             if weekly_events_finished_count != 0:
-    #                 player_id_object.weekly_average_finish_place = round(float(weekly_sum_of_finish_places) / weekly_events_finished_count, 1)
-    #             else:
-    #                 player_id_object.weekly_average_finish_place = 0
-    #             player_id_object.weekly_first_places = weekly_first_places_count
-    #             player_id_object.weekly_top_3 = weekly_top_3_count
-    #             player_id_object.weekly_top_10 = weekly_top_10_count
-    #             player_id_object.weekly_top_100 = weekly_top_100_count
-    #             player_id_object.weekly_driving_time_seconds = round(weekly_driving_time_count, 3)
-    #             player_id_object.weekly_points = weekly_points_count
-    #
-    #
-    #             player_id_object.weekly2_events_finished = weekly2_events_finished_count
-    #             if weekly2_events_finished_count != 0:
-    #                 player_id_object.weekly2_average_finish_place = round(float(weekly2_sum_of_finish_places) / weekly2_events_finished_count, 1)
-    #             else:
-    #                 player_id_object.weekly2_average_finish_place = 0
-    #             player_id_object.weekly2_first_places = weekly2_first_places_count
-    #             player_id_object.weekly2_top_3 = weekly2_top_3_count
-    #             player_id_object.weekly2_top_10 = weekly2_top_10_count
-    #             player_id_object.weekly2_top_100 = weekly2_top_100_count
-    #             player_id_object.weekly2_driving_time_seconds = round(weekly2_driving_time_count, 3)
-    #             player_id_object.weekly2_points = weekly2_points_count
-    #
-    #
-    #             player_id_object.monthly_events_finished = monthly_events_finished_count
-    #             if monthly_events_finished_count != 0:
-    #                 player_id_object.monthly_average_finish_place = round(float(monthly_sum_of_finish_places) / monthly_events_finished_count, 1)
-    #             else:
-    #                 player_id_object.monthly_average_finish_place = 0
-    #             player_id_object.monthly_first_places = monthly_first_places_count
-    #             player_id_object.monthly_top_3 = monthly_top_3_count
-    #             player_id_object.monthly_top_10 = monthly_top_10_count
-    #             player_id_object.monthly_top_100 = monthly_top_100_count
-    #             player_id_object.monthly_driving_time_seconds = round(monthly_driving_time_count, 3)
-    #             player_id_object.monthly_points = monthly_points_count
-    #
-    #             playerinfo_nr += 1
-    #             print(playerinfo_nr)
-    #
-    #             player_id_object.save()
-    #
-    # print('New PlayerInfo database completed!')
-    # # END of code for getting all unique players info to database PlayersInfo.
-    #
-    # # ******************************Launch this code if web scraping is already not automated or database is not fully uploaded.
+    # ******************************Launch this code if web scraping is already not automated or database is not fully uploaded.
+    # START of code for getting all unique players info to database PlayersInfo.
+    # This code gets every PlayerID from all database leaderboards and corresponding player info.
+
+    """Delete PlayerInfo database every time before starting to write new one."""
+    try:
+        player_id_delete_object = PlayersInfo.objects.all()
+        for i in player_id_delete_object:
+            i.delete()
+        print('Old PlayerInfo entries deleted!')
+    except:
+        print('PlayerInfo database was already empty!')
+    """Delete PlayerInfo database every time before starting to write new one."""
+
+
+
+    # timer
+    time_control_3 = timer()
+
+
+    print('Starting new PlayersInfo database!')
+
+    player_id_database_list = []
+    player_id_obj = LeaderBoard.objects.all()
+
+    count_to_stop = 0
+
+    playerinfo_nr = 0
+    for i in player_id_obj:
+
+        # # Start. Code for controlling how many values will be saved to database. For testing purposes.
+        # count_to_stop += 1
+        # if count_to_stop == 1000:
+        #     break
+        # # End. Code for controlling how many values will be saved to database. For testing purposes.
+
+        if i.player_id in player_id_database_list:
+            continue
+
+        else:
+            player_id_database_list.append(i.player_id)  # Equal to TotalUniqueDrivers value.
+
+            leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Daily')
+
+            daily_events_finished_count = 0
+            daily_sum_of_finish_places = 0
+            daily_first_places_count = 0
+            daily_top_3_count = 0
+            daily_top_10_count = 0
+            daily_top_100_count = 0
+            daily_driving_time_count = 0
+            daily_points_count = 0
+
+            for k in leaderb_obj:
+                daily_events_finished_count += 1
+                if k.position == 1:
+                    daily_first_places_count += 1
+                if k.position <= 3:
+                    daily_top_3_count += 1
+                if k.position <= 10:
+                    daily_top_10_count += 1
+                if k.position <= 100:
+                    daily_top_100_count += 1
+
+                daily_sum_of_finish_places += k.position
+                daily_driving_time_count += k.time_seconds
+                daily_points_count += k.earned_points
+
+
+            leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Daily2')
+
+            daily2_events_finished_count = 0
+            daily2_sum_of_finish_places = 0
+            daily2_first_places_count = 0
+            daily2_top_3_count = 0
+            daily2_top_10_count = 0
+            daily2_top_100_count = 0
+            daily2_driving_time_count = 0
+            daily2_points_count = 0
+
+            for k in leaderb_obj:
+                daily2_events_finished_count += 1
+                if k.position == 1:
+                    daily2_first_places_count += 1
+                if k.position <= 3:
+                    daily2_top_3_count += 1
+                if k.position <= 10:
+                    daily2_top_10_count += 1
+                if k.position <= 100:
+                    daily2_top_100_count += 1
+
+                daily2_sum_of_finish_places += k.position
+                daily2_driving_time_count += k.time_seconds
+                daily2_points_count += k.earned_points
+
+
+            leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Weekly')
+
+            weekly_events_finished_count = 0
+            weekly_sum_of_finish_places = 0
+            weekly_first_places_count = 0
+            weekly_top_3_count = 0
+            weekly_top_10_count = 0
+            weekly_top_100_count = 0
+            weekly_driving_time_count = 0
+            weekly_points_count = 0
+
+            for k in leaderb_obj:
+                weekly_events_finished_count += 1
+                if k.position == 1:
+                    weekly_first_places_count += 1
+                if k.position <= 3:
+                    weekly_top_3_count += 1
+                if k.position <= 10:
+                    weekly_top_10_count += 1
+                if k.position <= 100:
+                    weekly_top_100_count += 1
+
+                weekly_sum_of_finish_places += k.position
+                weekly_driving_time_count += k.time_seconds
+                weekly_points_count += k.earned_points
+
+
+            leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Weekly2')
+
+            weekly2_events_finished_count = 0
+            weekly2_sum_of_finish_places = 0
+            weekly2_first_places_count = 0
+            weekly2_top_3_count = 0
+            weekly2_top_10_count = 0
+            weekly2_top_100_count = 0
+            weekly2_driving_time_count = 0
+            weekly2_points_count = 0
+
+            for k in leaderb_obj:
+                weekly2_events_finished_count += 1
+                if k.position == 1:
+                    weekly2_first_places_count += 1
+                if k.position <= 3:
+                    weekly2_top_3_count += 1
+                if k.position <= 10:
+                    weekly2_top_10_count += 1
+                if k.position <= 100:
+                    weekly2_top_100_count += 1
+
+                weekly2_sum_of_finish_places += k.position
+                weekly2_driving_time_count += k.time_seconds
+                weekly2_points_count += k.earned_points
+
+            leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id, event_info__event_category__exact='Monthly')
+
+            monthly_events_finished_count = 0
+            monthly_sum_of_finish_places = 0
+            monthly_first_places_count = 0
+            monthly_top_3_count = 0
+            monthly_top_10_count = 0
+            monthly_top_100_count = 0
+            monthly_driving_time_count = 0
+            monthly_points_count = 0
+
+            for k in leaderb_obj:
+                monthly_events_finished_count += 1
+                if k.position == 1:
+                    monthly_first_places_count += 1
+                if k.position <= 3:
+                    monthly_top_3_count += 1
+                if k.position <= 10:
+                    monthly_top_10_count += 1
+                if k.position <= 100:
+                    monthly_top_100_count += 1
+
+                monthly_sum_of_finish_places += k.position
+                monthly_driving_time_count += k.time_seconds
+                monthly_points_count += k.earned_points
+
+
+            overall_events_finished_count = daily_events_finished_count + daily2_events_finished_count + weekly_events_finished_count + weekly2_events_finished_count + monthly_events_finished_count
+            overall_sum_of_finish_places = daily_sum_of_finish_places + daily2_sum_of_finish_places + weekly_sum_of_finish_places + weekly2_sum_of_finish_places + monthly_sum_of_finish_places
+            overall_first_places_count = daily_first_places_count + daily2_first_places_count + weekly_first_places_count + weekly2_first_places_count + monthly_first_places_count
+            overall_top_3_count = daily_top_3_count + daily2_top_3_count + weekly_top_3_count + weekly2_top_3_count + monthly_top_3_count
+            overall_top_10_count = daily_top_10_count + daily2_top_10_count + weekly_top_10_count + weekly2_top_10_count + monthly_top_10_count
+            overall_top_100_count = daily_top_100_count + daily2_top_100_count + weekly_top_100_count + weekly2_top_100_count + monthly_top_100_count
+            overall_driving_time_count = daily_driving_time_count + daily2_driving_time_count + weekly_driving_time_count + weekly2_driving_time_count + monthly_driving_time_count
+            overall_points_count = daily_points_count + daily2_points_count + weekly_points_count + weekly2_points_count + monthly_points_count
+
+
+            # Make obj just for getting last driven event date list.
+            leaderb_obj = LeaderBoard.objects.filter(player_id__exact=i.player_id)
+
+            event_info_date_list = []
+            for k in leaderb_obj:
+                event_info_date_list.append(k.event_info.date)
+            # Make obj just for getting last driven event date list.
+
+
+            # START Code: Find driver's name and country from last finished even.
+            obj = LeaderBoard.objects.filter(event_info__date__exact=find_last_date(event_info_date_list), player_id__exact=i.player_id)
+
+            country = ''
+            name = ''
+            for m in obj:
+                country = m.country_name
+                name = m.name
+                break
+            # END Code: Find driver's name and country from last finished even.
+
+
+
+            if overall_events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
+
+                player_id_object = PlayersInfo()
+
+                player_id_object.country_from = country
+                player_id_object.name = name
+                player_id_object.player_id = i.player_id
+
+                player_id_object.overall_events_finished = overall_events_finished_count
+                player_id_object.overall_average_finish_place = round(float(overall_sum_of_finish_places) / overall_events_finished_count, 1)
+                player_id_object.overall_first_places = overall_first_places_count
+                player_id_object.overall_top_3 = overall_top_3_count
+                player_id_object.overall_top_10 = overall_top_10_count
+                player_id_object.overall_top_100 = overall_top_100_count
+                player_id_object.overall_driving_time_seconds = round(overall_driving_time_count, 3)
+                player_id_object.overall_points = overall_points_count
+                player_id_object.overall_average_points = round(float(overall_points_count) / overall_events_finished_count, 1)
+
+
+                player_id_object.daily_events_finished = daily_events_finished_count
+                if daily_events_finished_count != 0:
+                    player_id_object.daily_average_finish_place = round(float(daily_sum_of_finish_places) / daily_events_finished_count, 1)
+                    player_id_object.daily_average_points = round(float(daily_points_count) / daily_events_finished_count, 1)
+                else:
+                    player_id_object.daily_average_finish_place = 0
+                    player_id_object.daily_average_points = 0
+                player_id_object.daily_first_places = daily_first_places_count
+                player_id_object.daily_top_3 = daily_top_3_count
+                player_id_object.daily_top_10 = daily_top_10_count
+                player_id_object.daily_top_100 = daily_top_100_count
+                player_id_object.daily_driving_time_seconds = round(daily_driving_time_count, 3)
+                player_id_object.daily_points = daily_points_count
+
+
+                player_id_object.daily2_events_finished = daily2_events_finished_count
+                if daily2_events_finished_count != 0:
+                    player_id_object.daily2_average_finish_place = round(float(daily2_sum_of_finish_places) / daily2_events_finished_count, 1)
+                    player_id_object.daily2_average_points = round(float(daily2_points_count) / daily2_events_finished_count, 1)
+                else:
+                    player_id_object.daily2_average_finish_place = 0
+                    player_id_object.daily2_average_points = 0
+                player_id_object.daily2_first_places = daily2_first_places_count
+                player_id_object.daily2_top_3 = daily2_top_3_count
+                player_id_object.daily2_top_10 = daily2_top_10_count
+                player_id_object.daily2_top_100 = daily2_top_100_count
+                player_id_object.daily2_driving_time_seconds = round(daily2_driving_time_count, 3)
+                player_id_object.daily2_points = daily2_points_count
+
+
+                player_id_object.weekly_events_finished = weekly_events_finished_count
+                if weekly_events_finished_count != 0:
+                    player_id_object.weekly_average_finish_place = round(float(weekly_sum_of_finish_places) / weekly_events_finished_count, 1)
+                    player_id_object.weekly_average_points = round(float(weekly_points_count) / weekly_events_finished_count, 1)
+                else:
+                    player_id_object.weekly_average_finish_place = 0
+                    player_id_object.weekly_average_points = 0
+                player_id_object.weekly_first_places = weekly_first_places_count
+                player_id_object.weekly_top_3 = weekly_top_3_count
+                player_id_object.weekly_top_10 = weekly_top_10_count
+                player_id_object.weekly_top_100 = weekly_top_100_count
+                player_id_object.weekly_driving_time_seconds = round(weekly_driving_time_count, 3)
+                player_id_object.weekly_points = weekly_points_count
+
+
+                player_id_object.weekly2_events_finished = weekly2_events_finished_count
+                if weekly2_events_finished_count != 0:
+                    player_id_object.weekly2_average_finish_place = round(float(weekly2_sum_of_finish_places) / weekly2_events_finished_count, 1)
+                    player_id_object.weekly2_average_points = round(float(weekly2_points_count) / weekly2_events_finished_count, 1)
+                else:
+                    player_id_object.weekly2_average_finish_place = 0
+                    player_id_object.weekly2_average_points = 0
+                player_id_object.weekly2_first_places = weekly2_first_places_count
+                player_id_object.weekly2_top_3 = weekly2_top_3_count
+                player_id_object.weekly2_top_10 = weekly2_top_10_count
+                player_id_object.weekly2_top_100 = weekly2_top_100_count
+                player_id_object.weekly2_driving_time_seconds = round(weekly2_driving_time_count, 3)
+                player_id_object.weekly2_points = weekly2_points_count
+
+
+                player_id_object.monthly_events_finished = monthly_events_finished_count
+                if monthly_events_finished_count != 0:
+                    player_id_object.monthly_average_finish_place = round(float(monthly_sum_of_finish_places) / monthly_events_finished_count, 1)
+                    player_id_object.monthly_average_points = round(float(monthly_points_count) / monthly_events_finished_count, 1)
+                else:
+                    player_id_object.monthly_average_finish_place = 0
+                    player_id_object.monthly_average_points = 0
+                player_id_object.monthly_first_places = monthly_first_places_count
+                player_id_object.monthly_top_3 = monthly_top_3_count
+                player_id_object.monthly_top_10 = monthly_top_10_count
+                player_id_object.monthly_top_100 = monthly_top_100_count
+                player_id_object.monthly_driving_time_seconds = round(monthly_driving_time_count, 3)
+                player_id_object.monthly_points = monthly_points_count
+
+
+                playerinfo_nr += 1
+                print(playerinfo_nr)
+
+                player_id_object.save()
+
+    print('New PlayerInfo database completed!')
+    # END of code for getting all unique players info to database PlayersInfo.
+
+    # ******************************Launch this code if web scraping is already not automated or database is not fully uploaded.
 
 
 
@@ -924,9 +953,9 @@ def database_operations_execution_function():
 
 
 
-
-
+    # timer
     time_control_4 = timer()
+
 
     """Code for writing TotalUniqueDrivers database entry."""
     player_id_obj = LeaderBoard.objects.all()
@@ -956,6 +985,7 @@ def database_operations_execution_function():
     total_top_qualified_drivers_object.save()
     """Code for writing TotalQualifiedDrivers database entry."""
 
+    # timer
     time_control_5 = timer()
 
 
@@ -969,15 +999,23 @@ def database_operations_execution_function():
 
     # START of code for saving NO COUNTRY results on database.
     # This code is for me to check database to see if player has been uploaded on database with unknown country.
+    try:
+        no_country_name_delete_object = NoCountryNameCheck.objects.all()
+        for i in no_country_name_delete_object:
+            i.delete()
+    except:
+        pass
+
+
     no_country_object = LeaderBoard.objects.filter(country_name__exact='NO COUNTRY')
 
-    no_country_count = 0
-    for i in no_country_object:
-        no_country_count += 1
 
-    count_no_country_name_object = NoCountryNameCheck()
-    count_no_country_name_object.no_country_name = no_country_count
-    count_no_country_name_object.save()
+    for i in no_country_object:
+        no_country = str(i.event_info.event_category) + '_' + str(i.event_info.date)
+
+        count_no_country_name_object = NoCountryNameCheck()
+        count_no_country_name_object.no_country_name = no_country
+        count_no_country_name_object.save()
     # END of code for saving NO COUNTRY results on database.
 
 
@@ -987,9 +1025,11 @@ def database_operations_execution_function():
 
 
 
-
-
+    # timer
     time_control_6 = timer()
+
+
+
 
     # START of code for getting all countries info to database CountriesInfo.
     # This code gets every qualified driver from PlayersInfo and adds them together.
@@ -1270,7 +1310,661 @@ def database_operations_execution_function():
     # END of code for getting all countries info to database CountriesInfo.
 
 
+
+
+    # timer
     time_control_7 = timer()
+
+
+
+
+    # TODO: START of Code for driver world and country ranks.
+
+    event_category_list = ['overall', 'daily', 'daily2', 'weekly', 'weekly2', 'monthly']
+    order_variable_list = ['events_finished', 'points', 'average_points', 'average_finish_place', 'first_places',
+                           'top_3', 'top_10', 'top_100', 'driving_time_seconds']
+
+    for event_category in event_category_list:
+        for order_variable in order_variable_list:
+
+            def rank_function(world_rank, rank_type):
+                count = 0
+                for rank in world_rank:
+                    count += 1
+                    print(count)
+
+                    if rank_type == 'world':
+                        if event_category == 'overall':
+                            if order_variable == 'events_finished':
+                                rank.overall_world_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.overall_world_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.overall_world_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.overall_world_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.overall_world_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.overall_world_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.overall_world_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.overall_world_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.overall_world_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'daily':
+                            if order_variable == 'events_finished':
+                                rank.daily_world_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.daily_world_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.daily_world_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.daily_world_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.daily_world_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.daily_world_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.daily_world_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.daily_world_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.daily_world_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'daily2':
+                            if order_variable == 'events_finished':
+                                rank.daily2_world_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.daily2_world_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.daily2_world_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.daily2_world_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.daily2_world_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.daily2_world_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.daily2_world_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.daily2_world_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.daily2_world_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'weekly':
+                            if order_variable == 'events_finished':
+                                rank.weekly_world_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.weekly_world_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.weekly_world_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.weekly_world_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.weekly_world_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.weekly_world_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.weekly_world_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.weekly_world_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.weekly_world_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'weekly2':
+                            if order_variable == 'events_finished':
+                                rank.weekly2_world_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.weekly2_world_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.weekly2_world_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.weekly2_world_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.weekly2_world_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.weekly2_world_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.weekly2_world_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.weekly2_world_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.weekly2_world_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'monthly':
+                            if order_variable == 'events_finished':
+                                rank.monthly_world_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.monthly_world_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.monthly_world_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.monthly_world_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.monthly_world_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.monthly_world_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.monthly_world_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.monthly_world_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.monthly_world_rank_driving_time_seconds = count
+                                rank.save()
+
+                    elif rank_type == 'country':
+                        if event_category == 'overall':
+                            if order_variable == 'events_finished':
+                                rank.overall_country_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.overall_country_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.overall_country_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.overall_country_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.overall_country_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.overall_country_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.overall_country_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.overall_country_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.overall_country_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'daily':
+                            if order_variable == 'events_finished':
+                                rank.daily_country_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.daily_country_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.daily_country_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.daily_country_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.daily_country_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.daily_country_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.daily_country_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.daily_country_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.daily_country_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'daily2':
+                            if order_variable == 'events_finished':
+                                rank.daily2_country_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.daily2_country_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.daily2_country_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.daily2_country_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.daily2_country_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.daily2_country_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.daily2_country_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.daily2_country_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.daily2_country_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'weekly':
+                            if order_variable == 'events_finished':
+                                rank.weekly_country_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.weekly_country_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.weekly_country_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.weekly_country_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.weekly_country_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.weekly_country_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.weekly_country_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.weekly_country_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.weekly_country_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'weekly2':
+                            if order_variable == 'events_finished':
+                                rank.weekly2_country_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.weekly2_country_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.weekly2_country_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.weekly2_country_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.weekly2_country_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.weekly2_country_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.weekly2_country_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.weekly2_country_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.weekly2_country_rank_driving_time_seconds = count
+                                rank.save()
+
+
+                        elif event_category == 'monthly':
+                            if order_variable == 'events_finished':
+                                rank.monthly_country_rank_events_finished = count
+                                rank.save()
+
+                            elif order_variable == 'points':
+                                rank.monthly_country_rank_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_points':
+                                rank.monthly_country_rank_average_points = count
+                                rank.save()
+
+                            elif order_variable == 'average_finish_place':
+                                rank.monthly_country_rank_average_finish_place = count
+                                rank.save()
+
+                            elif order_variable == 'first_places':
+                                rank.monthly_country_rank_first_places = count
+                                rank.save()
+
+                            elif order_variable == 'top_3':
+                                rank.monthly_country_rank_top_3 = count
+                                rank.save()
+
+                            elif order_variable == 'top_10':
+                                rank.monthly_country_rank_top_10 = count
+                                rank.save()
+
+                            elif order_variable == 'top_100':
+                                rank.monthly_country_rank_top_100 = count
+                                rank.save()
+
+                            elif order_variable == 'driving_time_seconds':
+                                rank.monthly_country_rank_driving_time_seconds = count
+                                rank.save()
+
+
+
+            kwargs = {
+                '{0}_{1}'.format(event_category, 'events_finished'): 0,
+            }
+
+            if order_variable == 'events_finished':
+                world_rank_events_finished_object = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    '-' + event_category + '_' + order_variable,
+                    event_category + '_average_finish_place')
+
+                rank_function(world_rank_events_finished_object, 'world')
+
+
+            elif order_variable == 'points':
+                world_rank_points = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    '-' + event_category + '_' + order_variable,
+                    event_category + '_average_finish_place')
+
+                rank_function(world_rank_points, 'world')
+
+            elif order_variable == 'average_points':
+                world_rank_average_points = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    '-' + event_category + '_' + order_variable,
+                    event_category + '_points')
+
+                rank_function(world_rank_average_points, 'world')
+
+            elif order_variable == 'average_finish_place':
+                world_rank_average_finish_place = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    event_category + '_' + order_variable,
+                    event_category + '_points')
+
+                rank_function(world_rank_average_finish_place, 'world')
+
+            elif order_variable == 'first_places':
+                world_rank_first_places = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    '-' + event_category + '_' + order_variable,
+                    '-' + event_category + '_top_3',
+                    '-' + event_category + '_top_10',
+                    '-' + event_category + '_top_100',
+                    event_category + '_average_finish_place')
+
+                rank_function(world_rank_first_places, 'world')
+
+            elif order_variable == 'top_3':
+                world_rank_top_3 = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    '-' + event_category + '_' + order_variable,
+                    '-' + event_category + '_first_places',
+                    '-' + event_category + '_top_10',
+                    '-' + event_category + '_top_100',
+                    event_category + '_average_finish_place')
+
+                rank_function(world_rank_top_3, 'world')
+
+            elif order_variable == 'top_10':
+                world_rank_top_10 = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    '-' + event_category + '_' + order_variable,
+                    '-' + event_category + '_first_places',
+                    '-' + event_category + '_top_3',
+                    '-' + event_category + '_top_100',
+                    event_category + '_average_finish_place')
+
+                rank_function(world_rank_top_10, 'world')
+
+            elif order_variable == 'top_100':
+                world_rank_top_100 = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    '-' + event_category + '_' + order_variable,
+                    '-' + event_category + '_first_places',
+                    '-' + event_category + '_top_3',
+                    '-' + event_category + '_top_10',
+                    event_category + '_average_finish_place')
+
+                rank_function(world_rank_top_100, 'world')
+
+            elif order_variable == 'driving_time_seconds':
+                world_rank_driving_time_seconds = PlayersInfo.objects.filter(~Q(**kwargs)).order_by(
+                    '-' + event_category + '_' + order_variable,
+                    event_category + '_average_finish_place')
+
+                rank_function(world_rank_driving_time_seconds, 'world')
+
+
+
+            for country in country_list:
+                print('country = ', country)
+
+                if order_variable == 'events_finished':
+                    country_rank_events_finished_object = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        '-' + event_category + '_' + order_variable,
+                        event_category + '_average_finish_place')
+
+                    rank_function(country_rank_events_finished_object, 'country')
+
+                elif order_variable == 'points':
+                    country_rank_points = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        '-' + event_category + '_' + order_variable,
+                        event_category + '_average_finish_place')
+
+                    rank_function(country_rank_points, 'country')
+
+                elif order_variable == 'average_points':
+                    country_rank_average_points = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        '-' + event_category + '_' + order_variable,
+                        event_category + '_points')
+
+                    rank_function(country_rank_average_points, 'country')
+
+                elif order_variable == 'average_finish_place':
+                    country_rank_average_finish_place = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        event_category + '_' + order_variable,
+                        event_category + '_points')
+
+                    rank_function(country_rank_average_finish_place, 'country')
+
+                elif order_variable == 'first_places':
+                    country_rank_first_places = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        '-' + event_category + '_' + order_variable,
+                        '-' + event_category + '_top_3',
+                        '-' + event_category + '_top_10',
+                        '-' + event_category + '_top_100',
+                        event_category + '_average_finish_place')
+
+                    rank_function(country_rank_first_places, 'country')
+
+                elif order_variable == 'top_3':
+                    country_rank_top_3 = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        '-' + event_category + '_' + order_variable,
+                        '-' + event_category + '_first_places',
+                        '-' + event_category + '_top_10',
+                        '-' + event_category + '_top_100',
+                        event_category + '_average_finish_place')
+
+                    rank_function(country_rank_top_3, 'country')
+
+                elif order_variable == 'top_10':
+                    country_rank_top_10 = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        '-' + event_category + '_' + order_variable,
+                        '-' + event_category + '_first_places',
+                        '-' + event_category + '_top_3',
+                        '-' + event_category + '_top_100',
+                        event_category + '_average_finish_place')
+
+                    rank_function(country_rank_top_10, 'country')
+
+                elif order_variable == 'top_100':
+                    country_rank_top_100 = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        '-' + event_category + '_' + order_variable,
+                        '-' + event_category + '_first_places',
+                        '-' + event_category + '_top_3',
+                        '-' + event_category + '_top_10',
+                        event_category + '_average_finish_place')
+
+                    rank_function(country_rank_top_100, 'country')
+
+                elif order_variable == 'driving_time_seconds':
+                    country_rank_driving_time_seconds = PlayersInfo.objects.filter(country_from__exact=country).filter(~Q(**kwargs)).order_by(
+                        '-' + event_category + '_' + order_variable,
+                        event_category + '_average_finish_place')
+
+                    rank_function(country_rank_driving_time_seconds, 'country')
+
+    # TODO: END of Code for driver world and country ranks.
+
+
+
+
+
+
+
+
+
+
+
+
+    time_control_8 = timer()
 
 
 
@@ -1330,13 +2024,14 @@ def database_operations_execution_function():
 
 
 
-    delta_time_all = time_control_7 - time_control_1
+    delta_time_all = time_control_8 - time_control_1
 
     print('Web Scrapping time: ', time_control_2 - time_control_1)
     print('PlayersInfo delete database time: ', time_control_3 - time_control_2)
     print('PlayersInfo new database time: ', time_control_4 - time_control_3)
     print('Total Drivers database: ', time_control_5 - time_control_4)
     print('CountriesInfo new database time: ', time_control_7 - time_control_6)
+    print('Drivers World and County ranks new database time: ', time_control_8 - time_control_7)
 
     print('Total script time: ', delta_time_all)
 

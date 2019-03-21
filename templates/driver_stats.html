@@ -12,12 +12,12 @@
             <h2>Driver Stats</h2>
         </div>
         
-        <table class="stats_switch_buttons">
-            <tr>
-                <td class="stats_active_switch_button"><a href="/driverstats/{{ drivers_id }}/">Driver Stats</a></td>
-                <td class="stats_inactive_switch_button"><a href="/countrystats/Latvia/overall/overall_points/">Country stats</a></td>
-            </tr>    
-        </table>   
+        <div class="stats_switch_buttons">
+            <ul>
+                <li class="stats_active_switch_button"><a href="/driverstats/{{ drivers_id }}/">Driver Stats</a></li>
+                <li class="stats_inactive_switch_button"><a href="/countrystats/Latvia/overall/overall_points/">Country stats</a></li>
+            </ul>    
+        </div>   
 
         <div class="search">
           <input type="text" class="searchTerm" id="searchField" placeholder="Search by driver's name or ID...">
@@ -161,80 +161,80 @@
 
                 <tr>
                     <th>Overall</th>                                                                        
-                    <td>{{ overall_events_finished_rank }}</td>
-                    <td>{{ overall_points_rank }}</td>
-                    <td>{{ overall_average_points_rank }}</td>
-                    <td>{{ overall_average_finish_place_rank }}</td>                  
-                    <td>{{ overall_first_places_rank }}</td>                  
-                    <td>{{ overall_top_3_rank }}</td>                   
-                    <td>{{ overall_top_10_rank }}</td>                   
-                    <td>{{ overall_top_100_rank }}</td>                   
-                    <td>{{ overall_driving_time_seconds_rank }}</td>
+                    <td>{{ overall_world_rank_events_finished }} ({{ overall_country_rank_events_finished }})</td>
+                    <td>{{ overall_world_rank_points }} ({{ overall_country_rank_points }})</td>
+                    <td>{{ overall_world_rank_average_points }} ({{ overall_country_rank_average_points }})</td>
+                    <td>{{ overall_world_rank_average_finish_place }} ({{ overall_country_rank_average_finish_place }})</td>                  
+                    <td>{{ overall_world_rank_first_places }} ({{ overall_country_rank_first_places }})</td>                  
+                    <td>{{ overall_world_rank_top_3 }} ({{ overall_country_rank_top_3 }})</td>                   
+                    <td>{{ overall_world_rank_top_10 }} ({{ overall_country_rank_top_10 }})</td>                   
+                    <td>{{ overall_world_rank_top_100 }} ({{ overall_country_rank_top_100 }})</td>                   
+                    <td>{{ overall_world_rank_driving_time_seconds }} ({{ overall_country_rank_driving_time_seconds }})</td>
                 </tr>
 
                 <tr>
                     <th>Daily</th>                                                                        
-                    <td>{{ daily_events_finished_rank }}</td>
-                    <td>{{ daily_points_rank }}</td>
-                    <td>{{ daily_average_points_rank }}</td>
-                    <td>{{ daily_average_finish_place_rank }}</td>                  
-                    <td>{{ daily_first_places_rank }}</td>                  
-                    <td>{{ daily_top_3_rank }}</td>                   
-                    <td>{{ daily_top_10_rank }}</td>                   
-                    <td>{{ daily_top_100_rank }}</td>                   
-                    <td>{{ daily_driving_time_seconds_rank }}</td>
+                    <td>{{ daily_world_rank_events_finished }} ({{ daily_country_rank_events_finished }})</td>
+                    <td>{{ daily_world_rank_points }} ({{ daily_country_rank_points }})</td>
+                    <td>{{ daily_world_rank_average_points }} ({{ daily_country_rank_average_points }})</td>
+                    <td>{{ daily_world_rank_average_finish_place }} ({{ daily_country_rank_average_finish_place }})</td>                  
+                    <td>{{ daily_world_rank_first_places }} ({{ daily_country_rank_first_places }})</td>                  
+                    <td>{{ daily_world_rank_top_3 }} ({{ daily_country_rank_top_3 }})</td>                   
+                    <td>{{ daily_world_rank_top_10 }} ({{ daily_country_rank_top_10 }})</td>                   
+                    <td>{{ daily_world_rank_top_100 }} ({{ daily_country_rank_top_100 }})</td>                   
+                    <td>{{ daily_world_rank_driving_time_seconds }} ({{ daily_country_rank_driving_time_seconds }})</td>
                 </tr>
 
                 <tr>
                     <th>Daily2</th>                                                                        
-                    <td>{{ daily2_events_finished_rank }}</td>
-                    <td>{{ daily2_points_rank }}</td>
-                    <td>{{ daily2_average_points_rank }}</td>
-                    <td>{{ daily2_average_finish_place_rank }}</td>                  
-                    <td>{{ daily2_first_places_rank }}</td>                  
-                    <td>{{ daily2_top_3_rank }}</td>                   
-                    <td>{{ daily2_top_10_rank }}</td>                   
-                    <td>{{ daily2_top_100_rank }}</td>                   
-                    <td>{{ daily2_driving_time_seconds_rank }}</td>
+                    <td>{{ daily2_world_rank_events_finished }} ({{ daily2_country_rank_events_finished }})</td>
+                    <td>{{ daily2_world_rank_points }} ({{ daily2_country_rank_points }})</td>
+                    <td>{{ daily2_world_rank_average_points }} ({{ daily2_country_rank_average_points }})</td>
+                    <td>{{ daily2_world_rank_average_finish_place }} ({{ daily2_country_rank_average_finish_place }})</td>                  
+                    <td>{{ daily2_world_rank_first_places }} ({{ daily2_country_rank_first_places }})</td>                  
+                    <td>{{ daily2_world_rank_top_3 }} ({{ daily2_country_rank_top_3 }})</td>                   
+                    <td>{{ daily2_world_rank_top_10 }} ({{ daily2_country_rank_top_10 }})</td>                   
+                    <td>{{ daily2_world_rank_top_100 }} ({{ daily2_country_rank_top_100 }})</td>                   
+                    <td>{{ daily2_world_rank_driving_time_seconds }} ({{ daily2_country_rank_driving_time_seconds }})</td>
                 </tr>
 
                 <tr>
                     <th>Weekly</th>                                                                        
-                    <td>{{ weekly_events_finished_rank }}</td>
-                    <td>{{ weekly_points_rank_rank }}</td>
-                    <td>{{ weekly_average_points_rank }}</td>
-                    <td>{{ weekly_average_finish_place_rank }}</td>                  
-                    <td>{{ weekly_first_places_rank }}</td>                  
-                    <td>{{ weekly_top_3_rank }}</td>                   
-                    <td>{{ weekly_top_10_rank }}</td>                   
-                    <td>{{ weekly_top_100_rank }}</td>                   
-                    <td>{{ weekly_driving_time_seconds_rank }}</td>
+                    <td>{{ weekly_world_rank_events_finished }} ({{ weekly_country_rank_events_finished }})</td>
+                    <td>{{ weekly_world_rank_points }} ({{ weekly_country_rank_points }})</td>
+                    <td>{{ weekly_world_rank_average_points }} ({{ weekly_country_rank_average_points }})</td>
+                    <td>{{ weekly_world_rank_average_finish_place }} ({{ weekly_country_rank_average_finish_place }})</td>                  
+                    <td>{{ weekly_world_rank_first_places }} ({{ weekly_country_rank_first_places }})</td>                  
+                    <td>{{ weekly_world_rank_top_3 }} ({{ weekly_country_rank_top_3 }})</td>                   
+                    <td>{{ weekly_world_rank_top_10 }} ({{ weekly_country_rank_top_10 }})</td>                   
+                    <td>{{ weekly_world_rank_top_100 }} ({{ weekly_country_rank_top_100 }})</td>                   
+                    <td>{{ weekly_world_rank_driving_time_seconds }} ({{ weekly_country_rank_driving_time_seconds }})</td>
                 </tr>
 
                 <tr>
                     <th>Weekly2</th>                                                                        
-                    <td>{{ weekly2_events_finished_rank }}</td>
-                    <td>{{ weekly2_points_rank }}</td>
-                    <td>{{ weekly2_average_points_rank }}</td>
-                    <td>{{ weekly2_average_finish_place_rank }}</td>                  
-                    <td>{{ weekly2_first_places_rank }}</td>                  
-                    <td>{{ weekly2_top_3_rank }}</td>                   
-                    <td>{{ weekly2_top_10_rank }}</td>                   
-                    <td>{{ weekly2_top_100_rank }}</td>                   
-                    <td>{{ weekly2_driving_time_seconds_rank }}</td>
+                    <td>{{ weekly2_world_rank_events_finished }} ({{ weekly2_country_rank_events_finished }})</td>
+                    <td>{{ weekly2_world_rank_points }} ({{ weekly2_country_rank_points }})</td>
+                    <td>{{ weekly2_world_rank_average_points }} ({{ weekly2_country_rank_average_points }})</td>
+                    <td>{{ weekly2_world_rank_average_finish_place }} ({{ weekly2_country_rank_average_finish_place }})</td>                  
+                    <td>{{ weekly2_world_rank_first_places }} ({{ weekly2_country_rank_first_places }})</td>                  
+                    <td>{{ weekly2_world_rank_top_3 }} ({{ weekly2_country_rank_top_3 }})</td>                   
+                    <td>{{ weekly2_world_rank_top_10 }} ({{ weekly2_country_rank_top_10 }})</td>                   
+                    <td>{{ weekly2_world_rank_top_100 }} ({{ weekly2_country_rank_top_100 }})</td>                   
+                    <td>{{ weekly2_world_rank_driving_time_seconds }} ({{ weekly2_country_rank_driving_time_seconds }})</td>
                 </tr>
                     
                 <tr>
                     <th>Monthly</th>                                                                        
-                    <td>{{ monthly_events_finished_rank }}</td>
-                    <td>{{ monthly_points_rank }}</td>
-                    <td>{{ monthly_average_points_rank }}</td>
-                    <td>{{ monthly_average_finish_place_rank }}</td>                  
-                    <td>{{ monthly_first_places_rank }}</td>                  
-                    <td>{{ monthly_top_3_rank }}</td>                   
-                    <td>{{ monthly_top_10_rank }}</td>                   
-                    <td>{{ monthly_top_100_rank }}</td>                   
-                    <td>{{ monthly_driving_time_seconds_rank }}</td>
+                    <td>{{ monthly_world_rank_events_finished }} ({{ monthly_country_rank_events_finished }})</td>
+                    <td>{{ monthly_world_rank_points }} ({{ monthly_country_rank_points }})</td>
+                    <td>{{ monthly_world_rank_average_points }} ({{ monthly_country_rank_average_points }})</td>
+                    <td>{{ monthly_world_rank_average_finish_place }} ({{ monthly_country_rank_average_finish_place }})</td>                  
+                    <td>{{ monthly_world_rank_first_places }} ({{ monthly_country_rank_first_places }})</td>                  
+                    <td>{{ monthly_world_rank_top_3 }} ({{ monthly_country_rank_top_3 }})</td>                   
+                    <td>{{ monthly_world_rank_top_10 }} ({{ monthly_country_rank_top_10 }})</td>                   
+                    <td>{{ monthly_world_rank_top_100 }} ({{ monthly_country_rank_top_100 }})</td>                   
+                    <td>{{ monthly_world_rank_driving_time_seconds }} ({{ monthly_country_rank_driving_time_seconds }})</td>
                 </tr>
 
             </table>

@@ -12,23 +12,23 @@
             <h2>Country Stats</h2>
         </div>
 
-        <table class="stats_switch_buttons">
-            <tr>
-                <td class="stats_inactive_switch_button"><a href="/driverstats/133513/">Driver Stats</a></td>
-                <td class="stats_active_switch_button"><a href="/countrystats/{{ country_name }}/overall/overall_points/">Country stats</a></td>
-            </tr>    
-        </table> 
+        <div class="stats_switch_buttons">
+            <ul>
+                <li class="stats_inactive_switch_button"><a href="/driverstats/133513/">Driver Stats</a></li>
+                <li class="stats_active_switch_button"><a href="/countrystats/{{ country_name }}/overall/overall_points/">Country stats</a></li>
+            </ul>    
+        </div> 
 
-        <table class="stats_event_category_switch_buttons">
-            <tr>
-                <td class="{{ overall_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/overall/overall_points/">Overall</a></td>
-                <td class="{{ daily_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/daily/daily_points/">Daily</a></td>
-                <td class="{{ daily2_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/daily2/daily2_points/">Daily2</a></td>
-                <td class="{{ weekly_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/weekly/weekly_points/">Weekly</a></td>
-                <td class="{{ weekly2_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/weekly2/weekly2_points/">Weekly2</a></td>
-                <td class="{{ monthly_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/monthly/monthly_points/">Monthly</a></td>
-            </tr>    
-        </table>
+        <div class="stats_event_category_switch_buttons">
+            <ul>
+                <li class="{{ overall_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/overall/overall_points/">Overall</a></li>
+                <li class="{{ daily_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/daily/daily_points/">Daily</a></li>
+                <li class="{{ daily2_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/daily2/daily2_points/">Daily2</a></li>
+                <li class="{{ weekly_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/weekly/weekly_points/">Weekly</a></li>
+                <li class="{{ weekly2_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/weekly2/weekly2_points/">Weekly2</a></li>
+                <li class="{{ monthly_stats_active_switch_button }}"><a href="/countrystats/{{ country_name }}/monthly/monthly_points/">Monthly</a></li>
+            </ul>    
+        </div>
 
         <div class="country_name">
             <p>{{ country_name }}</p>
