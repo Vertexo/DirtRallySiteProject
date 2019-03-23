@@ -90,7 +90,7 @@ def database_operations_execution_function():
 
 
 
-    site_update_status_function('Site Update - Phase 1')
+    site_update_status_function('Site Update - Collecting data')
 
 
 
@@ -313,7 +313,7 @@ def database_operations_execution_function():
 
 
 
-    site_update_status_function('Site Update - Phase 2')
+    site_update_status_function('Site Update - Leaderboards')
 
     # timer
     time_control_2 = timer()
@@ -1022,7 +1022,7 @@ def database_operations_execution_function():
 
 
 
-
+    site_update_status_function('Site Update - Countries')
 
 
     # timer
@@ -1310,6 +1310,11 @@ def database_operations_execution_function():
     # END of code for getting all countries info to database CountriesInfo.
 
 
+
+
+
+
+    site_update_status_function('Site Update - Driver Ranks')
 
 
     # timer

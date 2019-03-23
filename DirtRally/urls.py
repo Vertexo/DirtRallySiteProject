@@ -25,7 +25,6 @@ urlpatterns = [
 
     path('drivers_order_by/<event_category>/<order_variable>/', top_drivers_order_by_view, name='top_drivers_order_by_view'),
     path('countries_order_by/<event_category>/<order_variable>/', top_countries_order_by_view, name='top_countries_order_by_view'),
-
     path('driverstats/<drivers_id>/', driverstats_view, name='driverstats'),
     path('countrystats/<country_name>/<event_category>/<order_variable>/', countrystats_view, name='countrystats'),
     path('all_events/<event_category>/<date>/', all_events_view, name='all_events'),
