@@ -6,11 +6,11 @@ Official Dirt Rally site: https://www.dirtgame.com/us/events
 
 <br>
 
-### Short anotation about this site:
+### Short annotation about this site:
 
 This project emerged from my hobby - simracing (simulator/game - Dirt Rally)
 
-The reason I made this leaderboards site was due to inability to determin drivers' skills 
+The reason I made this leaderboards site was due to inability to determine drivers' skills 
 or proficiency by visiting the official Dirt Rally website. There was no ranks or leaderboards to determine the fastest 
 or the most stable driver. Or who has finished in Top 10 or top 100 more times than any other driver. 
 
