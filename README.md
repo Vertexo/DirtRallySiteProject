@@ -10,9 +10,7 @@ Official Dirt Rally site: https://www.dirtgame.com/us/events
 
 This project emerged from my hobby - simracing (simulator/game - Dirt Rally)
 
-The reason I made this leaderboards site was due to inability to determine drivers' skills 
-or proficiency by visiting the official Dirt Rally website. There were no any ranks or leaderboards to determine the fastest 
-or the most stable drivers. Or who has finished in Top 10 or top 100 more times than any other competitor. 
+The reason I made this leaderboards site is because as a competitive person I like statistics when it comes to sports or any other competition. Unfortunately there seems to be lack of statistics to determine drivers' skills or proficiency by visiting the official Dirt Rally website. There were no any ranks or leaderboards to determine the fastest or the most stable drivers by finished events. Or who has finished in first place, Top 10 or top 100 more times than any other competitor.
 
 This site will scrap all completed events information from official site and upload it on the server.
 
