@@ -29,4 +29,5 @@ urlpatterns = [
     path('countrystats/<country_name>/<event_category>/<order_variable>/', countrystats_view, name='countrystats'),
     path('all_events/<event_category>/<date>/', all_events_view, name='all_events'),
     url('how_this_site_works/', how_this_site_works_view, name='how_this_site_works'),
+    # url('how_this_site_works/', mypage, name='mypage'),
 ]

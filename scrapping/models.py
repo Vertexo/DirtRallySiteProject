@@ -355,3 +355,10 @@ class SiteUpdateStatus(models.Model):
 
     def __str__(self):
         return '{}'.format(self.update_status)
+
+
+class UniqueIPConnections(models.Model):
+    ip_address = models.CharField(max_length=500)
+
+    def __str__(self):
+        return '{}'.format(self.ip_address)
