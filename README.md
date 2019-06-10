@@ -8,7 +8,7 @@ Official Dirt Rally site for web scraping: https://www.dirtgame.com/us/events
 
 ### Short annotation about this site:
 
-This hobby project includes competition statistics database and website for Dirt Rally racing simulator. The website is published and currently used by Dirt Rally clients. At the base of the project is data scraping from the game’s official website. Python and Django framework are used for back-end programming. PostgreSQL as database and DigitalOcean as cloud service on Ubuntu operating system.
+This hobby project includes competition statistics database and website for Dirt Rally racing simulator. The website is published and currently used by Dirt Rally clients. At the base of the project is data scraping from the game’s official website. Python and Django framework are used for back-end programming. PostgreSQL as database and DigitalOcean as cloud service on Ubuntu operating system. HTML, CSS and JavaScript are used for front-end design. 
 
 This project emerged from my hobby - esports racing simulator (simulator/game - Dirt Rally).
 
