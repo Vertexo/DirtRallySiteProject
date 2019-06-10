@@ -12,13 +12,13 @@ This hobby project includes competition statistics database and website for Dirt
 
 This project emerged from my hobby - esports racing simulator (simulator/game - Dirt Rally).
 
-The reason I made this leaderboards site is lack of statistics an rankings at the official Dirt Rally website. There for it is quite hard to valuate competitors by their skill level. On the original website, there are no appropriate long term leaderboards or ranks to determine the fastest or most stable competitors. On this project's website I have accumutaled data and statistics for top 1st place, in top 3 places, in top 10 places finishers and many other statistics. The same all statiscics have been calculated by countries also.  
+The reason I made this leaderboards site is the lack of statistics and ranks on the official Dirt Rally website. Therefore it is quite hard to valuate competitors by their skill level. On the original website, there are no appropriate long term leaderboards or ranks to determine the best or the fastes competitor by completed events. On this project's website I have accumutaled data and statistics for top 1st place, in top 3 places, in top 10 places finishers and many other statistics. The same all statiscics have been calculated by countries also.  
 
 This site will scrap all completed events information from official site and upload it on the server.
 
 I taught myself programming and web development by making this site.
 
-In upper right corner of the site you can see "Database active since: 07.27.2018". It is date, I started working on this site
+In upper right corner of the site you can see "Database active since: 07.27.2018". It is the date I started working on this site
 and scraping official events data. So the oldest Daily and Daily 2 event on this site is from 07.27.2018.
 
 
