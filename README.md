@@ -1,20 +1,22 @@
 # DirtRallySiteProject
 
-Link to project website: http://138.68.81.72/drivers_order_by/overall/overall_points/ 
+Link to my project website: http://138.68.81.72/drivers_order_by/overall/overall_points/ 
 
-Official Dirt Rally site: https://www.dirtgame.com/us/events
+Official Dirt Rally site for web scraping: https://www.dirtgame.com/us/events
 
 <br>
 
 ### Short annotation about this site:
 
-This project emerged from my hobby - simracing (simulator/game - Dirt Rally)
+This hobby project includes competition statistics database and website for Dirt Rally racing simulator. The website is published and currently used by Dirt Rally clients. At the base of the project is data scraping from the game’s official website. Python and Django framework are used for back-end programming. PostgreSQL as database and DigitalOcean as cloud service on Ubuntu operating system.
 
-The reason I made this leaderboards site is because as a competitive person I like statistics when it comes to sports or any other competition. Unfortunately there seems to be lack of statistics to determine drivers' skills or proficiency by visiting the official Dirt Rally website. There were no any ranks or leaderboards to determine the fastest or the most stable drivers by finished events. Who has finished in first place, Top 10 or top 100 more times than any other competitor, or which country has the best drivers.
+This project emerged from my hobby - esports racing simulator (simulator/game - Dirt Rally).
+
+The reason I made this leaderboards site is lack of statistics an rankings at the official Dirt Rally website. There for it is quite hard to valuate competitors by their skill level. On the original website, there are no appropriate long term leaderboards or ranks to determine the fastest or most stable competitors. On this project's website I have accumutaled data and statistics for top 1st place, in top 3 places, in top 10 places finishers and many other statistics. The same all statiscics have been calculated by countries also.  
 
 This site will scrap all completed events information from official site and upload it on the server.
 
-I taught myself programming and web development by making this site. Some areas of the site may still be under development.
+I taught myself programming and web development by making this site.
 
 In upper right corner of the site you can see "Database active since: 07.27.2018". It is date, I started working on this site
 and scraping official events data. So the oldest Daily and Daily 2 event on this site is from 07.27.2018.
