@@ -1,6 +1,7 @@
+import sys
 import requests
+import datetime
 from bs4 import BeautifulSoup as soup
-
 
 
 
@@ -8,11 +9,9 @@ from bs4 import BeautifulSoup as soup
 def events_daily(p_soup):
     daily_container = p_soup.find('div', {'class': "event daily"})
 
-
     daily_eventsid_list = []
     for i in range(10):
         daily_eventsid_list.append(eventid_converter(str(daily_container.h2.findAll('option')[i])))
-        # print(daily_eventsid_list)
     return daily_eventsid_list
 
 
@@ -59,7 +58,6 @@ def events_monthly(p_soup):
 
 
 # Previous date string functions. Gets string from the HTML with previous events date.
-
 def events_daily_dates(p_soup):
     daily_container = p_soup.find('div', {'class': "event daily"})
 
@@ -113,7 +111,6 @@ def events_monthly_dates(p_soup):
 
 
 # Two event string converter functions.
-
 def eventid_converter(id_tag):
     eventID_list = [x for x in id_tag if x.isdigit()][:6]
     eventID_string = ''
@@ -121,7 +118,6 @@ def eventid_converter(id_tag):
         eventID_string = eventID_string + str(s)
 
     return eventID_string
-
 
 def event_date_converter(id_tag):
     event_date_list = [x for x in id_tag if x.isdigit() or x == '/'][6:]
@@ -151,38 +147,50 @@ def event_date_converter(id_tag):
 
 
 
-
-
 # START. Make function repeat in case of an error This part of code is not used enywhere. It is just to check 'page_soup' variable has correctly got all the HTML tags.
 import traceback
 
 def repeat_if_error_url():
     error_count_url = 0
+
+    # LOGS
+    old_stdout = sys.stdout
+    log_file = open("log_file.log", "a")
+    sys.stdout = log_file
+    # LOGS
+
+    print("==================================================== START OF THE DAILY WEB SCRAPING SCRIPT ==================================================== \n\n")
+
+    now = datetime.datetime.now()
+    print("Web scraping start date and time : ")
+    print(now.strftime("%Y-%m-%d %H:%M:%S\n\n"))
+
     while True:
 
         # Make HTML object from URL.
-
-        r = requests.get('https://www.dirtgame.com/us/events')
+        r = requests.get('https://www.dirtgame.com/us/events', verify=False)
         page_html = r.text
-        # print(page_html)
-
-        page_soup = soup(page_html, 'html.parser')
-        # print(page_soup)
-
+        page_soup_0 = soup(page_html, 'html.parser')
 
         try:
-            print('----------------------TRY_URL-------------------------')
-            events_daily(page_soup)
+            print('---------------------- TRY TO GET IDs FROM URL -------------------------')
+            events_daily(page_soup_0)
             break
 
         except Exception:
             error_count_url += 1
-            print('------------------------------------------ ', 'Error number: ', error_count_url,' ------------------------------------------')
+            print('------------------------------------------ ', 'Error number: ', error_count_url, ' ------------------------------------------')
             print(traceback.format_exc())
             continue
 
-    print('Error_count_URL = ', error_count_url)
-    return page_soup
+    print('Error_count_URL = ', error_count_url, "\n\n")
+
+    # LOGS
+    sys.stdout = old_stdout
+    log_file.close()
+    # LOGS
+
+    return page_soup_0
 
 page_soup = repeat_if_error_url()
 # END. Make function repeat in case of an error This part of code is not used enywhere. It is just to check 'page_soup' variable has correctly got all the HTML tags.
@@ -258,10 +266,6 @@ monthly_previous_7_ID = events_monthly(page_soup)[7]
 monthly_previous_8_ID = events_monthly(page_soup)[8]
 monthly_previous_9_ID = events_monthly(page_soup)[9]
 
-# print(daily_current_ID)
-
-
-
 
 
 # Function caller variables - all previous events dates.
@@ -319,8 +323,3 @@ monthly_previous_6_date = events_monthly_dates(page_soup)[5]
 monthly_previous_7_date = events_monthly_dates(page_soup)[6]
 monthly_previous_8_date = events_monthly_dates(page_soup)[7]
 monthly_previous_9_date = events_monthly_dates(page_soup)[8]
-
-# print(monthly_previous_4_date)
-
-
-

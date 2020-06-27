@@ -25,6 +25,3 @@ def time_converter(t_string):
         all_in_seconds = round((hours * 3600 + minutes * 60 + seconds + miliseconds), 3)
 
         return all_in_seconds
-
-
-
