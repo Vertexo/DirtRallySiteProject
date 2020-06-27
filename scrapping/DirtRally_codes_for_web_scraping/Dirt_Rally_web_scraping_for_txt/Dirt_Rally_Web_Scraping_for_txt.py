@@ -3,7 +3,7 @@ import io
 import datetime
 import traceback
 
-sys.path.append('..')
+sys.path.append('../')
 
 import requests
 from Nations_dict import nations
@@ -75,7 +75,7 @@ def scrapping(start_index, end_index):
 
 
         # Get this API URL from web browsers [Development Tools(F12)] - [Network] - [XHR and Fetch]
-        my_url = "https://www.dirtgame.com/us/api/event?assists=any&eventId=" + list_of_ids[w] + "&group=all&leaderboard=true&nameSearch=&noCache=1532867543790&number=10&page=1&stageId=0&wheel=any"
+        my_url = "https://dirtgame.com/dirtrally/us/api/event?assists=any&eventId=" + list_of_ids[w] + "&group=all&leaderboard=true&nameSearch=&noCache=1532867543790&number=10&page=1&stageId=0&wheel=any"
 
 
         # Safety 'while' block to make sure response did not return zero 'LeaderboardTotal' meaning request did not work correctlly. If 'LeaderboardTotal' is zero, repeat the request for same page till 'LeaderboardTotal' has realy value.
@@ -142,7 +142,7 @@ def scrapping(start_index, end_index):
             sys.stdout = log_file_2
             # LOGS_2
 
-            my_url = "https://www.dirtgame.com/us/api/event?assists=any&eventId=" + list_of_ids[w] + "&group=all&leaderboard=true&nameSearch=&noCache=1&number=10&page=" + str(i) + "&stageId=0&wheel=any"
+            my_url = "https://dirtgame.com/dirtrally/us/api/event?assists=any&eventId=" + list_of_ids[w] + "&group=all&leaderboard=true&nameSearch=&noCache=1&number=10&page=" + str(i) + "&stageId=0&wheel=any"
 
 
             # Safety 'while' block to make sure response did not return empty 'Entries' list. If 'Entries' is empty, repeat the request for same page till 'Entries' list contains data.

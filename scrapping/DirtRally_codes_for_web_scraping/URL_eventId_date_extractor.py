@@ -168,7 +168,7 @@ def repeat_if_error_url():
     while True:
 
         # Make HTML object from URL.
-        r = requests.get('https://www.dirtgame.com/us/events', verify=False)
+        r = requests.get('https://dirtgame.com/dirtrally/us/events', verify=False)
         page_html = r.text
         page_soup_0 = soup(page_html, 'html.parser')
 
