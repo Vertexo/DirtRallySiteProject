@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import EventInfo, LeaderBoard, TotalUniqueDrivers, TotalQualifiedDrivers, NoCountryNameCheck, PlayersInfo,\
-CountriesInfo, TotalQualifiedCountries, LastDatabaseUpdateTime, SiteUpdateStatus, UniqueIPConnections
+CountriesInfo, TotalQualifiedCountries, LastDatabaseUpdateTime, SiteUpdateStatus
 
 # Register your models here.
 
@@ -15,4 +15,3 @@ admin.site.register(CountriesInfo)
 admin.site.register(TotalQualifiedCountries)
 admin.site.register(LastDatabaseUpdateTime)
 admin.site.register(SiteUpdateStatus)
-admin.site.register(UniqueIPConnections)
