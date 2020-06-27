@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.http import HttpRequest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q   # library for filtering query sets.
 
 from .models import EventInfo, LeaderBoard, TotalUniqueDrivers, TotalQualifiedDrivers, PlayersInfo,\
-TotalQualifiedCountries, CountriesInfo, UniqueIPConnections
+TotalQualifiedCountries, CountriesInfo
 
 
 
@@ -1591,22 +1590,6 @@ def all_events_view(request, event_category, date):
 """------------------------------------------------HOW THIS SITE WORKS VIEW------------------------------------------------"""
 def how_this_site_works_view(request):
 
-
-    # client_address = request.META.get('HTTP_X_FORWARDED_FOR')
-    #
-    # print('-----------------------', client_address)
-    #
-    # ip_obj = UniqueIPConnections()
-    #
-    # ip_obj.ip_address = client_address
-    #
-    # ip_obj.save()
-
-
-
-
-
-
     context = {}
 
     context['main_nav_button_1_tag'] = 'main_button_inactive'
@@ -1618,12 +1601,6 @@ def how_this_site_works_view(request):
 """------------------------------------------------HOW THIS SITE WORKS VIEW------------------------------------------------"""
 
 
-
-
-
-
-
-# def mypage(request):
 
 
 
