@@ -301,7 +301,7 @@ def nationality_numbers(string):
 def log_Exceptions():
 
     try:
-        scrapping(0, 27)
+        scrapping(0, 5)
 
     except Exception:
 
