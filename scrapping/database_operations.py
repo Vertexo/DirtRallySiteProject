@@ -97,7 +97,7 @@ def database_operations_execution_function():
 
 
     """ code to delete all EventInfo and LeaderBoard entries."""
-    # This section of code is usually commented out under normal conditions.
+    # # This section of code is usually commented out under normal conditions.
     # leaderb_delete_object = EventInfo.objects.all()  # LeaderBoard table will also be deleted. It is joined with EventInfo tabel through foreign ID and have a parameter on_delete=models.CASCADE in models.py.
     # for i in leaderb_delete_object:
     #     i.delete()
@@ -403,7 +403,7 @@ def database_operations_execution_function():
     time_control_3 = timer()
 
 
-    print('Starting new PlayersInfo database!')
+    print('Starting new PlayersInfo database! !!!Collects only qualified drivers!!!')
     # LOGS_4
     sys.stdout = stdout_4
     log_file_4.close()
@@ -582,6 +582,14 @@ def database_operations_execution_function():
 
         if overall_events_finished_count >= 3:    # This line limits top table to drivers who have finished certain number on events. For example: at least 3
 
+            # In this list add the Ids of the obvious cheaters to filter them out from PlayersInfo table. Skips to the next For-Loop iteration.
+            # Potential cheaters: 1748070,
+            cheatersIDList = [2094692, 1691289]
+            if last_scraping_playerid in cheatersIDList:
+                print('Skipped cheater with ID: ', last_scraping_playerid)
+                continue
+
+
             player_id_object = PlayersInfo()
 
             player_id_object.country_from = country
@@ -676,7 +684,7 @@ def database_operations_execution_function():
             log_file_5 = open("log_file.log", "a")
             sys.stdout = log_file_5
             # LOGS_5
-            print(playerinfo_nr)
+            print('playerinfo_nr: ', playerinfo_nr)
             # LOGS_5
             sys.stdout = stdout_5
             log_file_5.close()
@@ -1042,29 +1050,48 @@ def database_operations_execution_function():
     # timer
     time_control_4 = timer()
 
-
+    # This block of code takes very long to go through and we actually never use this TotalUniqueDrivers table anywhere. For the sake of sparing resources and time, let's just comment it out for know.
     """Code for writing TotalUniqueDrivers database entry."""
-    player_id_obj = LeaderBoard.objects.all()
+    # player_id_obj = LeaderBoard.objects.all()
 
-    player_id_database_list = []
-    for i in player_id_obj:
-        if i.player_id in player_id_database_list:
-            continue
-        else:
-            player_id_database_list.append(i.player_id)
+    # player_id_database_list = []
+    # leaderboard_progression = 0
+    # for i in player_id_obj:
+    #     leaderboard_progression += 1
+        
+    #     a = 10
+    #     if (leaderboard_progression % a) == 0: # To not make log file to record leaderboard_progression every iteration this if condition will write it after every 'a' times.
+    #         # LOG_leaderboard_progression
+    #         stdout_leaderboard_progression = sys.stdout
+    #         log_file_leaderboard_progression = open("log_file.log", "a")
+    #         sys.stdout = log_file_leaderboard_progression
+    #         print("leaderboard_progression = ", leaderboard_progression)
+    #         sys.stdout = stdout_leaderboard_progression
+    #         log_file_leaderboard_progression.close()
 
-    total_unique_drivers_object = TotalUniqueDrivers()
-    total_unique_drivers_object.player_id_list_len = len(player_id_database_list)
-    total_unique_drivers_object.save()
+    #     if i.player_id in player_id_database_list:
+    #         continue
+    #     else:
+    #         player_id_database_list.append(i.player_id)
+
+    #         # LOG_count
+    #         stdout_total_unique_drivers = sys.stdout
+    #         log_file_total_unique_drivers = open("log_file.log", "a")
+    #         sys.stdout = log_file_total_unique_drivers
+    #         print("TotalUniqueDrivers = ", len(player_id_database_list))
+    #         sys.stdout = stdout_total_unique_drivers
+    #         log_file_total_unique_drivers.close()
+
+
+    # total_unique_drivers_object = TotalUniqueDrivers()
+    # total_unique_drivers_object.player_id_list_len = len(player_id_database_list)
+    # total_unique_drivers_object.save()
     """Code for writing TotalUniqueDrivers database entry."""
 
 
     """Code for writing TotalQualifiedDrivers database entry."""
-    players_info_obj = PlayersInfo.objects.all()
-
-    total_top_qualified_drivers = 0
-    for i in players_info_obj:
-        total_top_qualified_drivers += 1
+    total_top_qualified_drivers = PlayersInfo.objects.all().count()
+    print("total_top_qualified_drivers = ", total_top_qualified_drivers)
 
     total_top_qualified_drivers_object = TotalQualifiedDrivers()
     total_top_qualified_drivers_object.qualified_drivers = total_top_qualified_drivers
@@ -1135,7 +1162,7 @@ def database_operations_execution_function():
 
 
     print('Starting new CountriesInfo database!')
-     # LOGS_7
+    # LOGS_7
     sys.stdout = stdout_7
     log_file_7.close()
     # LOGS_7
@@ -2154,7 +2181,7 @@ def database_operations_execution_function():
     print('CountriesInfo new database time: ', time_control_7 - time_control_6)
     print('Drivers World and County ranks new database time: ', time_control_8 - time_control_7)
 
-    print('Total script time: ', delta_time_all, '\n')
+    print('Total script time: ', delta_time_all, '\n\n\n\n\n')
 
     # LOGS_8
     sys.stdout = stdout_8
