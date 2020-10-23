@@ -2,6 +2,9 @@ import sys
 import io
 import datetime
 import traceback
+import urllib3
+
+urllib3.disable_warnings()
 
 sys.path.append('../')
 
