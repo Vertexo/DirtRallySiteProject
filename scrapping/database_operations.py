@@ -584,7 +584,7 @@ def database_operations_execution_function():
 
             # In this list add the Ids of the obvious cheaters to filter them out from PlayersInfo table. Skips to the next For-Loop iteration.
             # Potential cheaters: 1748070,
-            cheatersIDList = [2094692, 1691289]
+            cheatersIDList = [2094692, 1691289, 1155845]
             if last_scraping_playerid in cheatersIDList:
                 print('Skipped cheater with ID: ', last_scraping_playerid)
                 continue
