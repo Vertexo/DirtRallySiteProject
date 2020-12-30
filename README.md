@@ -21,3 +21,12 @@ and scraping official events data. So the oldest Daily and Daily 2 event on this
 
 
 ![Screenshot](Screenshot.png)
+
+
+
+
+Few commands for running scripts:
+
+venv/scripts/activate
+python Dirt_Rally_Web_Scraping_for_txt.py
+python manage.py runscript database_operations_launcher
