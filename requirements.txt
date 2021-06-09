@@ -2,7 +2,7 @@
 bs4==0.0.1
 certifi==2020.6.20
 chardet==3.0.4
-Django==2.2.13
+Django==2.2.22
 idna==2.7
 psycopg2==2.8.6
 python-decouple==3.1
